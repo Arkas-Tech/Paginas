@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosotros | Damgo Seafood - Distribuidora de Mariscos en Chihuahua | Pescado | Camarón | Salmón | Calidad | Experiencia</title>
+    <meta name="description" content="Conoce Damgo Seafood, una distribuidora de pescados y mariscos con años de experiencia en Chihuahua. Calidad y frescura garantizada." />
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+      #loader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out;
+      }
+      #loader svg {
+        width: 100vw;
+        height: 100vh;
+      }
+      #loader.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <style>
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    @media (max-width: 900px) {
+      body {
+        overflow-x: hidden;
+      }
+    }
+    @media (max-width: 499px) {
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+    }
+    @font-face {
+      font-family: "Kollektif";
+      src: url("/static/Kollektif.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+    .fondo {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .fondo img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: url(#clipPath);
+    }
+    .fondo .text {
+      width: 50%;
+    }
+
+    .fondo h1 {
+      font-size: 3vw;
+      font-family: "League Spartan";
+      position: relative;
+      z-index: 1;
+      color: white;
+      margin-top: -20vh;
+    }
+
+    .fondo p {
+      font-size: 2vw;
+      font-family: "Kollektif";
+      position: relative;
+      z-index: 1;
+      color: white;
+      margin-top: -2vh;
+    }
+
+    @media (max-width: 900px) {
+      .fondo {
+        margin-bottom: 0vh;
+      }
+      .fondo .text {
+        width: 80%;
+      }
+      .fondo h1 {
+        font-size: 4.5vw;
+        margin-top: -28vh;
+      }
+
+      .fondo p {
+        font-size: 2.5vw;
+        margin-top: -1vh;
+      }
+      .fondo img {
+        clip-path: url(#clipPathMobile);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .fondo h1 {
+        font-size: 6vw;
+      }
+      .fondo p {
+        font-size: 4vw;
+      }
+    }
+    @media (max-width: 400px) {
+      .fondo h1 {
+        font-size: 7.5vw;
+        margin-top: -29vh;
+        width: 85vw;
+      }
+      .fondo p {
+        font-size: 4vw;
+        margin-top: -1vh;
+        width: 70vw;
+      }
+    }
+    .circle-1 {
+      position: absolute;
+      width: 30vw;
+      top: 15%;
+      left: 65%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .circle-2 {
+      position: absolute;
+      width: 40vw;
+      top: -5%;
+      left: 5%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    @media (max-width: 900px) {
+      .circle-1 {
+        width: 30vw;
+        top: 20%;
+        left: 60%;
+      }
+
+      .circle-2 {
+        width: 60vw;
+        top: 10%;
+        left: -10%;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .circle-1 {
+        width: 45vw;
+        top: 30%;
+        left: 50%;
+      }
+
+      .circle-2 {
+        width: 60vw;
+        top: 20%;
+        left: -10%;
+      }
+    }
+
+    .fish,
+    .drops {
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      opacity: 1;
+    }
+
+    .circulo {
+      top: 30vh;
+      left: -10vw;
+      width: 30vw;
+      height: 60vh;
+      background-image: url("/static/nosotros_img/fondo3.png");
+    }
+
+    .fondo1 {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80vh;
+      background-color: #163694;
+      z-index: 0;
+    }
+
+    .fondo1 .text-container1 {
+      text-align: center;
+      z-index: 2;
+      position: absolute;
+      width: 90vw;
+      height: 20vh;
+      left: 5%;
+    }
+
+    .fondo1 .text-container1 h1 {
+      font-size: 3.5vw;
+      font-family: "League Spartan";
+      color: white;
+    }
+
+    .fondo1 .text-container1 p {
+      font-size: 1.7vw;
+      font-family: "Kollektif";
+      color: white;
+      text-align: justify;
+    }
+
+    .fish {
+      top: 100%;
+      right: 2%;
+      width: 5vw;
+      height: 7vh;
+      background-image: url("/static/nosotros_img/pez1.svg");
+      animation: updown 5s infinite;
+      z-index: 1000;
+    }
+
+    .drops {
+      top: 99%;
+      right: 2%;
+      width: 5vw;
+      height: 9vh;
+      background-image: url("/static/nosotros_img/drops1.svg");
+      animation: wipe 5s infinite;
+    }
+
+    @keyframes updown {
+      0% {
+        transform: translate(0, 2vh) rotate(90deg);
+      }
+      50% {
+        transform: translate(0, -30vh);
+      }
+      100% {
+        transform: translate(0, 2vh) rotate(-90deg);
+      }
+    }
+
+    @keyframes wipe {
+      0% {
+        transform: translateY(200vh);
+      }
+      100% {
+        transform: translateY(-6vh);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .fish {
+        width: 9vw;
+      }
+      .drops {
+        width: 9vw;
+      }
+
+      @keyframes updown {
+        0% {
+          transform: translate(0, 2vh) rotate(90deg);
+        }
+        50% {
+          transform: translate(0, -30vh);
+        }
+        100% {
+          transform: translate(0, 2vh) rotate(-90deg);
+        }
+      }
+    }
+
+    @media (max-width: 499px) {
+      .drops {
+        width: 15vw;
+        right: -1%;
+      }
+    }
+
+    .gray-box {
+      position: relative;
+      width: 80vw;
+      height: 50vh;
+      background-color: rgb(213, 211, 211);
+      top: -20vh;
+      left: 10vw;
+      z-index: 1;
+    }
+
+    @media (max-width: 1200px) {
+      .fondo1 {
+        height: 55vh;
+        margin-top: -20vh;
+      }
+
+      .gray-box {
+        margin-top: 10vh;
+        height: 40vh;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .fondo1 {
+        height: 40vh;
+      }
+      .gray-box {
+        height: 35vh;
+
+        top: -15vh;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .fondo1 .text-container1 h1 {
+        font-size: 5vw;
+      }
+      .fondo1 .text-container1 p {
+        font-size: 2vw;
+        margin-top: -2.5vh;
+      }
+      .gray-box {
+        height: 30vh;
+        top: -15vh;
+      }
+      .gray-box .text-content h1 {
+        font-size: 2.3vw;
+        margin-top: 2vh;
+      }
+      .text-content p {
+        font-size: 2.3vw;
+        margin-top: -1vh;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .fondo1 .text-container1 p {
+        font-size: 2.6vw;
+      }
+      .gray-box {
+        height: 25vh;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .fondo1 {
+        height: 60vh;
+      }
+      .fondo1 .text-container1 {
+        width: 70vw;
+        left: 15vw;
+      }
+      .fondo1 .text-container1 h1 {
+        font-size: 6vw;
+      }
+      .fondo1 .text-container1 p {
+        font-size: 4vw;
+        margin-top: -1vh;
+      }
+      .gray-box {
+        height: 40vh;
+        width: 100vw;
+        top: -10vh;
+        left: 0vw;
+        margin-bottom: 22vh;
+      }
+      .gray-box-content {
+        flex-direction: column;
+      }
+      .gray-box .text-content {
+        width: 80vw;
+        margin-left: 12.5vw;
+      }
+      .gray-box .text-content h1 {
+        font-size: 7vw;
+      }
+      .gray-box .text-content p {
+        font-size: 4vw;
+      }
+    }
+
+    .gray-box-content {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    .text-content,
+    .image-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-content img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .text-content {
+      flex-direction: column;
+      margin-left: 2vw;
+    }
+
+    .text-content h1 {
+      font-size: 3vw;
+      font-family: "League Spartan";
+      color: #243349;
+      text-align: justify;
+      margin-top: 0vh;
+      margin-left: -3.8vw;
+    }
+
+    .text-content p {
+      font-size: 1.5vw;
+      font-family: "Kollektif";
+      color: #7995bd;
+      text-align: justify;
+      margin-top: 0vh;
+      margin-right: 2vw;
+    }
+    @media (max-width: 768px) {
+      .text-content p {
+        font-size: 1.8vw;
+      }
+    }
+
+    .fondo4 {
+      max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-top: 3vh;
+    }
+
+    .fondo4 .text-container1 {
+      text-align: center;
+      z-index: 2;
+      position: absolute;
+      width: 60vw;
+      height: auto;
+      left: 35%;
+      top: 20%;
+    }
+
+    .fondo4 .text-container1 p {
+      font-size: 1.8vw;
+      font-family: "Kollektif";
+      color: white;
+      text-align: justify;
+    }
+
+    .fondo4 img {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .fondo4::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 99%;
+      background-color: rgba(22, 54, 148, 0.8);
+    }
+    .fondo4 h1 {
+      position: absolute;
+      left: 35%;
+      top: 0;
+      color: white;
+      z-index: 2;
+      font-family: League Spartan;
+      font-size: 5vw;
+    }
+
+    .fondo4 hr {
+      border: 0;
+      height: 1px;
+      background: white;
+      width: 60%;
+      left: 20%;
+      top: 44%;
+      z-index: 2;
+      position: absolute;
+    }
+
+    .fondo4 .icono1 {
+      position: absolute;
+      left: -15%;
+      top: 0%;
+      z-index: 2;
+    }
+    .icono1 img {
+      width: 40vw;
+      height: auto;
+    }
+
+    .fondo4 .icono2 {
+      position: absolute;
+      left: 0%;
+      top: 30%;
+      z-index: 2;
+    }
+    .icono2 img {
+      width: 30vw;
+      height: auto;
+    }
+
+    .fondo4 .icono3 {
+      position: absolute;
+      left: -10vh;
+      top: -40vh;
+      z-index: 2;
+    }
+    .icono3 img {
+      width: 130vw;
+      height: auto;
+    }
+
+    @media (max-width: 1024px) {
+      .fondo4 .icono3 {
+        top: -25vh;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .fondo4 {
+        height: 90vh;
+        width: 100vw;
+      }
+      .fondo4 img {
+        width: auto;
+        height: 99%;
+      }
+      .fondo4 .text-container1 {
+        width: 80vw;
+        left: 10vw;
+        top: 30vh;
+      }
+      .fondo4 h1 {
+        font-size: 7.5vw;
+        width: 100vw;
+        left: 11vw;
+        top: 20vh;
+      }
+      .fondo4 .text-container1 p {
+        font-size: 4vw;
+      }
+      .fondo4 .icono1 img {
+        width: 70vw;
+        margin-left: 20vw;
+        margin-top: -15vh;
+      }
+      .fondo4 .icono2 img {
+        width: 50vw;
+        margin-left: 28vw;
+        margin-top: -25vh;
+      }
+      .fondo4 .icono3 img {
+        width: 150vw;
+        margin-left: -10vw;
+        margin-top: 45vh;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .fondo4 {
+        height: 80vh;
+        width: 100vw;
+      }
+      .fondo4 .icono3 img {
+        margin-left: -6vw;
+        margin-top: 50vh;
+      }
+    }
+
+    .fondo5 {
+      width: 100vw;
+      height: 90vh;
+      position: relative;
+      display: flex;
+    }
+
+    .fondo5 .left-container,
+    .fondo5 .right-container {
+      position: absolute;
+      width: 50vw;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    .fondo5 .left-container {
+      left: 0;
+    }
+
+    .fondo5 .right-container {
+      right: 0;
+    }
+
+    .fondo5 .circle-left,
+    .fondo5 .circle-right {
+      width: 12vw;
+      height: 12vw;
+      background-color: #163694;
+      border-radius: 50%;
+      padding: 3px;
+      margin-top: 20vh;
+    }
+
+    .fondo5 .circle-left img,
+    .fondo5 .circle-right img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .fondo5 .text-left,
+    .fondo5 .text-right {
+      position: absolute;
+      width: 40vw;
+      height: auto;
+      margin-top: 50vh;
+    }
+
+    .fondo5 .text-left h1,
+    .fondo5 .text-right h1 {
+      font-size: 2.5vw;
+      font-family: "League Spartan";
+      color: #243349;
+    }
+
+    .fondo5 .text-left p,
+    .fondo5 .text-right p {
+      font-size: 1.5vw;
+      font-family: "Kollektif";
+      color: #7995bd;
+      text-align: justify;
+    }
+    @media (max-width: 1000px) {
+      .fondo5 .circle-left,
+      .fondo5 .circle-right {
+        width: 20vw;
+        height: 20vw;
+      }
+      .fondo5 .text-left p,
+      .fondo5 .text-right p {
+        font-size: 2.5vw;
+        line-height: 1.5;
+      }
+      .fondo5 .text-left h1,
+      .fondo5 .text-right h1 {
+        font-size: 3.5vw;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .fondo5 {
+        flex-direction: column;
+        margin-top: 5vh;
+      }
+      .fondo5 .left-container,
+      .fondo5 .right-container {
+        width: 100vw;
+        height: 45vh;
+      }
+      .fondo5 .left-container {
+        margin-top: -20vh;
+      }
+      .fondo5 .right-container {
+        margin-top: 65vh;
+      }
+      .fondo5 .circle-left,
+      .fondo5 .circle-right {
+        width: 30vw;
+        height: 30vw;
+      }
+      .fondo5 .text-left,
+      .fondo5 .text-right {
+        width: 90vw;
+        margin-top: 55vh;
+      }
+      .fondo5 .text-left h1,
+      .fondo5 .text-right h1 {
+        font-size: 5.5vw;
+        text-align: center;
+      }
+      .fondo5 .text-left p,
+      .fondo5 .text-right p {
+        font-size: 4vw;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .fondo5 .left-container,
+      .fondo5 .right-container {
+        width: 100vw;
+        height: 45vh;
+      }
+      .fondo5 .left-container {
+        margin-top: -20vh;
+      }
+      .fondo5 .right-container {
+        margin-top: 50vh;
+      }
+      .fondo5 .circle-left,
+      .fondo5 .circle-right {
+        width: 40vw;
+        height: 40vw;
+      }
+      .fondo5 .text-left,
+      .fondo5 .text-right {
+        width: 90vw;
+        margin-top: 43vh;
+        line-height: 1.5;
+      }
+      .fondo5 .text-left h1,
+      .fondo5 .text-right h1 {
+        font-size: 8vw;
+        text-align: center;
+      }
+      .fondo5 .text-left p,
+      .fondo5 .text-right p {
+        font-size: 5vw;
+      }
+    }
+
+    .video-gallery {
+      margin: 20px 0;
+    }
+
+    .video-gallery h3 {
+      font-size: 5vw;
+      font-family: "League Spartan";
+      color: #243349;
+      text-align: center;
+    }
+
+    .video-container {
+      display: flex;
+      gap: 8vw;
+      margin-left: 2vw;
+      padding: 0;
+      position: relative;
+      overflow-x: auto;
+    }
+
+    .video-container video {
+      width: 23vw;
+      height: auto;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .video-gallery {
+        margin-top: 10vh;
+      }
+      .video-gallery h3 {
+        font-size: 7vw;
+      }
+      .video-container {
+        gap: 5vw;
+      }
+      .video-container video {
+        width: 40vw;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .video-gallery {
+        margin-top: 100vh;
+      }
+      .video-gallery h3 {
+        font-size: 11vw;
+      }
+    }
+    @media (max-width: 499px) {
+      .video-gallery {
+        margin-top: 75vh;
+      }
+    }
+
+    h3 {
+      font-family: League Spartan;
+      font-size: 5vw;
+      font-weight: 700;
+      color: #163694;
+      text-align: center;
+      margin-top: 20vh;
+    }
+    @media (max-width: 768px) {
+      h3 {
+        font-size: 7vw;
+      }
+    }
+    @media (max-width: 700px) {
+      h3 {
+        font-size: 11vw;
+      }
+    }
+
+    .circle-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20vh;
+      margin-top: 10vh;
+    }
+
+    .circle-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .circle {
+      width: 12vw;
+      height: 12vw;
+      background-color: #163694;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .circle-label {
+      background-color: #163694;
+      color: white;
+      text-align: center;
+      padding: 5px;
+      margin-top: 10px;
+      border-radius: 5px;
+      width: 12vw;
+      font-size: 1.5vw;
+      font-family: Kollektif;
+    }
+
+    @media (max-width: 768px) {
+      .circle-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .circle {
+        margin-bottom: 70px;
+        position: relative;
+        width: 40vw;
+        height: 40vw;
+      }
+
+      .circle-label {
+        width: 100%;
+        margin-top: -7vh;
+        font-size: 5vw;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .circle {
+        width: 55vw;
+        height: 55vw;
+      }
+      .circle-label {
+        font-size: 7vw;
+      }
+    }
+
+    h4 {
+      font-family: League Spartan;
+      font-size: 3vw;
+      font-weight: 800;
+      color: #163694;
+      text-align: center;
+      margin-top: 20vh;
+      width: 85vw;
+      margin-left: 5vw;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      h4 {
+        font-size: 8vw;
+        margin-top: -10vh;
+        margin-bottom: 10vh;
+        line-height: 1.2;
+      }
+    }
+    .circle-6 {
+      position: absolute;
+      object-fit: cover;
+      z-index: -3;
+      top: 20%;
+    }
+    @media (max-width: 499px) {
+      .circle-6 {
+        top: 20%;
+        margin-top: 90vh;
+      }
+    }
+  </style>
+  <body>
+    <div class="loader-container" id="onload">
+      <div id="loader">
+        <div id="content"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <defs>
+            <filter id="blur-filter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2">
+                <animate
+                  attributeName="stdDeviation"
+                  from="1"
+                  to="0"
+                  dur="0.65s"
+                  fill="freeze"
+                />
+              </feGaussianBlur>
+            </filter>
+          </defs>
+          <g filter="url(#blur-filter)">
+            <image href="/static/logo/l1.svg" width="100" height="100" />
+          </g>
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 11"
+              to="0 0"
+              dur="0.4s"
+              fill="freeze"
+            />
+            <image href="/static/logo/l2.svg" width="100" height="100" />
+          </g>
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 13.5"
+              to="0 0"
+              dur="0.55s"
+              fill="freeze"
+            />
+            <image href="/static/logo/l3.svg" width="100" height="100" />
+          </g>
+          <g>
+            <image href="/static/logo/l4.svg" width="100" height="100" />
+          </g>
+          <g>
+            <image href="/static/logo/l5.svg" width="100" height="100" />
+            <animate
+              attributeName="opacity"
+              from="1"
+              to="0"
+              dur="0.01s"
+              fill="freeze"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="static/logo4.png" alt="Logo de la Pescadería" />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="nosotros">Nosotros</a></li>
+            <li><a href="productos">Productos</a></li>
+            <li><a href="contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" id="translate-en">English</a>
+            <a href="#" id="translate-zh">中文</a>
+            <a href="#" id="translate-es">Español</a>
+          </div>
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div id="full-screen-menu" class="full-screen-menu">
+          <button class="close-menu" onclick="toggleMenu()">×</button>
+          <a href="/">Inicio</a>
+          <a href="nosotros">Nosotros</a>
+          <a href="productos">Productos</a>
+          <a href="contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+    <img src="/static/nosotros_img/EM1.svg" class="circle-1" />
+    <img src="/static/inicio_img/ED1.svg" class="circle-2" />
+    <img
+      src="/static/productos_img/CR2.svg"
+      class="circle-6"
+      style="margin-top: 130vh; margin-left: 60vw; width: 20vw"
+    />
+    <img
+      src="/static/inicio_img/CR2.svg"
+      class="circle-6"
+      style="margin-top: 50vh; z-index: 0; margin-left: 20vw; width: 10vw"
+    />
+    <img
+      src="/static/inicio_img/ED5.svg"
+      class="circle-6"
+      style="margin-top: 40vh; z-index: 0; margin-left: -20vw; width: 20vw"
+    />
+    <img
+      src="/static/inicio_img/ED1.svg"
+      class="circle-6"
+      style="margin-top: 100vh; z-index: 0; margin-left: -10vw; width: 40vw"
+    />
+
+    <div class="fondo">
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
+            <path d="M 0 0 Q 0.5 1.2 1 0 Z" />
+          </clipPath>
+          <clipPath id="clipPathMobile" clipPathUnits="objectBoundingBox">
+            <path d="M -0.4 0 Q 0.5 1 1.4 0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+      <img src="/static/nosotros_img/fondoo.png" alt="Background Image" />
+      <div class="text">
+        <h1>Detrás del Sabor, un Gran Equipo</h1>
+        <p>
+          Trabajamos día a día para llevar los mejores productos del mar a tu
+          mesa
+        </p>
+      </div>
+    </div>
+
+    <div class="fondo1">
+      <div class="fish"></div>
+      <div class="drops"></div>
+      <div class="text-container1">
+        <h1>Más frescos que la brisa del mar</h1>
+        <p>
+          En DAMGO, somos una empresa 100% mexicana con más de 60 años de
+          experiencia familiar. Nuestro compromiso y pasión por la calidad nos
+          han llevado a construir alianzas sólidas en todo México, logrando
+          distribuir productos del mar innovadores y frescos en 18 estados de la
+          república.
+        </p>
+        <p>
+          Importamos, comercializamos y llevamos hasta tu mesa lo mejor del
+          océano, siempre con la excelencia que nos distingue.
+        </p>
+      </div>
+    </div>
+    <div class="gray-box">
+      <div class="gray-box-content">
+        <div class="text-content">
+          <h1>Compromiso con la calidad</h1>
+          <p>
+            Valoramos a cada persona en nuestra cadena de suministro y
+            garantizamos procesos éticos en la comercialización de nuestros
+            productos.
+          </p>
+          <p>
+            Trabajamos para crear un entorno laboral digno y seguro para todos
+            los que forman parte de nuestra familia.
+          </p>
+        </div>
+        <div class="image-content">
+          <img
+            src="/static/nosotros_img/fondo_gris.svg"
+            alt="Descripción de la imagen"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="fondo4">
+      <div class="icono1">
+        <img src="/static/nosotros_img/EB3.svg" alt="Circulo 1" />
+      </div>
+      <div class="icono2">
+        <img src="/static/nosotros_img/EB2.svg" alt="Circulo 2" />
+      </div>
+      <div class="icono3">
+        <img src="/static/nosotros_img/EB1.svg" alt="Circulo 3" />
+      </div>
+      <img src="/static/nosotros_img/fondo4.svg" alt="Fondo 4" />
+      <h1>Transporte especializado</h1>
+      <div class="text-container1">
+        <p>
+          Contamos con unidades acondicionadas bajo los más altos estándares
+          internacionales para el manejo de productos perecederos.
+        </p>
+        <p>
+          Garantizamos la continuidad de la cadena de frío en cada entrega,
+          asegurando que nuestros productos lleguen frescos y en perfectas
+          condiciones a su destino final.
+        </p>
+      </div>
+    </div>
+
+    <div class="fondo5">
+      <div class="left-container">
+        <div class="circle-left">
+          <img src="/static/nosotros_img/CYP.svg" alt="Calidad y Precio" />
+        </div>
+        <div class="text-left">
+          <h1>Calidad y precio que marcan la diferencia</h1>
+          <p>
+            Ofrecer un servicio que se adapta a las necesidades comerciales de
+            nuestros clientes; garantizamos productos de alta calidad con
+            precios competitivos.
+          </p>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="circle-right">
+          <img src="/static/nosotros_img/ST.svg" alt="Satisfaccion" />
+        </div>
+        <div class="text-right">
+          <h1>Satisfacción garantizada en cada paso</h1>
+          <p>
+            Valoramos las relaciones que construimos con nuestros clientes,
+            manteniéndonos cercanos incluso después de la venta. Creemos en la
+            importancia de fortalecer los lazos comerciales para identificar
+            nuevas oportunidades que beneficien a ambas partes, siempre con un
+            servicio de excelencia.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-gallery">
+      <h3>Galería</h3>
+      <div class="video-container">
+        <video
+          src="/static/nosotros_img/V1.mov"
+          loop
+          autoplay
+          muted
+          onclick="event.preventDefault();"
+        ></video>
+        <video src="/static/nosotros_img/V2.mov" loop autoplay muted></video>
+        <video src="/static/nosotros_img/V3.mov" loop autoplay muted></video>
+        <video src="/static/nosotros_img/V4.mov" loop autoplay muted></video>
+        <video src="/static/nosotros_img/V5.mov" loop autoplay muted></video>
+      </div>
+    </div>
+
+    <h3>Valores</h3>
+    <div class="circle-container">
+      <div class="circle-item">
+        <div class="circle">
+          <img src="/static/nosotros_img/VALOR1.svg" alt="Calidad" />
+        </div>
+        <div class="circle-label">Calidad</div>
+      </div>
+      <div class="circle-item">
+        <div class="circle">
+          <img src="/static/nosotros_img/VALOR2.svg" alt="Inovación" />
+        </div>
+        <div class="circle-label">Inovación</div>
+      </div>
+      <div class="circle-item">
+        <div class="circle">
+          <img src="/static/nosotros_img/VALOR3.svg" alt="Servicio" />
+        </div>
+        <div class="circle-label">Servicio</div>
+      </div>
+      <div class="circle-item">
+        <div class="circle">
+          <img src="/static/nosotros_img/VALOR4.svg" alt="Compromiso" />
+        </div>
+        <div class="circle-label">Compromiso</div>
+      </div>
+      <div class="circle-item">
+        <div class="circle">
+          <img src="/static/nosotros_img/VALOR5.svg" alt="Confianza" />
+        </div>
+        <div class="circle-label">Confianza</div>
+      </div>
+    </div>
+
+    <h4>
+      Buscamos personas que conecten con nuestra ideología y se sumen a nuestra
+      misión de crear experiencias reales y excepcionales para nuestros
+      clientes, impulsando su desarrollo y el de nuestra empresa.
+    </h4>
+    <footer>
+      <img src="static/logo_white.svg" alt="Logo de la Pescadería" />
+      <p>&copy; 2019DAMGOSEAFOOD S.A. DE C.V. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+
+  <script>
+    document.querySelectorAll("video").forEach((video) => {
+      video.addEventListener("click", (event) => {
+        event.preventDefault();
+      });
+    });
+    const apiKey = "AIzaSyBKF1HG0u3HiPMMan6wkfVYU1vLEO6rCeE";
+
+    async function translateText(text, targetLang) {
+      const response = await fetch(
+        `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            q: text,
+            target: targetLang,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      return data.data.translations[0].translatedText;
+    }
+
+    async function translatePage(targetLang) {
+      const elements = document.querySelectorAll(
+        "body *:not(script):not(style):not(nav):not(footer)"
+      );
+      for (const element of elements) {
+        if (
+          element.childNodes.length === 1 &&
+          element.childNodes[0].nodeType === Node.TEXT_NODE
+        ) {
+          const translatedText = await translateText(
+            element.innerText,
+            targetLang
+          );
+          element.innerText = translatedText;
+        }
+      }
+    }
+
+    document
+      .getElementById("translate-en")
+      .addEventListener("click", () => translatePage("en"));
+    document
+      .getElementById("translate-zh")
+      .addEventListener("click", () => translatePage("zh"));
+    document
+      .getElementById("translate-es")
+      .addEventListener("click", () => location.reload());
+
+    function toggleMenu() {
+      const menu = document.getElementById("full-screen-menu");
+      if (menu.style.display === "flex") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "flex";
+      }
+    }
+
+    function toggleDropdown() {
+      var dropdownContent = document.getElementById("dropdown-content");
+      dropdownContent.classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
+      if (!event.target.matches(".dropbtn")) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+          }
+        }
+      }
+    };
+
+    // Add event listener to hide dropdown when an option is clicked
+    document.querySelectorAll(".dropdown-content a").forEach((link) => {
+      link.addEventListener("click", function () {
+        document.getElementById("dropdown-content").classList.add("hide");
+      });
+    });
+
+    window.onload = function () {
+      var loader = document.getElementById("loader");
+      var content = document.getElementById("content");
+
+      setTimeout(function () {
+        loader.classList.add("hide");
+
+        setTimeout(function () {
+          loader.style.display = "none";
+          content.style.display = "block";
+        }, 800);
+      }, 800);
+    };
+  </script>
+</html>

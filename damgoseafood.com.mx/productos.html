@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos | Damgo Seafood - Mariscos en Chihuahua | Salmón | Camarón | Ostión | Filetes | Pescado</title>
+    <meta name="description" content="Explora nuestra variedad de pescados y mariscos frescos en Chihuahua. Ofrecemos productos de alta calidad para mayoreo y menudeo." />
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=League+Spartan:wght@100..900&display=swap"  rel="stylesheet"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+      #loader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out;
+      }
+      #loader svg {
+        width: 100vw;
+        height: 100vh;
+      }
+      #loader.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <style>
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    @media (max-width: 900px) {
+      body {
+        overflow-x: hidden;
+      }
+    }
+    @media (max-width: 499px) {
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+    }
+    @font-face {
+      font-family: "Kollektif";
+      src: url("/static/Kollektif.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+    .fondo {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .fondo img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: url(#clipPath);
+    }
+    .fondo .text {
+      width: 50%;
+    }
+
+    .fondo h1 {
+      font-size: 3.5vw;
+      font-family: "League Spartan";
+      position: relative;
+      z-index: 1;
+      color: white;
+      margin-top: -20vh;
+    }
+
+    .fondo p {
+      font-size: 2vw;
+      font-family: "Kollektif";
+      position: relative;
+      z-index: 1;
+      color: white;
+      margin-top: -5vh;
+    }
+
+    @media (max-width: 900px) {
+      .fondo {
+        margin-bottom: 0vh;
+      }
+      .fondo h1 {
+        font-size: 4.5vw;
+        margin-top: -28vh;
+      }
+
+      .fondo p {
+        font-size: 3.5vw;
+        margin-top: -1vh;
+      }
+      .fondo img {
+        clip-path: url(#clipPathMobile);
+      }
+    }
+    @media (max-width: 600px) {
+      .fondo h1 {
+        font-size: 6.5vw;
+      }
+      .fondo p {
+        font-size: 5vw;
+      }
+    }
+    @media (max-width: 400px) {
+      .fondo h1 {
+        font-size: 9vw;
+        margin-top: -26vh;
+        line-height: 1.2;
+      }
+      .fondo p {
+        font-size: 5vw;
+        margin-top: -1vh;
+      }
+    }
+
+    .circle-1 {
+      position: absolute;
+      width: 20vw;
+      top: 20%;
+      left: 65%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .circle-2 {
+      position: absolute;
+      width: 40vw;
+      top: -5%;
+      left: 5%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+      .circle-1 {
+        width: 45vw;
+        top: 20%;
+        left: 50%;
+      }
+
+      .circle-2 {
+        width: 60vw;
+        top: 10%;
+        left: -10%;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .circle-1 {
+        width: 45vw;
+        top: 30%;
+        left: 50%;
+      }
+
+      .circle-2 {
+        width: 60vw;
+        top: 20%;
+        left: -10%;
+      }
+    }
+
+    .fondo1 {
+      position: relative;
+      top: 0vh;
+      left: 0;
+      width: 100%;
+      height: 70vh;
+      background-color: #163694;
+      z-index: 0;
+    }
+
+    .fondo1 .text-container1 {
+      text-align: center;
+      z-index: 2;
+      position: absolute;
+      width: 90vw;
+      height: 20vh;
+      left: 5%;
+    }
+
+    .fondo1 .text-container1 h1 {
+      font-size: 3.5vw;
+      font-family: "League Spartan";
+      color: white;
+    }
+
+    .fondo1 .text-container1 p {
+      font-size: 1.7vw;
+      font-family: "Kollektif";
+      color: white;
+      text-align: justify;
+    }
+
+    @media (max-width: 900px) {
+      .fondo1 {
+        height: 100vh;
+      }
+      .fondo1 .text-container1 h1 {
+        font-size: 6.5vw;
+      }
+      .fondo1 .text-container1 p {
+        font-size: 3.5vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .fondo1 {
+        height: 70vh;
+        margin-top: -20vh;
+      }
+    }
+    @media (max-width: 499px) {
+      .fondo1 {
+        height: 45vh;
+      }
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 10vw;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 40%;
+      text-align: center;
+      padding: 20px;
+      margin-bottom: 10vh;
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .product-card.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0;
+      font-family: League Spartan;
+      color: #163696;
+      font-size: 2vw;
+    }
+
+    .product-card .product-icon {
+      position: relative;
+      width: 6vw;
+      height: 6vh;
+      margin-top: -9vh;
+      left: 21vw;
+      margin-bottom: 2vh;
+      display: block;
+    }
+
+    .product-card button {
+      background-color: #163696;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .product-card button:hover {
+      background-color: #091741;
+    }
+
+    @media (max-width: 900px) {
+      .product-card {
+        width: 80%;
+      }
+      .product-card h3 {
+        font-size: 5vw;
+      }
+      .product-card .product-icon {
+        height: 10vh;
+        width: 10vw;
+        left: 43vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .product-card h3 {
+        font-size: 6vw;
+      }
+      .product-card .product-icon {
+        height: 15vh;
+        width: 15vw;
+        left: 45vw;
+      }
+    }
+    @media (max-width: 499px) {
+      .product-card .product-icon {
+        margin-top: -7vh;
+        left: 50vw;
+        margin-bottom: -5vh;
+      }
+    }
+
+    .full-screen-image {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .full-screen-image img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .nav-button {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      color: black;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    #prevImage {
+      left: 10px;
+    }
+
+    #nextImage {
+      right: 10px;
+    }
+
+    #exitFullScreen {
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+    }
+
+    .nav-button:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .circle-6 {
+      position: absolute;
+      object-fit: cover;
+      z-index: -1;
+      top: 20%;
+    }
+    @media (max-width: 499px) {
+      .circle-6 {
+        width: 100vw;
+        top: 20%;
+        margin-top: 1200vh;
+      }
+    }
+  </style>
+  <body>
+    <div class="loader-container" id="onload">
+      <div id="loader">
+        <div id="content"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <defs>
+            <filter id="blur-filter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2">
+                <animate
+                  attributeName="stdDeviation"
+                  from="1"
+                  to="0"
+                  dur="0.65s"
+                  fill="freeze"
+                />
+              </feGaussianBlur>
+            </filter>
+          </defs>
+          <g filter="url(#blur-filter)">
+            <image href="/static/logo/l1.svg" width="100" height="100" />
+          </g>
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 11"
+              to="0 0"
+              dur="0.4s"
+              fill="freeze"
+            />
+            <image href="/static/logo/l2.svg" width="100" height="100" />
+          </g>
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 13.5"
+              to="0 0"
+              dur="0.55s"
+              fill="freeze"
+            />
+            <image href="/static/logo/l3.svg" width="100" height="100" />
+          </g>
+          <g>
+            <image href="/static/logo/l4.svg" width="100" height="100" />
+          </g>
+          <g>
+            <image href="/static/logo/l5.svg" width="100" height="100" />
+            <animate
+              attributeName="opacity"
+              from="1"
+              to="0"
+              dur="0.01s"
+              fill="freeze"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="static/logo4.png" alt="Logo de la Pescadería" />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="nosotros">Nosotros</a></li>
+            <li><a href="productos">Productos</a></li>
+            <li><a href="contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" id="translate-en">English</a>
+            <a href="#" id="translate-zh">中文</a>
+            <a href="#" id="translate-es">Español</a>
+          </div>
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div id="full-screen-menu" class="full-screen-menu">
+          <button class="close-menu" onclick="toggleMenu()">×</button>
+          <a href="/">Inicio</a>
+          <a href="nosotros">Nosotros</a>
+          <a href="productos">Productos</a>
+          <a href="contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+    <img src="/static/productos_img/CR2.svg" class="circle-1" />
+    <img src="/static/inicio_img/ED1.svg" class="circle-2" />
+
+    <div class="fondo">
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
+            <path d="M 0 0 Q 0.5 1.2 1 0 Z" />
+          </clipPath>
+          <clipPath id="clipPathMobile" clipPathUnits="objectBoundingBox">
+            <path d="M -0.4 0 Q 0.5 1 1.4 0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+      <img src="/static/productos_img/fondo.svg" alt="Background Image" />
+      <div class="text">
+        <h1>Todo lo que necesitas</h1>
+        <p>En una sola empresa</p>
+      </div>
+    </div>
+
+    <div class="fondo1">
+      <div class="text-container1">
+        <h1>
+          Disponemos de una extensa red de distribución en toda la República
+          Mexicana
+        </h1>
+        <p>
+          Nos aseguramos que nuestros pescados, mariscos, moluscos, crustáceos y
+          demás lleguen siempre con la frescura y seguridad que necesitas.
+        </p>
+        <p>
+          Gracias a nuestros controles de calidad, ofrecemos productos altamente
+          competitivos que cumplen con los más altos estándares del mercado.
+        </p>
+      </div>
+    </div>
+
+    <img
+      src="/static/productos_img/CR2.svg"
+      class="circle-6"
+      style="margin-top: 130vh; margin-left: 40vw; width: 50vw"
+    />
+    <img
+      src="/static/inicio_img/ED2.svg"
+      class="circle-6"
+      style="margin-top: 300vh; z-index: 0; margin-left: 40vw; width: 50vw"
+    />
+    <img
+      src="/static/inicio_img/ED5.svg"
+      class="circle-6"
+      style="margin-top: 200vh; z-index: 0; margin-left: -20vw; width: 50vw"
+    />
+    <img
+      src="/static/inicio_img/CR1.svg"
+      class="circle-6"
+      style="margin-top: 170vh; z-index: 0; margin-left: -30vw; width: 10vw"
+    />
+    <img
+      src="/static/productos_img/ED4.svg"
+      class="circle-6"
+      style="margin-top: 300vh; margin-left: 0; width: 40vw"
+    />
+    <img
+      src="/static/inicio_img/ED1.svg"
+      class="circle-6"
+      style="margin-top: 160vh; z-index: 0; margin-left: -20vw"
+    />
+    <img
+      src="/static/inicio_img/CR1.svg"
+      class="circle-6"
+      style="margin-top: 330vh; z-index: 0; margin-left: 30vw; width: 40vw"
+    />
+    <img
+      src="/static/inicio_img/CR2.svg"
+      class="circle-6"
+      style="margin-top: 360vh; z-index: 0; margin-left: 0vw; width: 20vw"
+    />
+
+    <div class="product-container">
+      <div class="product-card">
+        <img
+          src="/static/productos_img/camarones_crudos_sin_cabeza.svg"
+          alt="Camarones crudos sin cabeza"
+        />
+        <h3>Camarones crudos sin cabeza</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT1.png')"
+          style="font-family: Kollektif"
+          data-product="Camarones crudos sin cabeza"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP3.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img
+          src="/static/productos_img/camarones_con_cabeza_crudos.svg"
+          alt="Camarón crudo con cabeza"
+        />
+        <h3>Camarón crudo con cabeza</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT2.png')"
+          style="font-family: Kollektif"
+          data-product="Camarón crudo con cabeza"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP1.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img
+          src="/static/productos_img/camarones_cocidos.svg"
+          alt="Camarones cocidos"
+        />
+        <h3>Camarones cocidos</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT3.png')"
+          style="font-family: Kollektif"
+          data-product="Camarones cocidos"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP2.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img
+          src="/static/productos_img/pulpos_y_calamares.svg"
+          alt="Pulpos y calamares"
+        />
+        <h3>Pulpos y calamares</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT4.png')"
+          style="font-family: Kollektif"
+          data-product="Pulpos y calamares"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP4.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="/static/productos_img/filetes.svg" alt="Filetes de pescado" />
+        <h3>Filetes de pescado</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT5.png')"
+          style="font-family: Kollektif"
+          data-product="Filetes de pescado"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP5.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img
+          src="/static/productos_img/productos_premium.svg"
+          alt="Productos premium"
+        />
+        <h3>Productos premium</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT6.png')"
+          style="font-family: Kollektif"
+          data-product="Productos premium"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP6.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img
+          src="/static/productos_img/pescados_enteros.svg"
+          alt="Pescados enteros"
+        />
+        <h3>Pescados enteros</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT7.png')"
+          style="font-family: Kollektif"
+          data-product="Pescados enteros"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP7.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="/static/productos_img/ostras.svg" alt="Ostras" />
+        <h3>Ostras</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT8.png')"
+          style="font-family: Kollektif"
+          data-product="Ostras"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP8.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img
+          src="/static/productos_img/productos_extras.svg"
+          alt="Productos extras"
+        />
+        <h3>Productos extras</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT9.png')"
+          style="font-family: Kollektif"
+          data-product="Productos extras"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP9.svg" alt="icono 1" />
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="/static/productos_img/abarrotes.svg" alt="Abarrotes" />
+        <h3>Abarrotes</h3>
+        <button
+          onclick="showFullScreenImage('/static/productos_img/FT11.png')"
+          style="font-family: Kollektif"
+          data-product="Abarrotes"
+        >
+          Ver productos
+        </button>
+        <div class="product-icon">
+          <img src="/static/productos_img/EP10.svg" alt="icono 10" />
+        </div>
+      </div>
+    </div>
+
+    <div class="full-screen-image" id="fullScreenImage">
+      <button id="prevImage" class="nav-button">❮</button>
+      <img src="" alt="Full Screen" />
+      <button id="nextImage" class="nav-button">❯</button>
+      <button id="exitFullScreen" class="nav-button">✖</button>
+    </div>
+    <footer>
+      <img src="static/logo_white.svg" alt="Logo de la Pescadería" />
+      <p>&copy; 2019DAMGOSEAFOOD S.A. DE C.V. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+
+  <script>
+    const images = {
+      "Camarones crudos sin cabeza": ["/static/productos_img/FT1.png"],
+      "Camarón crudo con cabeza": ["/static/productos_img/FT2.png"],
+      "Camarones cocidos": ["/static/productos_img/FT3.png"],
+      "Pulpos y calamares": ["/static/productos_img/FT4.png"],
+      "Filetes de pescado": ["/static/productos_img/FT5.png"],
+      "Productos premium": ["/static/productos_img/FT6.png"],
+      "Pescados enteros": ["/static/productos_img/FT7.png"],
+      Ostras: ["/static/productos_img/FT8.png"],
+      "Productos extras": [
+        "/static/productos_img/FT9.png",
+        "/static/productos_img/FT10.png",
+      ],
+      Abarrotes: ["/static/productos_img/FT11.png"],
+    };
+
+    let currentImageIndex = 0;
+    let currentProduct = "";
+
+    function showFullScreenImage(product) {
+      currentProduct = product;
+      currentImageIndex = 0;
+      updateFullScreenImage();
+      document.getElementById("fullScreenImage").style.display = "flex";
+    }
+
+    function updateFullScreenImage() {
+      const fullScreenImage = document.getElementById("fullScreenImage");
+      fullScreenImage.querySelector("img").src =
+        images[currentProduct][currentImageIndex];
+    }
+
+    document.getElementById("prevImage").addEventListener("click", () => {
+      currentImageIndex =
+        (currentImageIndex - 1 + images[currentProduct].length) %
+        images[currentProduct].length;
+      updateFullScreenImage();
+    });
+
+    document.getElementById("nextImage").addEventListener("click", () => {
+      currentImageIndex =
+        (currentImageIndex + 1) % images[currentProduct].length;
+      updateFullScreenImage();
+    });
+
+    document.getElementById("exitFullScreen").addEventListener("click", () => {
+      document.getElementById("fullScreenImage").style.display = "none";
+    });
+
+    document.querySelectorAll(".product-card button").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const product = event.target.dataset.product;
+        showFullScreenImage(product);
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const productCards = document.querySelectorAll(".product-card");
+
+      function checkVisibility() {
+        const triggerBottom = (window.innerHeight / 5) * 4;
+
+        productCards.forEach((card) => {
+          const cardTop = card.getBoundingClientRect().top;
+
+          if (cardTop < triggerBottom) {
+            card.classList.add("visible");
+          } else {
+            card.classList.remove("visible");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", checkVisibility);
+      checkVisibility();
+    });
+    const apiKey = "AIzaSyBKF1HG0u3HiPMMan6wkfVYU1vLEO6rCeE";
+
+    async function translateText(text, targetLang) {
+      const response = await fetch(
+        `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            q: text,
+            target: targetLang,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      return data.data.translations[0].translatedText;
+    }
+
+    async function translatePage(targetLang) {
+      const elements = document.querySelectorAll(
+        "body *:not(script):not(style):not(nav):not(footer)"
+      );
+      for (const element of elements) {
+        if (
+          element.childNodes.length === 1 &&
+          element.childNodes[0].nodeType === Node.TEXT_NODE
+        ) {
+          const translatedText = await translateText(
+            element.innerText,
+            targetLang
+          );
+          element.innerText = translatedText;
+        }
+      }
+    }
+
+    document
+      .getElementById("translate-en")
+      .addEventListener("click", () => translatePage("en"));
+    document
+      .getElementById("translate-zh")
+      .addEventListener("click", () => translatePage("zh"));
+    document
+      .getElementById("translate-es")
+      .addEventListener("click", () => location.reload());
+
+    function toggleMenu() {
+      const menu = document.getElementById("full-screen-menu");
+      if (menu.style.display === "flex") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "flex";
+      }
+    }
+
+    function toggleDropdown() {
+      var dropdownContent = document.getElementById("dropdown-content");
+      dropdownContent.classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
+      if (!event.target.matches(".dropbtn")) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+          }
+        }
+      }
+    };
+
+    // Add event listener to hide dropdown when an option is clicked
+    document.querySelectorAll(".dropdown-content a").forEach((link) => {
+      link.addEventListener("click", function () {
+        document.getElementById("dropdown-content").classList.add("hide");
+      });
+    });
+
+    window.onload = function () {
+      var loader = document.getElementById("loader");
+      var content = document.getElementById("content");
+
+      setTimeout(function () {
+        loader.classList.add("hide");
+
+        setTimeout(function () {
+          loader.style.display = "none";
+          content.style.display = "block";
+        }, 800);
+      }, 800);
+    };
+  </script>
+</html>

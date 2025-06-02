@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración</title>
+    <style>
+      body {
+        background: linear-gradient(
+          to right,
+          lightgray 50px,
+          white 50px,
+          white calc(100% - 50px),
+          lightgray calc(100% - 50px)
+        );
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .barra-superior {
+        background-color: rgb(242, 242, 242);
+        width: 100%;
+        height: 125px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 20px;
+        position: relative;
+      }
+      .barra-2 {
+        background-color: #e0e0e0;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+      .barra-superior img {
+        height: 100px;
+        margin-left: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: left;
+      }
+      th,
+      td {
+        padding: 12px;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+      #search-container {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      #search-container input[type='text'] {
+        width: 80%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      #search-container input[type='text']:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+      #add-product-section {
+        margin: 20px;
+        padding: 40px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      #add-product-section h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      #add-product-section label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+      #add-product-section input,
+      #add-product-section textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      #add-product-section input[type='file'] {
+        padding: 5px;
+      }
+      #add-product-section button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+      #add-product-section button:hover {
+        background-color: #0056b3;
+      }
+      .drop-area {
+        width: 300px;
+        height: 150px;
+        border: 2px dashed #007bff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #007bff;
+        font-size: 18px;
+        margin: 20px auto;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+      }
+      .drop-area.dragover .drop-area.highlight {
+        background-color: #e0f7fa;
+        border-color: #006bb3;
+        color: #006bb3;
+      }
+      .drop-area span {
+        color: #007bff;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      .image-preview img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        padding: 5px;
+      }
+      #edit-product-form {
+        margin: 20px;
+        padding: 30px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      #edit-product-form h3 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #edit-product-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      #edit-product-form input,
+      #edit-product-form textarea {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      #edit-product-form button {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 80%;
+      }
+
+      #edit-product-form button:hover {
+        background-color: #0056b3;
+      }
+      @media (max-width: 600px) {
+        #edit-product-form {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="barra-superior">
+      <img
+        src="{{ url_for('static', filename='images/logo1.jpeg') }}"
+        alt="Logo Distribuidora Chavez"
+      />
+    </div>
+    {% if not session.get("logged_in") %}
+    <div class="barra-2">
+      <h1>Iniciar Sesión</h1>
+    </div>
+    <form method="POST" action="/admin">
+      <label for="username">Usuario:</label>
+      <input type="text" id="username" name="username" required />
+      <br />
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required />
+      <br />
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+
+    {% endif %} {% else %}
+    <div class="barra-2">
+      <h1>Bienvenido al Panel de Administración</h1>
+    </div>
+    <nav>
+      <button onclick="toggleSection('add-product-section')">
+        Agregar Producto
+      </button>
+      <button onclick="showFullList('full-product-list')">
+        Mostrar lista completa
+      </button>
+      <button onclick="showSearchFields()">Buscar por:</button>
+      <a href="/logout">Cerrar Sesion</a>
+    </nav>
+
+    <div id="add-product-section" class="section" style="display: none">
+      <h2>Agregar Producto</h2>
+      <form method="POST" action="/admin/add" enctype="multipart/form-data">
+        <label for="codigo">Codigo:</label>
+        <input type="text" id="codigo" name="codigo" required />
+        <br />
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+        <br />
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria" required />
+        <br />
+        <label for="precio">Precio:</label>
+        <input type="number" step="0.01" id="precio" name="precio" required />
+        <br />
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" required></textarea>
+        <br />
+        <label for="imagen">Imagen:</label>
+        <div id="drop_area" class="drop-area">
+          Arrastra y suelta la imagen aquí o
+          <span
+            id="select-file"
+            style="cursor: pointer; text-decoration: underline"
+            >selecciona un archivo</span
+          >
+        </div>
+        <input
+          type="file"
+          id="file_input"
+          name="imagen"
+          accept="image/*"
+          style="display: none"
+          onchange="handleFileSelect(event)"
+        />
+        <div id="image_preview" class="image-preview"></div>
+        <div>
+          <button
+            id="remove_image_button"
+            type="button"
+            style="display: none"
+            onclick="removeImage()"
+          >
+            Eliminar Imagen
+          </button>
+        </div>
+        <br />
+        <button type="submit">Agregar Producto</button>
+      </form>
+    </div>
+
+    <div id="full-product-list" style="display: none">
+      <h3>Lista completa de productos</h3>
+      <div id="product-list" style="display: block">
+        <table>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Descripción</th>
+              <th>Imagen</th>
+              <th>🗑️</th>
+            </tr>
+          </thead>
+          <tbody id="product-list-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div id="edit-product-form" class="section" style="display: none">
+      <h3>Editar producto</h3>
+      <form
+        id="product-form"
+        onsubmit="event.preventDefault(); updateProduct(productId);"
+      >
+        <label for="edit-code">Codigo:</label>
+        <input type="text" id="edit-code" name="code" required />
+
+        <label for="edit-name">Nombre:</label>
+        <input type="text" id="edit-name" name="name" required />
+
+        <label for="edit-category">Categoría:</label>
+        <input type="text" id="edit-category" name="category" required />
+
+        <label for="edit-price">Precio:</label>
+        <input type="number" id="edit-price" name="price" required />
+
+        <label for="edit-description">Descripción:</label>
+        <textarea id="edit-description" name="description" required></textarea>
+
+        <label>Imagen:</label>
+        <div id="current-image-preview">
+          <img
+            id="current-image"
+            src=""
+            alt="Imagen del producto"
+            style="max-width: 100%; max-height: 200px"
+          />
+        </div>
+
+        <label>Reemplazar Imagen:</label>
+        <input type="file" id="edit-image" name="image" accept="image/*" />
+
+        <div id="new-image-preview" style="margin-top: 10px">
+          <img
+            id="new-image"
+            src=""
+            alt="Vista previa de la nueva imagen"
+            style="max-width: 100%; max-height: 200px; display: none"
+          />
+          <button
+            type="button"
+            id="remove-image"
+            style="display: none; margin-top: 5px"
+          >
+            Eliminar imagen
+          </button>
+        </div>
+
+        <button type="submit">Actualizar Producto</button>
+      </form>
+    </div>
+
+    <div
+      id="search-container"
+      style="display: none; text-align: center; margin-top: 20px"
+    >
+      <h3>Buscar Productos</h3>
+      <form method="GET" action="/admin/search">
+        <div style="margin-bottom: 15px">
+          <label for="search-name">Buscar por Nombre:</label>
+          <input
+            type="text"
+            id="search-name"
+            name="nombre"
+            placeholder="Escribe un nombre..."
+          />
+        </div>
+        <div>
+          <label for="search-category">Buscar por Categoría:</label>
+          <input
+            type="text"
+            id="search-category"
+            name="categoria"
+            placeholder="Escribe una categoría..."
+          />
+        </div>
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
+    {% if productos %}
+    <div id="search-results" style="margin-top: 20px">
+      <h3>Resultados de la búsqueda</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Descripción</th>
+            <th>Imagen</th>
+            <th>🗑️</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for producto in productos %}
+          <tr>
+            <td>
+              <button
+                onclick="editProduct('{{ producto[0] }}')"
+                style="
+                  border: none;
+                  background: none;
+                  color: blue;
+                  text-decoration: underline;
+                  cursor: pointer;
+                "
+              >
+                {{ producto[1] }}
+              </button>
+            </td>
+            <td>{{ producto[2] }}</td>
+            <td>{{ producto[3] }}</td>
+            <td>${{ producto[4] }}</td>
+            <td>{{ producto[5] }}</td>
+            <td>
+              {% if producto[6] %}
+              <img
+                src="{{ url_for('static', filename='images/' + producto[6].split('/')[-1]) }}"
+                alt="Imagen del producto"
+                style="width: 100px; height: auto"
+              />
+              {% else %}
+              <img
+                src="{{ url_for('static', filename='uploads/default.jpg') }}"
+                alt="Imagen no disponible"
+                style="width: 100px; height: auto"
+              />
+              {% endif %}
+            </td>
+            <td>
+              <button
+                onclick="deleteProduct('{{ producto[0] }}')"
+                style="border: none; background: none; cursor: pointer"
+              >
+                🗑️
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %} {% endif %}
+  </body>
+
+  <script>
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section.style.display === 'none' || section.style.display === '') {
+        document.querySelectorAll('.section').forEach((sec) => {
+          sec.style.display = 'none';
+        });
+        section.style.display = 'block';
+      } else {
+        section.style.display = 'none';
+      }
+    }
+
+    function showFullList() {
+      const productList = document.getElementById('full-product-list');
+      if (
+        productList.style.display === 'none' ||
+        productList.style.display === ''
+      ) {
+        productList.style.display = 'block';
+      } else {
+        productList.style.display = 'none';
+      }
+
+      if (productList.style.display === 'block') {
+        fetch('/admin/show')
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Error al obtener la lista de productos');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const list = document.getElementById('product-list-body');
+            list.innerHTML = '';
+
+            if (data.error) {
+              list.innerHTML = `<div class="error">${data.error}</div>`;
+            } else if (data.length > 0) {
+              data.forEach((producto) => {
+                const productRow = document.createElement('tr');
+                productRow.innerHTML = `
+              <td>
+                <button onclick="editProduct(${
+                  producto.id
+                })" style="border: none; background: none; color: blue; text-decoration: underline; cursor: pointer;">
+                  ${producto.codigo}
+                </button>
+              </td>
+              <td>${producto.nombre}</td>
+              <td>${producto.categoria}</td>
+              <td>$${producto.precio}</td>
+              <td>${producto.descripcion}</td>
+              <td>
+              <img src="${
+                producto.imagen
+                  ? producto.imagen
+                  : '/static/uploads/default.jpg'
+              }" alt="Imagen del producto" style="width: 100px; height: auto;">
+              </td>
+              <td>
+                <button onclick="deleteProduct(${
+                  producto.id
+                })" style="border: none; background: none; cursor: pointer;">
+                  🗑️
+                </button>
+              </td>
+            `;
+                list.appendChild(productRow);
+              });
+            } else {
+              list.innerHTML =
+                '<div class="error">No hay productos disponibles.</div>';
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropArea = document.getElementById('drop_area');
+      const fileInput = document.getElementById('file_input');
+      const imagePreview = document.getElementById('image_preview');
+      const removeImageButton = document.getElementById('remove_image_button');
+
+      function previewFile(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imagePreview.innerHTML = `<img src="${e.target.result}" alt="Vista previa" style="max-width: 100%; max-height: 200px;">`;
+          removeImageButton.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function resetPreview() {
+        imagePreview.innerHTML = '';
+        fileInput.value = '';
+        removeImageButton.style.display = 'none';
+      }
+
+      dropArea.addEventListener('click', () => fileInput.click());
+
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          previewFile(file);
+        }
+      });
+
+      dropArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropArea.classList.add('highlight');
+      });
+
+      dropArea.addEventListener('dragleave', () => {
+        dropArea.classList.remove('highlight');
+      });
+
+      dropArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropArea.classList.remove('highlight');
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          fileInput.files = e.dataTransfer.files;
+          previewFile(file);
+        }
+      });
+
+      removeImageButton.addEventListener('click', resetPreview);
+    });
+
+    function editProduct(productId) {
+      document.getElementById('edit-product-form').style.display = 'block';
+
+      fetch(`/admin/product/${productId}`)
+        .then((response) => response.json())
+        .then((producto) => {
+          document.getElementById('edit-code').value = producto.codigo;
+          document.getElementById('edit-name').value = producto.nombre;
+          document.getElementById('edit-category').value = producto.categoria;
+          document.getElementById('edit-price').value = producto.precio;
+          document.getElementById('edit-description').value =
+            producto.descripcion;
+
+          const currentImage = document.getElementById('current-image');
+          currentImage.src = producto.imagen;
+
+          const form = document.getElementById('edit-product-form');
+          form.onsubmit = (e) => {
+            e.preventDefault();
+            updateProduct(productId);
+          };
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+
+    function updateProduct(productId) {
+      const formData = new FormData();
+
+      formData.append('codigo', document.getElementById('edit-code').value);
+      formData.append('nombre', document.getElementById('edit-name').value);
+      formData.append(
+        'categoria',
+        document.getElementById('edit-category').value
+      );
+      formData.append('precio', document.getElementById('edit-price').value);
+      formData.append(
+        'descripcion',
+        document.getElementById('edit-description').value
+      );
+
+      const newImage = document.getElementById('edit-image').files[0];
+      if (newImage) {
+        formData.append('image', newImage);
+      }
+
+      fetch(`/admin/update/${productId}`, {
+        method: 'PUT',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert('Producto actualizado exitosamente');
+            window.location.reload();
+          } else {
+            alert(`Error al actualizar producto: ${data.error}`);
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+
+    // Vista previa de la nueva imagen seleccionada
+    document
+      .getElementById('edit-image')
+      .addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('new-image');
+        const removeButton = document.getElementById('remove-image');
+
+        if (file) {
+          const reader = new FileReader();
+
+          // Leer el archivo como una URL de datos
+          reader.onload = function (e) {
+            preview.src = e.target.result; // Asignar la URL al src del <img>
+            preview.style.display = 'block'; // Mostrar el <img>
+            removeButton.style.display = 'block'; // Mostrar el botón de eliminar
+          };
+
+          reader.readAsDataURL(file); // Leer archivo seleccionado
+        } else {
+          preview.src = '';
+          preview.style.display = 'none'; // Ocultar vista previa si no hay archivo seleccionado
+          removeButton.style.display = 'none'; // Ocultar el botón de eliminar
+        }
+      });
+
+    // Botón para eliminar la imagen seleccionada
+    document
+      .getElementById('remove-image')
+      .addEventListener('click', function () {
+        const fileInput = document.getElementById('edit-image');
+        const preview = document.getElementById('new-image');
+        const removeButton = document.getElementById('remove-image');
+
+        // Limpiar el valor del input de archivo
+        fileInput.value = '';
+
+        // Ocultar la vista previa y el botón de eliminar
+        preview.src = '';
+        preview.style.display = 'none';
+        removeButton.style.display = 'none';
+      });
+
+    function deleteProduct(productId) {
+      if (confirm('Seguro que deseas eliminar este producto?')) {
+        fetch(`/admin/delete/${productId}`, {
+          method: 'DELETE',
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert('Producto eliminado exitosamente');
+              showFullList();
+            } else {
+              alert('Error al eliminar el producto');
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      }
+    }
+
+    function showSearchFields() {
+      const searchContainer = document.getElementById('search-container');
+      const searchResults = document.getElementById('search-results');
+
+      if (
+        searchContainer.style.display === 'none' ||
+        searchContainer.style.display === ''
+      ) {
+        searchContainer.style.display = 'block';
+        searchResults.style.display = 'none'; // Ocultar resultados
+      } else {
+        // Si el contenedor de búsqueda está visible, redirigir a /admin
+        window.location.href = '/admin';
+      }
+    }
+
+    function filterByName() {
+      const name = document.getElementById('search-name').value.trim();
+      fetch(`/admin/search?name=${encodeURIComponent(name)}`)
+        .then((response) => {
+          if (!response.ok)
+            throw new Error('No se encontraron productos por nombre');
+          return response.json();
+        })
+        .then((data) => updateProductList(data))
+        .catch((error) => console.error(error));
+    }
+
+    function filterByCategory() {
+      const category = document.getElementById('search-category').value.trim();
+      fetch(`/admin/search?category=${encodeURIComponent(category)}`)
+        .then((response) => {
+          if (!response.ok)
+            throw new Error('No se encontraron productos por categoría');
+          return response.json();
+        })
+        .then((data) => updateProductList(data))
+        .catch((error) => console.error(error));
+    }
+
+    function updateProductList(products) {
+      const list = document.getElementById('product-list-body');
+      list.innerHTML = '';
+
+      if (products.length > 0) {
+        products.forEach((producto) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+          <td>${producto.codigo}</td>
+          <td>${producto.nombre}</td>
+          <td>${producto.categoria}</td>
+          <td>$${producto.precio}</td>
+          <td>${producto.descripcion}</td>
+          <td>
+            <button onclick="editProduct(${producto.id})" style="border: none; background: none; color: blue; text-decoration: underline; cursor: pointer;">
+              Editar
+            </button>
+            <button onclick="deleteProduct(${producto.id})" style="border: none; background: none; cursor: pointer;">
+              🗑️
+            </button>
+          </td>
+        `;
+          list.appendChild(row);
+        });
+      } else {
+        list.innerHTML =
+          '<tr><td colspan="6">No se encontraron productos.</td></tr>';
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Damgo Seafood: Distribuidora de pescados y mariscos en Chihuahua. Venta de mayoreo y menudeo con productos frescos y de calidad. Envío a domicilio." />
+    <title>Damgo Seafood - Pescados y Mariscos en Chihuahua | Mayoreo y Menudeo | Proveedor | Distribuidor | Envío</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+      #loader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out;
+      }
+      #loader svg {
+        width: 100vw;
+        height: 100vh;
+      }
+      #loader.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <style>
+    body {
+      width: 100%;
+    }
+    @font-face {
+      font-family: "Kollektif";
+      src: url("/static/Kollektif.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+    .fondo1 {
+      position: relative;
+      height: 80vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .fondo1 img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: url(#clipPath);
+    }
+
+    .fondo1 h1 {
+      font-size: 3.5vw;
+      font-family: "League Spartan";
+      position: relative;
+      z-index: 1;
+      color: white;
+      margin-top: -20vh;
+    }
+
+    .fondo1 p {
+      font-size: 1.8vw;
+      font-family: "Kollektif";
+      position: relative;
+      z-index: 1;
+      color: white;
+      margin-top: -2vh;
+      width: 50vw;
+    }
+
+    @media (max-width: 1000px) {
+      .fondo1 {
+        margin-bottom: -50vh;
+      }
+      .fondo1 h1 {
+        font-size: 4.5vw;
+        margin-top: -28vh;
+      }
+
+      .fondo1 p {
+        font-size: 3.2vw;
+        margin-top: -3vh;
+        width: 90vw;
+      }
+      .fondo1 img {
+        clip-path: url(#clipPathMobile);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .fondo1 h1 {
+        font-size: 5vw;
+        margin-top: -34vh;
+      }
+      .fondo1 p {
+        font-size: 3.5vw;
+        margin-top: -1vh;
+      }
+    }
+    @media (max-width: 400px) {
+      .fondo1 h1 {
+        font-size: 7.5vw;
+        margin-top: -29vh;
+        width: 85vw;
+      }
+      .fondo1 p {
+        font-size: 3.5vw;
+        margin-top: -1vh;
+        width: 70vw;
+      }
+    }
+
+    .circle-1 {
+      position: absolute;
+      width: 20vw;
+      top: 20%;
+      left: 65%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .circle-2 {
+      position: absolute;
+      width: 40vw;
+      top: -5%;
+      left: 5%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+      .circle-1 {
+        width: 45vw;
+        top: 20%;
+        left: 50%;
+      }
+
+      .circle-2 {
+        width: 60vw;
+        top: 10%;
+        left: -10%;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .circle-1 {
+        width: 45vw;
+        top: 30%;
+        left: 50%;
+      }
+
+      .circle-2 {
+        width: 60vw;
+        top: 20%;
+        left: -10%;
+      }
+    }
+
+    .fondo2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 120vh;
+      margin-top: -17vh;
+      position: relative;
+      margin-top: -40vh;
+    }
+    @media (max-width: 1000px) {
+      .fondo2 {
+        margin-top: -20vh;
+      }
+    }
+
+    .img1 img {
+      width: 50vh;
+      height: 50vh;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-left: 2vw;
+      position: relative;
+    }
+
+    .img2 img {
+      width: 50vh;
+      height: 50vh;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 2vw;
+    }
+
+    .fondo2 .text-container1 {
+      margin-left: 0vw;
+      margin-top: 0vh;
+      width: 60%;
+      text-align: justify;
+    }
+
+    .fondo2 .text-container1 h1 {
+      text-align: center;
+      font-size: 2.5vw;
+      margin: 0;
+      font-family: "League Spartan";
+      color: #243349;
+    }
+
+    .fondo2 .text-container2 {
+      margin-left: 35vw;
+      margin-top: 30vh;
+      text-align: justify;
+    }
+    .fondo2 .text-container2 p {
+      top: 100%;
+      text-align: center;
+      font-size: 1.5vw;
+      margin: 0;
+      font-family: "Kollektif";
+      color: #243349;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1000px) {
+      .img1 img {
+        top: -200px;
+        left: 0;
+        width: 22vh;
+        height: 22vh;
+      }
+      .img2 img {
+        top: 200px;
+        right: 100px;
+        width: 22vh;
+        height: 22vh;
+      }
+      .fondo2 .text-container1 {
+        margin-right: -20vw;
+        margin-top: -55vh;
+        width: 75vw;
+      }
+      .fondo2 .text-container1 h1 {
+        font-size: 4vw;
+      }
+      .fondo2 .text-container2 {
+        margin-left: 3vw;
+        margin-top: 0;
+        width: 55vw;
+      }
+      .fondo2 .text-container2 p {
+        font-size: 4vw;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .fondo2 .text-container1 {
+        margin-right: -35vw;
+        margin-top: -65vh;
+        width: 60vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .fondo2 .text-container1 h1 {
+        font-size: 5vw;
+      }
+    }
+
+    .fondo2 .circle-3 {
+      position: absolute;
+      width: 60vw;
+      height: auto;
+      top: 10vh;
+      left: 30%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.5;
+    }
+    .fondo2 .waves-1 {
+      position: absolute;
+      width: 35vw;
+      top: 55%;
+      left: 15%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    @media (max-width: 900px) {
+      .fondo2 .circle-3 {
+        width: 80vw;
+        top: 0;
+        margin-left: -30vw;
+      }
+      .fondo2 .waves-1 {
+        top: 70vh;
+        margin-left: -10vw;
+        width: 50vw;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .fondo2 .circle-3 {
+        width: 80vw;
+        top: 20vh;
+        left: 50%;
+      }
+      .fondo2 .waves-1 {
+        top: 65vh;
+        left: 10vw;
+        width: 85vw;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .fondo2 .waves-1 {
+        top: 60vh;
+        left: 12vw;
+        width: 90vw;
+      }
+      .fondo2 .text-container2 {
+        margin-left: 3vw;
+        margin-top: 0;
+        width: 45vw;
+      }
+    }
+
+    .fondo3 {
+      max-width: 100%;
+      height: 115vh;
+      position: relative;
+      overflow: hidden;
+      margin-top: -10vh;
+    }
+
+    @media (max-width: 900px) {
+      .fondo3 {
+        height: 100vh;
+        margin-top: 0vh;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .fondo3 {
+        margin-top: -12vh;
+        height: 90vh;
+      }
+    }
+    @media (max-width: 499px) {
+      .fondo3 {
+        height: 60vh;
+        margin-top: -20vh;
+      }
+    }
+
+    .fondo3 img {
+      width: auto;
+      height: 100%;
+      position: relative;
+    }
+    .fondo3::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to top,
+        rgba(22, 54, 148, 0.7) 0%,
+        rgba(22, 54, 148, 0.8) 70%,
+        rgba(22, 54, 148, 1) 80%,
+        rgba(22, 54, 148, 1) 100%
+      );
+      z-index: 0;
+    }
+
+    .fondo3 .text-container1,
+    .text-container2 {
+      text-align: center;
+      z-index: 2;
+      position: absolute;
+      width: 30vw;
+      height: auto;
+    }
+
+    .fondo3 .text-container1 {
+      left: 5%;
+      top: 50%;
+    }
+
+    .fondo3 .text-container2 {
+      right: 5%;
+      top: 0;
+    }
+
+    @media (max-width: 600px) {
+      .fondo3 .text-container1 {
+        top: 40%;
+      }
+    }
+
+    .fondo3 .text-container1 h1,
+    .fondo3 .text-container2 h1 {
+      font-size: 2.8vw;
+      font-family: "League Spartan";
+      color: white;
+    }
+
+    .fondo3 .text-container1 p,
+    .fondo3 .text-container2 p {
+      font-size: 1.8vw;
+      font-family: "Kollektif";
+      color: white;
+      text-align: justify;
+    }
+
+    @media (max-width: 900px) {
+      .fondo3 .text-container1 h1,
+      .fondo3 .text-container2 h1 {
+        font-size: 3.8vw;
+      }
+
+      .fondo3 .text-container1 p,
+      .fondo3 .text-container2 p {
+        font-size: 2.5vw;
+      }
+
+      .fondo3 .text-container1,
+      .fondo3 .text-container2 {
+        width: 35vw;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .fondo3 .text-container1 h1,
+      .fondo3 .text-container2 h1 {
+        font-size: 4.3vw;
+      }
+
+      .fondo3 .text-container1 p,
+      .fondo3 .text-container2 p {
+        font-size: 2.9vw;
+      }
+    }
+
+    .fondo3 .ed-container-1 {
+      position: absolute;
+      width: 30vw;
+      height: auto;
+      top: 55%;
+      left: 65%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    .fondo3 .ed-container-2 {
+      position: absolute;
+      width: 30vw;
+      height: auto;
+      top: -5vh;
+      left: 5%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    @media (max-width: 1000px) {
+      .fondo3 .ed-container-1 {
+        top: 45%;
+        left: 55%;
+        width: 50vw;
+      }
+      .fondo3 .ed-container-2 {
+        top: 0;
+        width: 50vw;
+        left: 0;
+      }
+    }
+
+    .fondo3 .circle-4 {
+      position: absolute;
+      width: 70vw;
+      height: auto;
+      top: 60%;
+      left: 15%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+      .fondo3 .circle-4 {
+        width: 90vw;
+        top: 70%;
+        left: 5%;
+      }
+    }
+
+    .white-container {
+      width: 80vw;
+      height: 40vh;
+      position: relative;
+      justify-content: center;
+      margin-top: 15vh;
+      margin-bottom: 15vh;
+      left: 10vw;
+    }
+
+    .white-container h1 {
+      font-size: 4vw;
+      font-family: League Spartan;
+      color: #243349;
+      text-align: center;
+    }
+
+    .white-container p {
+      font-size: 2.5vw;
+      font-family: Kollektif;
+      color: #7995bd;
+      text-align: center;
+    }
+
+    .white-container .circle-5 {
+      position: absolute;
+      width: 30vw;
+      left: -20vw;
+      top: 25vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    @media (max-width: 1200px) {
+      .white-container {
+        height: 40vh;
+      }
+    }
+    @media (max-width: 900px) {
+      .white-container .circle-5 {
+        top: 13vh;
+      }
+      .white-container h1 {
+        font-size: 5vw;
+        margin-top: -10vh;
+      }
+      .white-container p {
+        font-size: 4vw;
+      }
+      .white-container .circle-5 {
+        top: 30vh;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .white-container {
+        height: 35vh;
+      }
+      .white-container h1 {
+        font-size: 6vw;
+        margin-top: -10vh;
+      }
+      .white-container p {
+        font-size: 4.5vw;
+      }
+      .white-container .circle-5 {
+        top: 35vh;
+        width: 40vw;
+      }
+    }
+
+    @media (max-width: 499px) {
+      .white-container {
+        height: 20vh;
+      }
+      .white-container .circle-5 {
+        top: 22vh;
+        left: -20vw;
+      }
+    }
+
+    .fondo4 {
+      max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-top: 10vh;
+    }
+
+    .fondo4 img {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .fondo4::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 86.5%;
+      background-color: rgba(22, 54, 148, 0.8);
+    }
+
+    .fondo4 h1 {
+      position: absolute;
+      left: 20%;
+      top: 30%;
+      color: white;
+      z-index: 2;
+      font-family: League Spartan;
+      font-size: 3.5vw;
+      animation: slideIn1 3s forwards;
+    }
+
+    .fondo4 .text-container1 {
+      text-align: center;
+      z-index: 2;
+      position: absolute;
+      width: 70vw;
+      height: auto;
+      left: 15%;
+      top: 45%;
+    }
+
+    .fondo4 .text-container1 p {
+      font-size: 1.7vw;
+      font-family: "Kollektif";
+      color: white;
+      text-align: justify;
+    }
+
+    .fondo4 hr {
+      border: 0;
+      height: 1px;
+      background: white;
+      width: 60%;
+      left: 20%;
+      top: 44%;
+      z-index: 2;
+      position: absolute;
+    }
+
+    .animation-truck img {
+      position: absolute;
+      left: 30%;
+      top: 30%;
+      height: 18vh;
+      animation: slideIn2 3s forwards;
+      z-index: 2;
+    }
+
+    @media (max-width: 900px) {
+      .animation-truck img {
+        height: 15vh;
+        top: 20%;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .animation-truck img {
+        height: 15vh;
+        top: 30%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .animation-truck img {
+        height: 8vh;
+        top: 18%;
+      }
+      .fondo4 h1 {
+        margin-left: -5%;
+        top: 15%;
+        font-size: 4vw;
+      }
+      .fondo4 hr {
+        top: 30%;
+      }
+      .fondo4 .text-container1 {
+        width: 90vw;
+        left: 5%;
+      }
+      .fondo4 .text-container1 p {
+        margin-top: -5%;
+        font-size: 2.8vw;
+      }
+    }
+
+    @keyframes slideIn1 {
+      from {
+        left: -60%;
+      }
+      to {
+        left: 14.7%;
+      }
+    }
+    @keyframes slideIn2 {
+      from {
+        left: -50%;
+      }
+      to {
+        left: 45%;
+      }
+    }
+    @media (max-width: 900px) {
+      @keyframes SlideIn1 {
+        from {
+          left: -60%;
+        }
+        to {
+          left: 0%;
+        }
+      }
+    }
+    @media (max-width: 499px) {
+      .fondo4 {
+        height: 90vh;
+        width: 100vw;
+      }
+      .fondo4 img {
+        width: auto;
+        height: 99%;
+        margin-left: -90%;
+      }
+    }
+    @media (max-width: 499px) {
+      .animation-truck img {
+        height: 9vh;
+        top: 24%;
+        margin-left: 0;
+      }
+      .fondo4 h1 {
+        margin-left: -10%;
+        top: 10%;
+        width: 90%;
+        font-size: 8vw;
+        text-align: center;
+      }
+      .fondo4 .text-container1 {
+        width: 80vw;
+        left: 10%;
+      }
+      .fondo4 .text-container1 p {
+        margin-top: -20%;
+        font-size: 4vw;
+      }
+      @keyframes SlideIn1 {
+        from {
+          left: -190%;
+        }
+        to {
+          left: 0%;
+        }
+      }
+      @keyframes slideIn2 {
+        from {
+          left: -40%;
+        }
+        to {
+          left: 84%;
+        }
+      }
+    }
+
+    .fondo4 h1,
+    .animation-truck img {
+      animation: none;
+      opacity: 0;
+    }
+  </style>
+  <body>
+    <div class="loader-container" id="onload">
+      <div id="loader">
+        <div id="content"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <defs>
+            <filter id="blur-filter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2">
+                <animate
+                  attributeName="stdDeviation"
+                  from="1"
+                  to="0"
+                  dur="0.65s"
+                  fill="freeze"
+                />
+              </feGaussianBlur>
+            </filter>
+          </defs>
+          <g filter="url(#blur-filter)">
+            <image href="/static/logo/l1.svg" width="100" height="100" />
+          </g>
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 11"
+              to="0 0"
+              dur="0.4s"
+              fill="freeze"
+            />
+            <image href="/static/logo/l2.svg" width="100" height="100" />
+          </g>
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              from="0 13.5"
+              to="0 0"
+              dur="0.55s"
+              fill="freeze"
+            />
+            <image href="/static/logo/l3.svg" width="100" height="100" />
+          </g>
+          <g>
+            <image href="/static/logo/l4.svg" width="100" height="100" />
+          </g>
+          <g>
+            <image href="/static/logo/l5.svg" width="100" height="100" />
+            <animate
+              attributeName="opacity"
+              from="1"
+              to="0"
+              dur="0.01s"
+              fill="freeze"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="/">
+            <img src="static/logo4.png" alt="Logo de la Pescadería" />
+          </a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="nosotros">Nosotros</a></li>
+            <li><a href="productos">Productos</a></li>
+            <li><a href="contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#" id="translate-en">English</a>
+            <a href="#" id="translate-zh">中文</a>
+            <a href="#" id="translate-es">Español</a>
+          </div>
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div id="full-screen-menu" class="full-screen-menu">
+          <button class="close-menu" onclick="toggleMenu()">×</button>
+          <a href="/">Inicio</a>
+          <a href="nosotros">Nosotros</a>
+          <a href="productos">Productos</a>
+          <a href="contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+    <img src="/static/CR1.svg" class="circle-1" />
+    <img src="/static/inicio_img/ED2.svg" class="circle-2" />
+
+    <div class="fondo1">
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
+            <path d="M 0 0 Q 0.5 1.2 1 0 Z" />
+          </clipPath>
+          <clipPath id="clipPathMobile" clipPathUnits="objectBoundingBox">
+            <path d="M -0.4 0 Q 0.5 1 1.4 0 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+      <img src="/static/inicio_img/fondo1.1.jpeg" alt="Background Image" />
+      <h1>Frescura garantizada del mar a tu mesa.</h1>
+      <p>
+        Nuestros productos llegan directo desde las mejores costas, asegurando
+        calidad y frescura en cada entrega
+      </p>
+    </div>
+
+    <div class="fondo2">
+      <div class="img1">
+        <img src="/static/inicio_img/fondo2.1.jpeg" alt="Imagen 1" />
+      </div>
+
+      <div class="text-container1">
+        <h1>Presencia en más de 18 estados de la República</h1>
+      </div>
+      <div class="text-container2">
+        <p>
+          Nos consolidamos como una de las distribuidoras de mariscos más
+          confiables de México
+        </p>
+      </div>
+
+      <div class="img2">
+        <img src="/static/inicio_img/fondo2.2.jpeg" alt="Imagen 2" />
+      </div>
+
+      <img src="/static/inicio_img/ED2.svg" class="circle-3" />
+      <img src="/static/inicio_img/ola.svg" class="waves-1" />
+    </div>
+
+    <div class="fondo3">
+      <img src="/static/inicio_img/fondo3.svg" alt="Fondo 3" />
+      <img src="/static/inicio_img/ED30.svg" class="ed-container-1" />
+      <img src="/static/inicio_img/ED31.svg" class="ed-container-2" />
+      <img src="/static/inicio_img/ED6.svg" class="circle-4" />
+      <div class="text-container1">
+        <h1>Especialistas en mayoreo y menudeo</h1>
+        <p>
+          Ofrecemos soluciones a negocios, restaurantes y consumidores finales,
+          con promociones exclusivas y entregas rápidas.
+        </p>
+      </div>
+      <div class="text-container2">
+        <h1>Catálogo actualizado con productos innovadores.</h1>
+        <p>
+          Siempre buscamos ofrecer lo más novedoso del mercado, desde mariscos
+          frescos hasta salsas y condimentos únicos.
+        </p>
+      </div>
+    </div>
+
+    <div class="white-container">
+      <div class="grey-box">
+        <h1>Precios competitivos y promociones constantes.</h1>
+        <p>
+          Nos adaptamos a las necesidades de nuestros clientes, ofreciendo
+          precios accesibles y descuentos por volumen.
+        </p>
+      </div>
+      <img src="/static/CR1.svg" class="circle-5" />
+      <img
+        src="/static/inicio_img/ED2.svg"
+        class="circle-1"
+        style="width: 30vw; margin-top: -20vh"
+      />
+      <img
+        src="/static/inicio_img/ED4.svg"
+        class="circle-1"
+        style="width: 10vw; margin-left: 25vw"
+      />
+    </div>
+
+    <div class="fondo4">
+      <img src="/static/inicio_img/fondo4.1.1.svg" alt="Fondo 4" />
+      <div class="animation-truck" id="truck">
+        <img src="/static/inicio_img/EDtruck1.svg" alt="truck" />
+      </div>
+      <h1>Contamos con un servicio de entrega eficiente</h1>
+      <hr />
+      <div class="text-container1">
+        <p>
+          Llevamos tus pedidos hasta la puerta de tu negocio o casa, con un
+          sistema de refrigeración que garantiza la frescura. Cuidamos cada
+          detalle del proceso. Desde la selección del producto hasta la entrega
+          final, garantizamos que cada cliente reciba lo mejor del mar.
+        </p>
+      </div>
+    </div>
+    <footer>
+      <img src="static/logo_white.svg" alt="Logo de la Pescadería" />
+      <p>&copy; 2019DAMGOSEAFOOD S.A. DE C.V. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+
+  <script>
+    const fondo4 = document.querySelector(".fondo4");
+    const fondo4H1 = fondo4.querySelector("h1");
+    const truckImg = fondo4.querySelector(".animation-truck img");
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          fondo4H1.style.animation = "slideIn1 3s forwards";
+          fondo4H1.style.opacity = 1;
+          truckImg.style.animation = "slideIn2 3s forwards";
+          truckImg.style.opacity = 1;
+          observer.unobserve(fondo4);
+        }
+      });
+    }, options);
+
+    observer.observe(fondo4);
+    const apiKey = "AIzaSyBKF1HG0u3HiPMMan6wkfVYU1vLEO6rCeE";
+
+    async function translateText(text, targetLang) {
+      const response = await fetch(
+        `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            q: text,
+            target: targetLang,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      return data.data.translations[0].translatedText;
+    }
+
+    async function translatePage(targetLang) {
+      const elements = document.querySelectorAll(
+        "body *:not(script):not(style):not(nav):not(footer)"
+      );
+      for (const element of elements) {
+        if (
+          element.childNodes.length === 1 &&
+          element.childNodes[0].nodeType === Node.TEXT_NODE
+        ) {
+          const translatedText = await translateText(
+            element.innerText,
+            targetLang
+          );
+          element.innerText = translatedText;
+        }
+      }
+    }
+
+    document
+      .getElementById("translate-en")
+      .addEventListener("click", () => translatePage("en"));
+    document
+      .getElementById("translate-zh")
+      .addEventListener("click", () => translatePage("zh"));
+    document
+      .getElementById("translate-es")
+      .addEventListener("click", () => location.reload());
+
+    function toggleMenu() {
+      const menu = document.getElementById("full-screen-menu");
+      if (menu.style.display === "flex") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "flex";
+      }
+    }
+
+    function toggleDropdown() {
+      var dropdownContent = document.getElementById("dropdown-content");
+      dropdownContent.classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
+      if (!event.target.matches(".dropbtn")) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains("show")) {
+            openDropdown.classList.remove("show");
+          }
+        }
+      }
+    };
+
+    // Add event listener to hide dropdown when an option is clicked
+    document.querySelectorAll(".dropdown-content a").forEach((link) => {
+      link.addEventListener("click", function () {
+        document.getElementById("dropdown-content").classList.add("hide");
+      });
+    });
+
+    window.onload = function () {
+      var loader = document.getElementById("loader");
+      var content = document.getElementById("content");
+
+      setTimeout(function () {
+        loader.classList.add("hide");
+
+        setTimeout(function () {
+          loader.style.display = "none";
+          content.style.display = "block";
+        }, 800);
+      }, 800);
+    };
+  </script>
+</html>

@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animaciones</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      .advanced {
+        background-color: transparent;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        font-size: 2rem;
+        padding-top: 20px;
+        box-sizing: border-box;
+      }
+
+      .advanced h1 {
+        margin-top: 0vh;
+        font-size: 3rem;
+        z-index: 1000;
+        color: white;
+      }
+
+      canvas {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100vh;
+        height: 90vh;
+        z-index: -1; /* Para que quede detrás del contenido */
+        background: black;
+        margin-top: 0vh;
+        overflow: hidden;
+      }
+
+      #space-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 150vh;
+        z-index: 0; /* Detrás del contenido */
+        background: #000000; /* Cambia a gris temporalmente */
+      }
+
+      :root {
+        --main-bg: #1d1e22;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        font-weight: 700;
+        font-family: "Monoton", sans-serif;
+        color: #ffffff;
+        background-color: black;
+        overflow-x: hidden;
+      }
+
+      .wrapper {
+        position: relative;
+        width: 70%;
+        text-align: center;
+        z-index: 1000;
+        margin-top: 0vh;
+        margin-left: 0vw;
+
+        & p {
+          font-size: 4rem;
+          z-index: 1000;
+          margin-top: 0vh;
+        }
+      }
+
+      .water {
+        filter: url("#water");
+        z-index: 1001;
+        margin-left: 0vw;
+      }
+
+      .smoke {
+        position: absolute;
+        width: 100%;
+        filter: url(#smoke) blur(2px) opacity(0.8);
+        z-index: 10;
+        margin-left: 0vw;
+      }
+
+      .smoke::before {
+        content: attr(data-text);
+        position: absolute;
+        filter: url(#smoke) drop-shadow(0 0 40px #ffffff) blur(40px);
+      }
+
+      .button-wrapper {
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.2s ease;
+        padding: 40px;
+        left: -30vw;
+      }
+
+      .spiderverse-button {
+        position: relative;
+        padding: 15px 30px;
+        font-size: 24px;
+        font-weight: 900;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        background: #fff;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transform-style: preserve-3d;
+        transition: all 0.15s ease;
+        font-family: Arial, sans-serif;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+          1px 1px 0 #000;
+      }
+
+      .glitch-text {
+        position: relative;
+        display: inline-block;
+      }
+
+      .glitch-layers {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .glitch-layer {
+        position: absolute;
+        content: "CLICK ME";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 50px;
+        opacity: 0;
+        transition: all 0.15s ease;
+      }
+
+      .layer-1 {
+        color: #0ff;
+        transform-origin: center;
+      }
+
+      .layer-2 {
+        color: #f0f;
+        transform-origin: center;
+      }
+
+      .button-wrapper:hover .layer-1 {
+        opacity: 1;
+        animation: glitchLayer1 0.4s steps(2) infinite;
+      }
+
+      .button-wrapper:hover .layer-2 {
+        opacity: 1;
+        animation: glitchLayer2 0.4s steps(2) infinite;
+      }
+
+      .button-wrapper:hover .spiderverse-button {
+        animation: buttonGlitch 0.3s steps(2) infinite;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+          0 0 30px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5);
+      }
+
+      .noise {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: repeating-radial-gradient(
+          circle at 50% 50%,
+          transparent 0,
+          rgba(0, 0, 0, 0.1) 1px,
+          transparent 2px
+        );
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        animation: noise 0.2s steps(2) infinite;
+      }
+
+      .button-wrapper:hover .noise {
+        opacity: 1;
+      }
+
+      @keyframes buttonGlitch {
+        0% {
+          transform: translate(0) scale(1.1);
+        }
+        25% {
+          transform: translate(-10px, 5px) scale(1.15) skew(-5deg);
+        }
+        50% {
+          transform: translate(10px, -5px) scale(1.1) skew(5deg);
+        }
+        75% {
+          transform: translate(-15px, -5px) scale(1.05) skew(-3deg);
+        }
+        100% {
+          transform: translate(0) scale(1.1);
+        }
+      }
+
+      @keyframes glitchLayer1 {
+        0% {
+          transform: translate(-20px, -10px) scale(1.1) skew(-10deg);
+          clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%);
+        }
+        25% {
+          transform: translate(20px, 10px) scale(1.2) skew(10deg);
+          clip-path: polygon(0 30%, 100% 30%, 100% 60%, 0 60%);
+        }
+        50% {
+          transform: translate(-15px, 5px) scale(0.9) skew(-5deg);
+          clip-path: polygon(0 10%, 100% 10%, 100% 40%, 0 40%);
+        }
+        75% {
+          transform: translate(15px, -5px) scale(1.3) skew(5deg);
+          clip-path: polygon(0 40%, 100% 40%, 100% 70%, 0 70%);
+        }
+        100% {
+          transform: translate(-20px, -10px) scale(1.1) skew(-10deg);
+          clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%);
+        }
+      }
+
+      @keyframes glitchLayer2 {
+        0% {
+          transform: translate(20px, 10px) scale(1.1) skew(10deg);
+          clip-path: polygon(0 50%, 100% 50%, 100% 80%, 0 80%);
+        }
+        25% {
+          transform: translate(-20px, -10px) scale(1.2) skew(-10deg);
+          clip-path: polygon(0 60%, 100% 60%, 100% 90%, 0 90%);
+        }
+        50% {
+          transform: translate(15px, -5px) scale(0.9) skew(5deg);
+          clip-path: polygon(0 40%, 100% 40%, 100% 70%, 0 70%);
+        }
+        75% {
+          transform: translate(-15px, 5px) scale(1.3) skew(-5deg);
+          clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+        }
+        100% {
+          transform: translate(20px, 10px) scale(1.1) skew(10deg);
+          clip-path: polygon(0 50%, 100% 50%, 100% 80%, 0 80%);
+        }
+      }
+
+      @keyframes noise {
+        0% {
+          transform: translate(0, 0);
+        }
+        10% {
+          transform: translate(-5%, -5%);
+        }
+        20% {
+          transform: translate(10%, 5%);
+        }
+        30% {
+          transform: translate(-5%, 10%);
+        }
+        40% {
+          transform: translate(15%, -5%);
+        }
+        50% {
+          transform: translate(-10%, 15%);
+        }
+        60% {
+          transform: translate(5%, -10%);
+        }
+        70% {
+          transform: translate(-15%, 5%);
+        }
+        80% {
+          transform: translate(10%, 10%);
+        }
+        90% {
+          transform: translate(-5%, 15%);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .glitch-slice {
+        position: absolute;
+        width: 120%;
+        height: 5px;
+        background: #fff;
+        opacity: 0;
+        animation: slice 3s linear infinite;
+      }
+
+      @keyframes slice {
+        0% {
+          top: -10%;
+          opacity: 0;
+        }
+        1% {
+          opacity: 0.5;
+        }
+        3% {
+          opacity: 0;
+        }
+        50% {
+          top: 110%;
+        }
+        100% {
+          top: 110%;
+        }
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Lato");
+
+      *,
+      *:before,
+      *:after {
+        /* Slow, yes I know :) */
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      .container {
+        margin: 0;
+        width: 50%;
+        height: 50%;
+        padding: 20px;
+        -webkit-perspective: 1500px;
+        -moz-perspective: 1500px;
+        -ms-perspective: 1500px;
+        perspective: 1500px;
+        position: relative;
+        left: 25vw;
+        top: -55vh;
+        transform: scale(0.8);
+      }
+      .toggle {
+        color: #fff;
+        display: inline-block;
+        line-height: 16px;
+        font-size: 20px;
+        opacity: 0;
+      }
+      .menu {
+        margin: 100px auto;
+        position: relative;
+        background: #62278d;
+        background: -moz-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          color-stop(0%, #62278d),
+          color-stop(100%, #2cc09b)
+        );
+        background: -webkit-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -o-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -ms-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: linear-gradient(to bottom, #62278d 0%, #2cc09b 100%);
+        width: 300px;
+        border-width: 20px 0;
+        border-style: solid;
+        border-color: #fff;
+        color: #fff;
+        height: 540px;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-box-shadow: 0 0 50px 0 #444;
+        -moz-box-shadow: 0 0 50px 0 #444;
+        box-shadow: 0 0 50px 0 #444;
+      }
+      input.toggle:checked ~ .menu {
+        -webkit-transform: translateY(-200px) translateZ(-150px) rotateX(45deg)
+          rotateZ(45deg);
+        -moz-transform: translateY(-150px) rotateX(45deg) rotateZ(45deg);
+        -ms-transform: translateY(-150px) rotateX(45deg) rotateZ(45deg);
+        -o-transform: translateY(-150px) rotateX(45deg) rotateZ(45deg);
+        transform: translateY(-150px) rotateX(45deg) rotateZ(45deg);
+      }
+      .menu:before {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 300px;
+        top: 520px;
+        left: 0px;
+        -webkit-transform: rotateX(90deg) translateY(-15px) translateZ(15px);
+        -moz-transform: rotateX(90deg) translateY(-15px) translateZ(15px);
+        -ms-transform: rotateX(90deg) translateY(-15px) translateZ(15px);
+        -o-transform: rotateX(90deg) translateY(-15px) translateZ(15px);
+        transform: rotateX(90deg) translateY(-15px) translateZ(15px);
+        background: #fff;
+        pointer-events: none;
+      }
+      .menu:after {
+        content: "";
+        position: absolute;
+        height: 540px;
+        width: 30px;
+        top: -20px;
+        right: -30px;
+        -webkit-transform: rotateY(90deg) translateZ(-15px) translateX(15px);
+        -moz-transform: rotateY(90deg) translateZ(-15px) translateX(15px);
+        -ms-transform: rotateY(90deg) translateZ(-15px) translateX(15px);
+        -o-transform: rotateY(90deg) translateZ(-15px) translateX(15px);
+        transform: rotateY(90deg) translateZ(-15px) translateX(15px);
+        border-width: 20px 0;
+        border-style: solid;
+        border-color: #fff;
+        background: #62278d;
+        background: -moz-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          color-stop(0%, #62278d),
+          color-stop(100%, #2cc09b)
+        );
+        background: -webkit-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -o-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: -ms-linear-gradient(top, #62278d 0%, #2cc09b 100%);
+        background: linear-gradient(to bottom, #62278d 0%, #2cc09b 100%);
+        pointer-events: none;
+      }
+      .menu .top {
+        padding: 15px 15px 15px 20px;
+        width: 100%;
+      }
+      .menu .top .search {
+        position: relative;
+        display: inline-block;
+      }
+      .menu .top .search input {
+        background-color: transparent;
+        -webkit-transition: all 100ms ease-in-out;
+        -moz-transition: all 100ms ease-in-out;
+        -ms-transition: all 100ms ease-in-out;
+        -o-transition: all 100ms ease-in-out;
+        transition: all 100ms ease-in-out;
+        color: transparent;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        padding: 10px 30px 10px 15px;
+        outline: 0 none;
+        width: 60px;
+        height: 40px;
+        position: relative;
+        -webkit-transform: translateZ(1px);
+        -moz-transform: translateZ(1px);
+        -ms-transform: translateZ(1px);
+        -o-transform: translateZ(1px);
+        transform: translateZ(1px);
+        z-index: 2;
+      }
+      .menu .top .search input:focus {
+        width: 200px;
+        color: #fff;
+      }
+      .menu .top .search:after {
+        content: "\f002";
+        font-family: "FontAwesome";
+        font-size: 16px;
+        position: absolute;
+        color: #fff;
+        top: 11px;
+        right: 18px;
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+        -webkit-transform: translateZ(1px);
+        -moz-transform: translateZ(1px);
+        -ms-transform: translateZ(1px);
+        -o-transform: translateZ(1px);
+        transform: translateZ(1px);
+        z-index: 1;
+      }
+      .menu .top .exit {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        outline: 0 none;
+        cursor: pointer;
+        -webkit-transform: translateZ(1px);
+        -moz-transform: translateZ(1px);
+        -ms-transform: translateZ(1px);
+        -o-transform: translateZ(1px);
+        transform: translateZ(1px);
+        z-index: 2;
+      }
+      .menu .top .exit:focus,
+      .menu .top .exit:active {
+        border: 1px solid #fff;
+        border-radius: 20px;
+      }
+      .menu .top .exit:before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        width: 30px;
+        height: 30px;
+        top: 14px;
+        left: -6px;
+        border-width: 0 2px 0 0;
+        border-style: solid;
+        border-color: #fff;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        z-index: 1;
+      }
+      .menu .top .exit:after {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        width: 30px;
+        height: 30px;
+        top: -6px;
+        left: -6px;
+        border-width: 0 2px 0 0;
+        border-style: solid;
+        border-color: #fff;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+      .menu .middle {
+        position: relative;
+        min-height: 40px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
+      .menu .middle li {
+        margin: 0;
+        padding: 15px 0 15px 40px;
+        outline: 0 none;
+        position: relative;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: translateZ(1px);
+        -moz-transform: translateZ(1px);
+        -ms-transform: translateZ(1px);
+        -o-transform: translateZ(1px);
+        transform: translateZ(1px);
+        z-index: 1;
+      }
+      .menu .middle li:hover {
+        -webkit-box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+        -moz-box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+        box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+      }
+      .menu .middle li:hover:before,
+      .menu .middle li:focus:before {
+        content: "\f0da";
+        font-family: "FontAwesome";
+        font-size: 16px;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+      }
+      .menu .middle li:focus,
+      .menu .middle li:focus:after {
+        color: #3eac9e;
+        background-color: #62278d;
+      }
+      .menu .middle li .fa {
+        padding-right: 15px;
+      }
+      .menu .middle li:focus:after,
+      .menu .middle li:hover:after {
+        content: "";
+        position: absolute;
+        height: 48px;
+        width: 30px;
+        top: 0px;
+        right: -30px;
+        -webkit-transform: rotateY(90deg) translateZ(-14px) translateX(15px);
+        -moz-transform: rotateY(90deg) translateZ(-14px) translateX(15px);
+        -ms-transform: rotateY(90deg) translateZ(-14px) translateX(15px);
+        -o-transform: rotateY(90deg) translateZ(-14px) translateX(15px);
+        transform: rotateY(90deg) translateZ(-14px) translateX(15px);
+        pointer-events: none;
+      }
+      .menu .middle li:hover:after {
+        -webkit-box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+        -moz-box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+        box-shadow: inset 0 0 80px 0 rgba(255, 255, 255, 0.3);
+      }
+      .menu .bottom {
+        height: 40px;
+      }
+      .menu-back {
+        position: absolute;
+        background: transparent;
+        top: -20px;
+        left: 0;
+        width: 300px;
+        height: 540px;
+        -webkit-transform: translateZ(-29px);
+        -moz-transform: translateZ(-29px);
+        -ms-transform: translateZ(-29px);
+        -o-transform: translateZ(-29px);
+        transform: translateZ(-29px);
+        -webkit-box-shadow: 100px 100px 50px -30px #111;
+        -moz-box-shadow: 100px 100px 50px -30px #111;
+        box-shadow: 100px 100px 50px -30px #111;
+        z-index: 0;
+      }
+      .glass-reflection {
+        position: absolute;
+        -webkit-transition: box-shadow 1s;
+        -moz-transition: box-shadow 1s;
+        -ms-transition: box-shadow 1s;
+        -o-transition: box-shadow 1s;
+        transition: box-shadow 1s;
+        -webkit-transform: rotateZ(-1deg) translateZ(1px) skewY(60deg);
+        -moz-transform: rotateZ(-1deg) translateZ(1px) skewY(60deg);
+        -ms-transform: rotateZ(-1deg) translateZ(1px) skewY(60deg);
+        -o-transform: rotateZ(-1deg) translateZ(1px) skewY(60deg);
+        transform: rotateZ(-1deg) translateZ(1px) skewY(60deg);
+
+        -webkit-box-shadow: inset 0px -40px 0px -50px rgba(255, 255, 255, 0);
+        -moz-box-shadow: inset 0px -40px 0px -50px rgba(255, 255, 255, 0);
+        box-shadow: inset 0px -40px 0px -50px rgba(255, 255, 255, 0);
+        border-radius: 200px 0 20px 0;
+        top: 85px;
+        left: 95px;
+        width: 200px;
+        height: 100px;
+        background-color: transparent;
+      }
+      input.toggle:checked ~ .menu .glass-reflection {
+        -webkit-box-shadow: inset 0px -40px 150px -50px
+          rgba(255, 255, 255, 0.15);
+        -moz-box-shadow: inset 0px -40px 150px -50px rgba(255, 255, 255, 0.15);
+        box-shadow: inset 0px -40px 150px -50px rgba(255, 255, 255, 0.15);
+      }
+
+      .container2 {
+        position: absolute;
+        top: 80%;
+        left: 20%;
+      }
+
+      .square2 {
+        width: 8px;
+        height: 30px;
+        background: rgb(71, 195, 248);
+        border-radius: 10px;
+        display: block;
+        /*margin:10px;*/
+        -webkit-animation: turn 3s ease infinite;
+        animation: turn 3s ease infinite;
+        box-shadow: rgb(71, 195, 248) 0px 1px 15px 0px;
+      }
+
+      .top2 {
+        position: absolute;
+        left: 40%;
+        top: 50%;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      .bottom2 {
+        position: absolute;
+        left: 40%;
+        top: 50%;
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+      }
+
+      .left2 {
+        position: absolute;
+        left: 40%;
+        top: 50%;
+      }
+
+      .right2 {
+        position: absolute;
+        left: 40%;
+        top: 50%;
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+      }
+
+      @-webkit-keyframes turn {
+        0% {
+          transform: translateX(0) translateY(0) rotate(0);
+        }
+
+        50% {
+          transform: translateX(400%) translateY(100%) rotate(90deg);
+        }
+
+        100% {
+          transform: translateX(0) translateY(0) rotate(0);
+        }
+      }
+
+      @keyframes turn {
+        0% {
+          transform: translateX(0) translateY(0) rotate(0);
+        }
+
+        70% {
+          transform: translateX(400%) translateY(100%) rotate(90deg);
+        }
+
+        100% {
+          transform: translateX(0) translateY(0) rotate(0);
+        }
+      }
+
+      @media (max-width: 1000px) {
+        .container {
+          transform: scale(0.6);
+          top: -40vh;
+        }
+        .wrapper .smoke {
+          font-size: 6vw;
+        }
+        .wrapper .water {
+          font-size: 6vw;
+        }
+      }
+      @media (max-width: 700px) {
+        .container {
+          transform: scale(0.5);
+          left: 10vw;
+        }
+        .button-wrapper {
+          left: -20vw;
+        }
+        .wrapper .smoke {
+          filter: url(#smoke) blur(2px) opacity(1);
+        }
+        .smoke::before {
+          filter: url(#smoke) drop-shadow(0 0 40px #ffffff) blur(60px);
+        }
+      }
+      @media (max-width: 430px) {
+        .wrapper {
+          margin-top: -60vh;
+        }
+        .button-wrapper {
+          left: -1.5vw;
+          top: -5vh;
+          transform: scale(0.8);
+        }
+        .container {
+          margin-top: 9vh;
+          left: -10vw;
+        }
+        .container2 {
+          left: 65vw;
+        }
+        .smoke::before {
+          filter: url(#smoke) drop-shadow(0 0 40px #ffffff) blur(40px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="space-canvas"></canvas>
+    <div class="advanced" id="advanced-section">
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
+        rel="stylesheet"
+      />
+
+      <svg viewport="0 0 1024 362" width="1024" height="362">
+        <filter id="water">
+          <feImage
+            xlink:href="https://moxsim.ru/codepen/016-text-art/ocean.jpg"
+            result="IMAGE"
+          ></feImage>
+
+          <feTurbulence
+            id="turbulence"
+            in="IMAGE"
+            baseFrequency="0.01"
+            numOctaves="2"
+            result="NOISE"
+          ></feTurbulence>
+
+          <feDisplacementMap
+            in="IMAGE"
+            in2="NOISE"
+            scale="30"
+            result="DISPLACE"
+          ></feDisplacementMap>
+          <animate
+            xlink:href="#turbulence"
+            attributeName="baseFrequency"
+            dur="40s"
+            keyTimes="0;0.5;1"
+            values="0.01 0.02;0.02 0.04;0.01 0.02"
+            repeatCount="indefinite"
+          ></animate>
+          <feComposite
+            operator="in"
+            in="DISPLACE"
+            in2="SourceGraphic"
+          ></feComposite>
+        </filter>
+
+        <filter id="smoke">
+          <feTurbulence
+            id="smoke-turbulence"
+            type="fractalNoise"
+            baseFrequency="0.01"
+            numOctaves="3"
+          >
+            <animate
+              xlink:href="#smoke-turbulence"
+              attributeName="baseFrequency"
+              dur="40s"
+              keyTimes="0;0.5;1"
+              values="0.01 0.02;0.02 0.04;0.01 0.02"
+              repeatCount="indefinite"
+            ></animate>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" scale="30"></feDisplacementMap>
+        </filter>
+      </svg>
+
+      <div class="wrapper">
+        <p class="smoke" data-text="SMOKE">ANIMACIONES<br />AVANZADAS</p>
+        <p class="water">ANIMACIONES<br />AVANZADAS</p>
+      </div>
+      <div class="button-wrapper">
+        <button class="spiderverse-button">
+          CLICK ME
+          <div class="glitch-layers">
+            <div class="glitch-layer layer-1">CLICK ME</div>
+            <div class="glitch-layer layer-2">CLICK ME</div>
+          </div>
+          <div class="noise"></div>
+          <div class="glitch-slice"></div>
+        </button>
+      </div>
+
+      <div class="container2">
+        <div class="top2">
+          <div class="square2">
+            <div class="square2">
+              <div class="square2">
+                <div class="square2">
+                  <div class="square2"><div class="square2"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom2">
+          <div class="square2">
+            <div class="square2">
+              <div class="square2">
+                <div class="square2">
+                  <div class="square2"><div class="square2"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="left2">
+          <div class="square2">
+            <div class="square2">
+              <div class="square2">
+                <div class="square2">
+                  <div class="square2"><div class="square2"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right2">
+          <div class="square2">
+            <div class="square2">
+              <div class="square2">
+                <div class="square2">
+                  <div class="square2"><div class="square2"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <input
+          type="checkbox"
+          class="toggle"
+          id="toggle"
+          checked="checked"
+        /><label class="toggle" for="toggle"> Mueve el Celular</label>
+        <div class="menu">
+          <div class="top">
+            <span class="search">
+              <input type="text" />
+            </span>
+          </div>
+          <ul class="middle">
+            <li tabindex="0"><i class="fa fa-calendar"></i>Calendario</li>
+            <li tabindex="0"><i class="fa fa-camera"></i>Fotos</li>
+            <li tabindex="0"><i class="fa fa-check-square-o"></i>Tareas</li>
+            <li tabindex="0"><i class="fa fa-map-marker"></i>Lugares</li>
+            <li tabindex="0"><i class="fa fa-codepen"></i>Animaciones</li>
+            <li tabindex="0"><i class="fa fa-dribbble"></i>Calculadora</li>
+            <li tabindex="0"><i class="fa fa-user"></i>Usuario</li>
+            <li tabindex="0"><i class="fa fa-cogs"></i>Configuración</li>
+          </ul>
+          <div class="bottom"></div>
+          <div class="menu-back"></div>
+          <div class="glass-reflection"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Código existente para el cursor personalizado
+      document.addEventListener("DOMContentLoaded", () => {
+        const cursor = document.getElementById("custom-cursor");
+        const intermediateSection = document.querySelector(".intermediate");
+
+        document.addEventListener("mousemove", (e) => {
+          const rect = intermediateSection.getBoundingClientRect();
+          const isInside =
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom;
+
+          if (isInside) {
+            cursor.style.display = "block";
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+          } else {
+            cursor.style.display = "none";
+          }
+        });
+      });
+    </script>
+    <script>
+      // filepath: c:\Users\Admin\Desktop\arkastech.com\SenMedAvz.html
+      document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.getElementById("space-canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Ajustar el tamaño del canvas
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        // Crear estrellas
+        const stars = Array.from({ length: 200 }, () => ({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2,
+          speed: Math.random() * 0.5 + 0.2,
+        }));
+
+        // Crear planetas con movimiento circular
+        const planets = [
+          {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: 50,
+            color: "blue",
+            angle: 0,
+            speed: 0.01,
+            trail: [],
+          },
+          {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: 30,
+            color: "red",
+            angle: Math.PI / 2,
+            speed: 0.02,
+            trail: [],
+          },
+          {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: 40,
+            color: "green",
+            angle: Math.PI,
+            speed: 0.015,
+            trail: [],
+          },
+        ];
+
+        // Función para dibujar un planeta con gradiente, sombra y textura
+        function drawPlanet(x, y, radius, color) {
+          const gradient = ctx.createRadialGradient(
+            x - radius / 3,
+            y - radius / 3,
+            radius / 5,
+            x,
+            y,
+            radius
+          );
+          gradient.addColorStop(0, "white");
+          gradient.addColorStop(0.5, color);
+          gradient.addColorStop(1, "black");
+
+          ctx.beginPath();
+          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+        }
+
+        // Función para dibujar anillos alrededor del planeta
+        function drawRings(x, y, radius, color) {
+          ctx.beginPath();
+          ctx.ellipse(
+            x,
+            y,
+            radius * 1.5,
+            radius * 0.5,
+            Math.PI / 4,
+            0,
+            Math.PI * 2
+          );
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 2;
+          ctx.globalAlpha = 0.5;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+
+        // Función para dibujar la estela de un planeta
+        function drawTrail(trail, color) {
+          for (let i = 0; i < trail.length - 2; i++) {
+            const [x1, y1] = trail[i];
+            const [x2, y2] = trail[i + 1];
+            const opacity = (i + 1) / trail.length; // Opacidad basada en la posición en el rastro
+
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 4;
+            ctx.globalAlpha = opacity; // Aplicar opacidad decreciente
+            ctx.stroke();
+          }
+          ctx.globalAlpha = 1; // Restaurar opacidad
+        }
+
+        // Evento para añadir una estrella al hacer clic
+        canvas.addEventListener("click", (e) => {
+          stars.push({
+            x: e.clientX,
+            y: e.clientY,
+            radius: Math.random() * 2 + 1,
+            speed: Math.random() * 0.5 + 0.2,
+          });
+        });
+
+        // Animar el espacio
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Dibujar estrellas
+          stars.forEach((star) => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            star.y += star.speed;
+            if (star.y > canvas.height) star.y = 0;
+          });
+
+          // Dibujar planetas con movimiento elíptico, anillos y estelas
+          planets.forEach((planet) => {
+            planet.angle += planet.speed;
+            const ellipseWidth = 300; // Ancho del recorrido aumentado
+            const ellipseHeight = 150; // Altura del recorrido aumentada
+            const newX =
+              canvas.width / 2 + Math.cos(planet.angle) * ellipseWidth;
+            const newY =
+              canvas.height / 2 + Math.sin(planet.angle) * ellipseHeight;
+
+            planet.trail.push([newX, newY]);
+            if (planet.trail.length > 20) planet.trail.shift(); // Limitar la longitud de la estela
+
+            drawTrail(planet.trail, planet.color); // Dibujar la estela
+            drawRings(newX, newY, planet.radius, planet.color); // Dibujar los anillos
+            drawPlanet(newX, newY, planet.radius, planet.color); // Dibujar el planeta
+          });
+
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+      });
+    </script>
+  </body>
+</html>

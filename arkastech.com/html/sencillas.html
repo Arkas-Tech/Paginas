@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones</title>
+    <style>
+      body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          overflow: hidden;
+      }
+      .simple {
+          background-color: transparent; 
+          width: 80vw;
+          height: 80vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: #3498db;
+          font-size: 2rem;
+          padding: 20px;
+          box-sizing: border-box;
+          margin-left: 10vw;
+          top: 0;
+      }
+
+      .simple h1 {
+          width: 100vw;
+          margin-top: 0vh;
+          margin-left: 62vw;
+          font-size: 3.5vw;
+          color: #3498db;
+          animation: animacionH1 10s infinite;
+      }
+
+      @keyframes animacionH1 {
+        0% {
+          opacity: 0.2;
+          transform: translate(0, 0);
+        }
+        20% {
+          opacity: 1;
+          transform: translate(0, -20px); /* Subir */
+        }
+        40% {
+          transform: translate(0, 20px); /* Bajar */
+        }
+        60% {
+          transform: translate(50px, 0); /* A un lado */
+        }
+        80% {
+          transform: translate(-50px, 0); /* Al otro lado */
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.2;
+          transform: translate(0, 0);
+        }
+      }
+      
+      .buttons-coll {
+        width: 50%;
+        margin: 50px auto;
+        text-align: center;
+      }
+      button {
+        margin: 20px;
+        color: white;
+      }
+      .custom-btn {
+        padding: 10px 25px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        background: transparent;
+        outline: none !important;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+      }
+      .btn-1 {
+        border: 2px solid white;
+      }
+      .btn-1:hover {
+        background: white;
+        color: black;
+      }
+      .btn-1:active {
+        top: 2px;
+      }
+      .btn-2 {
+        border: none;
+        border-bottom: 2px solid white;
+        border-left: 2px solid white;
+      }
+      .btn-2:before,
+      .btn-2:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      .btn-2:before {
+        height: 0%;
+        width: 2px;
+      }
+      .btn-2:after {
+        width: 0%;
+        height: 2px;
+      }
+      .btn-2:hover:before {
+        height: 100%;
+      }
+      .btn-2:hover:after {
+        width: 100%;
+      }
+      .btn-4 {
+        width: 130px;
+        height: 40px;
+        line-height: 42px;
+        padding: 0;
+        border: none;
+      }
+      .btn-4 span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .btn-4:before,
+      .btn-4:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      .btn-4:before {
+        height: 50%;
+        width: 2px;
+      }
+      .btn-4:after {
+        width: 20%;
+        height: 2px;
+      }
+      .btn-4:hover:before {
+        height: 100%;
+      }
+      .btn-4:hover:after {
+        width: 100%;
+      }
+      .btn-4 span:before,
+      .btn-4 span:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      .btn-4 span:before {
+        width: 2px;
+        height: 50%;
+      }
+      .btn-4 span:after {
+        width: 20%;
+        height: 2px;
+      }
+      .btn-4 span:hover:before {
+        height: 100%;
+      }
+      .btn-4 span:hover:after {
+        width: 100%;
+      }
+      .btn-6 {
+        width: 130px;
+        height: 40px;
+        line-height: 42px;
+        padding: 0;
+        border: none;
+      }
+      .btn-6 span {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .btn-6:before,
+      .btn-6:after {
+        position: absolute;
+        content: "";
+        height: 0%;
+        width: 2px;
+        background: white;
+      }
+      .btn-6:before {
+        right: 0;
+        top: 0;
+        transition: all 0.1s ease;
+      }
+      .btn-6:after {
+        left: 0;
+        bottom: 0;
+        transition: all 0.1s 0.2s ease;
+      }
+      .btn-6:hover:before {
+        transition: all 0.1s 0.2s ease;
+        height: 100%;
+      }
+      .btn-6:hover:after {
+        transition: all 0.1s ease;
+        height: 100%;
+      }
+      .btn-6 span:before,
+      .btn-6 span:after {
+        position: absolute;
+        content: "";
+        background: white;
+      }
+      .btn-6 span:before {
+        left: 0;
+        top: 0;
+        width: 0%;
+        height: 2px;
+        transition: all 0.1s 0.1s ease;
+      }
+      .btn-6 span:after {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+      }
+      .btn-6 span:hover:before {
+        width: 100%;
+      }
+
+      /**** BTN No. 12 ****/
+      .btn-12 {
+        border: 2px solid white;
+        z-index: 1;
+      }
+      .btn-12:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      .btn-12:hover {
+        color: black;
+      }
+      .btn-12:hover:after {
+        top: 0;
+        height: 100%;
+      }
+      .btn-12:active {
+        top: 2px;
+      }
+
+      .loaders {
+        display: flex;
+        left: 0;
+        width: 100vw;
+      }
+
+      .loader1 {
+        display: block;
+        --height-of-loader: 4px;
+        --loader-color: #0071e2;
+        width: 130px;
+        height: var(--height-of-loader);
+        border-radius: 30px;
+        background-color: rgba(255, 255, 255, 0.2);
+        position: relative;
+        margin-left: 20vw;
+      }
+
+      .loader1::before {
+        content: "";
+        position: absolute;
+        background: var(--loader-color);
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        border-radius: 30px;
+        animation: moving 1s ease-in-out infinite;
+        ;
+      }
+
+      @keyframes moving {
+        50% {
+          width: 100%;
+        }
+
+        100% {
+          width: 0;
+          right: 0;
+          left: unset;
+        }
+      }
+      .newtons-cradle {
+      --uib-size: 50px;
+      --uib-speed: 1.2s;
+      --uib-color: #fafafa;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--uib-size);
+      height: var(--uib-size);
+      left: 18vw;
+      margin-top: -6vh;
+      }
+
+      .newtons-cradle__dot {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 25%;
+      transform-origin: center top;
+      }
+
+      .newtons-cradle__dot::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 25%;
+      border-radius: 50%;
+      background-color: var(--uib-color);
+      }
+
+      .newtons-cradle__dot:first-child {
+      animation: swing var(--uib-speed) linear infinite;
+      }
+
+      .newtons-cradle__dot:last-child {
+      animation: swing2 var(--uib-speed) linear infinite;
+      }
+
+      @keyframes swing {
+      0% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+      }
+
+      25% {
+        transform: rotate(70deg);
+        animation-timing-function: ease-in;
+      }
+
+      50% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+      }
+      }
+
+      @keyframes swing2 {
+      0% {
+        transform: rotate(0deg);
+        animation-timing-function: linear;
+      }
+
+      50% {
+        transform: rotate(0deg);
+        animation-timing-function: ease-out;
+      }
+
+      75% {
+        transform: rotate(-70deg);
+        animation-timing-function: ease-in;
+      }
+      }
+
+      svg {
+      width: 3.25em;
+      transform-origin: center;
+      animation: rotate4 2s linear infinite;
+      margin-left: 40vw;
+      margin-top: -10vh;
+      }
+
+      circle {
+      fill: none;
+      stroke: hsl(214, 97%, 59%);
+      stroke-width: 3;
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      stroke-linecap: round;
+      animation: dash4 1.5s ease-in-out infinite;
+      }
+
+      @keyframes rotate4 {
+      100% {
+        transform: rotate(360deg);
+      }
+      }
+
+      @keyframes dash4 {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+
+      50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+      }
+
+      100% {
+        stroke-dashoffset: -125px;
+      }
+      }
+
+      @media (max-width: 768px) {
+        .simple .simple-content h1 {
+          margin-top: -10vh;
+          margin-left: 50vw;
+          font-size: 5vw;
+        }
+        .buttons-coll {
+          margin-top: 10vh;
+          gap: 2px;
+        }
+        button {
+          margin-top: 0;
+        }
+        .loaders {
+          flex-direction: column;
+          margin-top: -10vh;
+          margin-left: 20vw;
+        }
+        .newtons-cradle {
+          margin-top: 3vh;
+          margin-left: 10vw;
+        }
+        svg {
+          margin-top: 3vh;
+          margin-left: 28vw;
+        }
+      }
+      @media (max-width: 650px) {
+        .loaders {
+          margin-left: 15vw;
+        }
+      }
+      @media (max-width: 430px) {
+        .simple .simple-content h1 {
+          margin-top: 6vh;
+          margin-bottom: -7vh;
+        }
+      }
+      
+      </style>
+  </head>
+  <body>
+    <div id="custom-cursor"></div>
+    <div class="simple">
+        <div class="simple-content">
+            <h1>Animaciones Sencillas</h1>
+            <div class="buttons-coll">
+              <button class="custom-btn btn-1">Click me</button>
+              <button class="custom-btn btn-2">Click me</button>
+              <button class="custom-btn btn-4"><span>Click me</span></button>
+              <button class="custom-btn btn-6"><span>Click me</span></button>
+              <button class="custom-btn btn-12">Click me</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="loaders">
+          <div class="loader1"></div>
+
+          <div class="newtons-cradle">
+            <div class="newtons-cradle__dot"></div>
+            <div class="newtons-cradle__dot"></div>
+            <div class="newtons-cradle__dot"></div>
+            <div class="newtons-cradle__dot"></div>
+          </div>
+
+          <svg viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+          </svg>
+        </div>
+    </div>
+  </body>

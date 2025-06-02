@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conoce a Arkas Tech | Tu Aliado en la Digitalización de Negocios</title>
+    <meta
+      name="description"
+      content="Somos un equipo apasionado por la tecnología y el crecimiento empresarial. En Arkas Tech ayudamos a negocios como el tuyo a conquistar el mundo digital."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/0ef5c927253f0c37b54e6f94cd732784?family=Neue+Kabel+W01+Black" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.20/dist/lenis.css">
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --size: 20px;
+      }
+      .el {
+        position: fixed;
+        background: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#eec32d 72.0000010728836deg,#ec4b4b 144.0000021457672deg,#709ab9 216.00000858306885deg,#4dffbf 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
+        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+        mask:
+          radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+          url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px 256px;
+        mask-composite: intersect;
+        animation: flicker 20s infinite linear;
+      }
+
+      @keyframes flicker {
+        to {
+          mask-position: 50% 50%, 0 50%;
+        }
+      }
+
+      #splash {
+        background: black;
+        background-repeat: repeat-y;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        animation: splash 3s ease-in;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        z-index: 999;
+      }
+      
+      #loader {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%,0);
+      }
+      
+      #loader:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        margin-left: -8px;
+        bottom: -170px;
+        width: 3px;
+        background: #fff;
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+        height: 200px;
+      }
+      
+      #loader:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        margin-left: 8px;
+        bottom: -190px;
+        width: 3px;
+        background: #000;
+        background: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(0,0,0,.2) 50%, rgba(0,0,0,0) 100%);
+        height: 200px;
+      }
+      
+      #splash .anim {
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        width: 100px;
+        transform: translate(-50%,100%);
+        animation: loader 4s linear;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
+      
+      @keyframes loader {
+        0% {
+          transform: translate(-50%,110%);
+        }
+        30% {
+          transform: translate(-50%,50%);
+        }
+        100% {
+          transform: translate(-50%,0%);
+          display: none;
+        }
+      }
+      
+      @keyframes splash {
+        0% {
+          transform: translate(0%,0%);
+        }
+        50% {
+          transform: translate(0%,0%);
+        }
+        100% {
+          transform: translate(0%,-100%);
+          display: none;
+        }
+      }
+      
+    </style>
+  </head>
+  <style>
+
+  </style>
+  <body>
+    <div class="el">
+    </div>
+
+    <header>
+      <div class="header-content">
+        <nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="soluciones">Soluciones</a></li>
+            <li><a href="nosotros">Nosotros</a></li>
+          </ul>
+        </nav>
+    
+        <a href="/" class="logo-link">
+          <img src="static/logo.svg" alt="Logo" />
+        </a>
+      </div>
+
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox" class="toggle" onclick="toggleMenu()">
+            <div class="bars" id="bar1"></div>
+            <div class="bars" id="bar2"></div>
+            <div class="bars" id="bar3"></div>
+        </label>
+
+      <div id="fullscreenMenu" class="dropdown-menu">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="soluciones">Soluciones</a></li>
+          <li><a href="nosotros">Nosotros</a></li>
+        </ul>
+      </div>
+
+      <div class="header-social-icons">
+        <a href="https://www.instagram.com/arkas_tech?igsh=MWk4NW5ncTB1Mm9nYg==" target="_blank" aria-label="Instagram">
+          <img src="/static/instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://github.com/Arkas-Tech" target="_blank" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.096.81 2.21 0 1.595-.015 2.88-.015 3.27 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/arkastech" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.601 0 4.268 2.37 4.268 5.455v6.288zM5.337 7.433c-1.144 0-2.067-.926-2.067-2.067 0-1.144.926-2.067 2.067-2.067 1.144 0 2.067.926 2.067 2.067 0 1.144-.926 2.067-2.067 2.067zM6.789 20.452H3.884V9h2.905v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451c.979 0 1.771-.774 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+
+    <div id="splash">
+      <div class="anim">
+        <div id="loader">
+          <svg version="1.1" width="60px" height="70px" viewBox="0 0 60 70">
+            <defs>
+              <filter id="f1" x="0" y="0">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+              </filter>
+            </defs>
+            <g id="airplane">
+              <path fill="white" d="M0.677,20.977l4.355,1.631c0.281,0.104,0.579,0.162,0.88,0.16l9.76-0.004L30.46,41.58c0.27,0.34,0.679,0.545,1.112,0.541
+              h1.87c0.992,0,1.676-0.992,1.322-1.918l-6.643-17.439l6.914,0.002l6.038,6.037c0.265,0.266,0.624,0.412,0.999,0.418l1.013-0.004
+              c1.004-0.002,1.684-1.012,1.312-1.938l-2.911-7.277l2.912-7.278c0.372-0.928-0.313-1.941-1.313-1.938h1.017
+              c-0.375,0-0.732,0.15-0.996,0.414l-6.039,6.039h-6.915l6.646-17.443c0.354-0.926-0.33-1.916-1.321-1.914l-1.87-0.004
+              c-0.439,0.004-0.843,0.203-1.112,0.543L15.677,17.24l-9.765-0.002c-0.3,0.002-0.597,0.055-0.879,0.16L0.678,19.03
+              C-0.225,19.36-0.228,20.637,0.677,20.977z" transform="translate(44,0) rotate(90 0 0)" />
+            </g>
+            <g id="shadow" transform="scale(.9)">
+              <path fill="#000" fill-opacity="0.3" d="M0.677,20.977l4.355,1.631c0.281,0.104,0.579,0.162,0.88,0.16l9.76-0.004L30.46,41.58c0.27,0.34,0.679,0.545,1.112,0.541
+              h1.87c0.992,0,1.676-0.992,1.322-1.918l-6.643-17.439l6.914,0.002l6.038,6.037c0.265,0.266,0.624,0.412,0.999,0.418l1.013-0.004
+              c1.004-0.002,1.684-1.012,1.312-1.938l-2.911-7.277l2.912-7.278c0.372-0.928-0.313-1.941-1.313-1.938h1.017
+              c-0.375,0-0.732,0.15-0.996,0.414l-6.039,6.039h-6.915l6.646-17.443c0.354-0.926-0.33-1.916-1.321-1.914l-1.87-0.004
+              c-0.439,0.004-0.843,0.203-1.112,0.543L15.677,17.24l-9.765-0.002c-0.3,0.002-0.597,0.055-0.879,0.16L0.678,19.03
+              C-0.225,19.36-0.228,20.637,0.677,20.977z" transform="translate(64,30) rotate(90 0 0)" filter="url(#f1)" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="n1">
+      <h1>Arkas Tech</h1>
+      <div style="width: 80vw; height: 2px; background: linear-gradient(to right, transparent, rgb(45, 222, 245), transparent); margin-top: 1vw; z-index: 100;"></div>
+      <p>Dedicados al crecimiento y evolucion digital de tu negocio</p>
+    </div>
+
+    <div class="n3">
+      <div class="ntexto">
+        <p>
+          <span>En</span> <span>ArkasTech,</span> <span>nuestra</span> <span>misión</span> <span>es</span> <span>llevar</span> <span>la</span> <span>innovación</span> <span>y</span> <span>el</span> <span>crecimiento</span> <span>digital</span> <span>más</span> <span>allá</span> <span>de</span> <span>los</span> <span>límites.</span></br></br>
+          <span>Creemos</span> <span>en</span> <span>impulsar</span> <span>a</span> <span>emprendedores</span> <span>y</span> <span>empresas</span> <span>a</span> <span>alcanzar</span> <span>su</span> <span>máximo</span> <span>potencial,</span> <span>porque</span> <span>el</span> <span>éxito</span> <span>se</span> <span>construye</span> <span>en</span> <span>equipo.</span>
+        </p>
+        <p>
+        </br>LOS LIMITES NO EXISTEN EN ARKAS TECH.
+        </p>
+      </div>
+    </div>
+    <div class="draggables">
+      <img src="static/nosotros/barbabigote.svg" alt="Barbabigote" class="draggable" id="barbabigote" />
+      <img src="static/nosotros/bigote.svg" alt="Bigote" class="draggable" id="bigote" />
+      <img src="static/nosotros/lentes1.svg" alt="Lentes1" class="draggable" id="lentes1" />
+      <img src="static/nosotros/lentes2.svg" alt="Lentes2" class="draggable" id="lentes2" />
+      <img src="static/nosotros/sombreromex.svg" alt="Sombreromex" class="draggable" id="sombreromex"/>
+      <img src="static/nosotros/sombrero.svg" alt="Sombrero" class="draggable" id="sombrero" />
+    </div>
+    
+    <style>
+      .draggables {
+        position: relative;
+        width: 100vw;
+        height: auto;
+        margin-top: 5vh;
+      }
+    
+      .draggable {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        cursor: grab;
+        z-index: 90;
+        user-select: none;
+      }
+    
+      .draggable:active {
+        cursor: grabbing;
+      }
+      #barbabigote {
+        top: 10vh;
+        left: 10vw;
+      }
+
+      #bigote {
+        top: 20vh;
+        left: 25vw;
+      }
+
+      #lentes1 {
+        top: 10vh;
+        left: 40vw;
+      }
+
+      #lentes2 {
+        top: 20vh;
+        left: 55vw;
+      }
+
+      #sombreromex {
+        top: 10vh;
+        left: 70vw;
+      }
+
+      #sombrero {
+        top: 20vh;
+        left: 85vw;
+      }
+    </style>
+<script>
+  const draggables = document.querySelectorAll('.draggable');
+
+  draggables.forEach(el => {
+    el.addEventListener('mousedown', startDrag);
+    el.addEventListener('touchstart', startDrag, { passive: false });
+
+    function startDrag(e) {
+      e.preventDefault();
+
+      const isTouch = e.type === 'touchstart';
+      const pageX = isTouch ? e.touches[0].pageX : e.pageX;
+      const pageY = isTouch ? e.touches[0].pageY : e.pageY;
+
+      const elLeft = el.offsetLeft;
+      const elTop = el.offsetTop;
+
+      const shiftX = pageX - elLeft;
+      const shiftY = pageY - elTop;
+
+      el.style.position = 'absolute';
+      el.style.zIndex = 1000;
+
+      moveAt(pageX, pageY);
+
+      function moveAt(pageX, pageY) {
+        el.style.left = pageX - shiftX + 'px';
+        el.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMove(e) {
+        const pageX = e.type.startsWith('touch') ? e.touches[0].pageX : e.pageX;
+        const pageY = e.type.startsWith('touch') ? e.touches[0].pageY : e.pageY;
+        moveAt(pageX, pageY);
+      }
+
+      function onEnd() {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onEnd);
+        document.removeEventListener('touchmove', onMove);
+        document.removeEventListener('touchend', onEnd);
+        el.style.zIndex = 90;
+      }
+
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onEnd);
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onEnd);
+    }
+
+    el.ondragstart = () => false;
+  });
+</script>
+
+    
+
+    <div class="n2">
+        <div class="goats">
+          <div class="goats-container">
+            <img src="static/nosotros/yc1.svg" alt="Yosmar Chavez" id="image-yosch" />
+            <div class="image-selector">
+              <div class="circle active" onclick="changeImage('image-yosch', 'static/nosotros/yc1.svg', this)"></div>
+              <div class="circle" onclick="changeImage('image-yosch', 'static/nosotros/yc2.svg', this)"></div>
+              <div class="circle" onclick="changeImage('image-yosch', 'static/nosotros/yc3.svg', this)"></div>
+            </div>
+            <div class="name-social">
+              <p class="name">Yosmar Chavez</p>
+              <a href="https://www.instagram.com/ca_yosmar" target="_blank" class="instagram-icon">
+                <img src="static/nosotros/iglogo.svg" alt="Instagram" />
+              </a>
+            </div>
+            <p class="position">Fundador</p>
+          </div>
+          
+          <div class="goats-container">
+            <img src="static/nosotros/ah1.svg" alt="Andrés Horcasitas" id="image-ah" />
+            <div class="image-selector">
+              <div class="circle active" onclick="changeImage('image-ah', 'static/nosotros/ah1.svg', this)"></div>
+              <div class="circle" onclick="changeImage('image-ah', 'static/nosotros/ah2.svg', this)"></div>
+              <div class="circle" onclick="changeImage('image-ah', 'static/nosotros/ah3.svg', this)"></div>
+            </div>
+            <div class="name-social">
+              <p class="name">Andrés Horcasitas</p>
+              <a href="https://www.instagram.com/andres_horca" target="_blank" class="instagram-icon">
+                <img src="static/nosotros/iglogo.svg" alt="Instagram" />
+              </a>
+            </div>
+            <p class="position">Fundador</p>
+          </div>
+        </div>
+    </div>
+    <style>
+      .image-selector {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        gap: 5px;
+        margin-top: 0vh;
+        z-index: 998;
+      }
+      .goats-container .name-social {
+        display: flex;
+        width: 100%;
+        gap: 1vw;
+        justify-content: center;
+        align-items: center;
+      }
+      .goats-container .instagram-icon img {
+        width: 35px;
+        margin-top: 1.2vh;
+        height: auto;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.3s;
+
+      }
+
+      .instagram-icon img:hover {
+        transform: scale(1.2); /* Efecto de hover */
+      }
+    
+      .circle {
+        width: 20px;
+        height: 20px;
+        margin-top: 2vh;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+    
+      .circle:hover {
+        background-color: rgb(130, 130, 130);
+      }
+      .circle.active {
+        background-color: rgb(30, 227, 224);
+      }
+      @media (max-width: 700px) {
+        .goats-container .name-social {
+          gap: 2vw;
+        }
+        .goats-container .instagram-icon img {
+          margin-top: 2.8vh;
+      }
+    }
+    </style>
+<script>
+  function changeImage(imageId, newSrc, circle) {
+    const image = document.getElementById(imageId);
+    if (image) {
+      image.src = newSrc;
+    }
+
+    // Remover la clase 'active' de todos los círculos hermanos
+    const circles = circle.parentElement.querySelectorAll('.circle');
+    circles.forEach(c => c.classList.remove('active'));
+
+    // Agregar la clase 'active' al círculo clicado
+    circle.classList.add('active');
+  }
+</script>
+
+<div class="draggables2">
+  <img src="static/nosotros/barbabigote.svg" alt="Barbabigote" class="draggable2" id="barbabigote" />
+  <img src="static/nosotros/lentes2.svg" alt="Lentes2" class="draggable2" id="lentes2" />
+  <img src="static/nosotros/sombrero.svg" alt="Sombrero" class="draggable2" id="sombrero" />
+</div>
+
+<style>
+  .draggables2 {
+    position: relative;
+    width: 90vw;
+    height: 20vw;
+    margin-top: -115vh;
+    margin-left: -5vw;
+  }
+
+  .draggable2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: grab;
+    z-index: 90;
+    user-select: none;
+  }
+
+  .draggable:active {
+    cursor: grabbing;
+  }
+
+  .draggables2 #barbabigote {
+    top: 20vh;
+    left: 10vw;
+  }
+
+  .draggables2 #lentes2 {
+    top: 20vh;
+    left: 47vw;
+  }
+
+  .draggables2 #sombrero {
+    top: 20vh;
+    left: 80vw;
+  }
+  @media (min-width: 701px) {
+    .draggables2 {
+      display: none;
+    }
+  } 
+</style>
+<script>
+const draggables2 = document.querySelectorAll('.draggable2');
+
+draggables2.forEach(el => {
+el.addEventListener('mousedown', startDrag);
+el.addEventListener('touchstart', startDrag, { passive: false });
+
+function startDrag(e) {
+  e.preventDefault();
+
+  const isTouch = e.type === 'touchstart';
+  const pageX = isTouch ? e.touches[0].pageX : e.pageX;
+  const pageY = isTouch ? e.touches[0].pageY : e.pageY;
+
+  const elLeft = el.offsetLeft;
+  const elTop = el.offsetTop;
+
+  const shiftX = pageX - elLeft;
+  const shiftY = pageY - elTop;
+
+  el.style.position = 'absolute';
+  el.style.zIndex = 1000;
+
+  moveAt(pageX, pageY);
+
+  function moveAt(pageX, pageY) {
+    el.style.left = pageX - shiftX + 'px';
+    el.style.top = pageY - shiftY + 'px';
+  }
+
+  function onMove(e) {
+    const pageX = e.type.startsWith('touch') ? e.touches[0].pageX : e.pageX;
+    const pageY = e.type.startsWith('touch') ? e.touches[0].pageY : e.pageY;
+    moveAt(pageX, pageY);
+  }
+
+  function onEnd() {
+    document.removeEventListener('mousemove', onMove);
+    document.removeEventListener('mouseup', onEnd);
+    document.removeEventListener('touchmove', onMove);
+    document.removeEventListener('touchend', onEnd);
+    el.style.zIndex = 90;
+  }
+
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseup', onEnd);
+  document.addEventListener('touchmove', onMove, { passive: false });
+  document.addEventListener('touchend', onEnd);
+}
+
+el.ondragstart = () => false;
+});
+</script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const ntexto = document.querySelector(".ntexto");
+      
+        if (ntexto) {
+          // Divide el texto en palabras y envuélvelas en spans
+          const words = ntexto.innerHTML.split(" ");
+          ntexto.innerHTML = words
+            .map((word) => `<span>${word}</span>`)
+            .join(" ");
+      
+          const spans = ntexto.querySelectorAll("span");
+      
+          let lastScrollTop = 0; // Para rastrear la dirección del scroll
+      
+          // Detecta el scroll y cambia el color de las palabras
+          window.addEventListener("scroll", () => {
+            const rect = ntexto.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+      
+            if (rect.top < windowHeight && rect.bottom > 0) {
+              const scrollTop = window.scrollY;
+      
+              spans.forEach((span, index) => {
+                const delay = index / spans.length;
+      
+                if (scrollTop > lastScrollTop) {
+                  // Scroll hacia abajo: pinta las palabras
+                  if (rect.top < windowHeight * (1 - delay) && !span.classList.contains("painted")) {
+                    span.style.color = "white";
+                    span.classList.add("painted"); // Marca el span como pintado
+                  }
+                }
+              });
+      
+              lastScrollTop = scrollTop; // Actualiza la posición del scroll
+            }
+          });
+        }
+      });
+      </script>
+
+
+      <div id="footer-container">
+        <div class="footer-content">
+          <div class="footer-logo-container">
+            <img src="static/logo.svg" alt="Logo" class="footer-logo" />
+          </div>
+      
+          <div class="footer-center">
+            <p id="footer-hashtag">#FUTUROSINLIMITES</p>
+            <div class="social-icons">
+              <section class="flex justify-center items-center" style="gap: 2vw; height: 4vh; margin-bottom: 2vh;">
+                <a
+                  href="https://www.linkedin.com/company/arkastech"
+                  target="_blank"
+                  class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-[#0077b5] from-gray-800 text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1.1em"
+                    viewBox="0 0 512 512"
+                    stroke-width="0"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"
+                    ></path>
+                  </svg>
+                  <span
+                    class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                  >
+                    Linkedin
+                  </span>
+                </a>
+                <a
+                  class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                  href="https://github.com/Arkas-Tech"
+                  target="_blank"
+                  >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 15 15"
+                    class="w-5"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      fill-rule="evenodd"
+                      fill="currentColor"
+                      d="M7.49933 0.25C3.49635 0.25 0.25 3.49593 0.25 7.50024C0.25 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z"
+                    ></path>
+                  </svg>
+                  <span
+                    class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                  >
+                    GitHub
+                  </span>
+                </a>
+                <a
+                  href="https://www.instagram.com/arkas_tech?igsh=MWk4NW5ncTB1Mm9nYg=="
+                  target="_blank"
+                  class="group flex justify-center p-2 rounded-md drop-shadow-xl from-gray-800 bg-[#a21caf] text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                  >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1.2em"
+                    viewBox="0 0 24 24"
+                    stroke-width="1"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    class="w-5"
+                  >
+                    <path
+                      d="M12.001 9C10.3436 9 9.00098 10.3431 9.00098 12C9.00098 13.6573 10.3441 15 12.001 15C13.6583 15 15.001 13.6569 15.001 12C15.001 10.3427 13.6579 9 12.001 9ZM12.001 7C14.7614 7 17.001 9.2371 17.001 12C17.001 14.7605 14.7639 17 12.001 17C9.24051 17 7.00098 14.7629 7.00098 12C7.00098 9.23953 9.23808 7 12.001 7ZM18.501 6.74915C18.501 7.43926 17.9402 7.99917 17.251 7.99917C16.5609 7.99917 16.001 7.4384 16.001 6.74915C16.001 6.0599 16.5617 5.5 17.251 5.5C17.9393 5.49913 18.501 6.0599 18.501 6.74915ZM12.001 4C9.5265 4 9.12318 4.00655 7.97227 4.0578C7.18815 4.09461 6.66253 4.20007 6.17416 4.38967C5.74016 4.55799 5.42709 4.75898 5.09352 5.09255C4.75867 5.4274 4.55804 5.73963 4.3904 6.17383C4.20036 6.66332 4.09493 7.18811 4.05878 7.97115C4.00703 9.0752 4.00098 9.46105 4.00098 12C4.00098 14.4745 4.00753 14.8778 4.05877 16.0286C4.0956 16.8124 4.2012 17.3388 4.39034 17.826C4.5591 18.2606 4.7605 18.5744 5.09246 18.9064C5.42863 19.2421 5.74179 19.4434 6.17187 19.6094C6.66619 19.8005 7.19148 19.9061 7.97212 19.9422C9.07618 19.9939 9.46203 20 12.001 20C14.4755 20 14.8788 19.9934 16.0296 19.9422C16.8117 19.9055 17.3385 19.7996 17.827 19.6106C18.2604 19.4423 18.5752 19.2402 18.9074 18.9085C19.2436 18.5718 19.4445 18.2594 19.6107 17.8283C19.8013 17.3358 19.9071 16.8098 19.9432 16.0289C19.9949 14.9248 20.001 14.5389 20.001 12C20.001 9.52552 19.9944 9.12221 19.9432 7.97137C19.9064 7.18906 19.8005 6.66149 19.6113 6.17318C19.4434 5.74038 19.2417 5.42635 18.9084 5.09255C18.573 4.75715 18.2616 4.55693 17.8271 4.38942C17.338 4.19954 16.8124 4.09396 16.0298 4.05781C14.9258 4.00605 14.5399 4 12.001 4ZM12.001 2C14.7176 2 15.0568 2.01 16.1235 2.06C17.1876 2.10917 17.9135 2.2775 18.551 2.525C19.2101 2.77917 19.7668 3.1225 20.3226 3.67833C20.8776 4.23417 21.221 4.7925 21.476 5.45C21.7226 6.08667 21.891 6.81333 21.941 7.8775C21.9885 8.94417 22.001 9.28333 22.001 12C22.001 14.7167 21.991 15.0558 21.941 16.1225C21.8918 17.1867 21.7226 17.9125 21.476 18.55C21.2218 19.2092 20.8776 19.7658 20.3226 20.3217C19.7668 20.8767 19.2076 21.22 18.551 21.475C17.9135 21.7217 17.1876 21.89 16.1235 21.94C15.0568 21.9875 14.7176 22 12.001 22C9.28431 22 8.94514 21.99 7.87848 21.94C6.81431 21.8908 6.08931 21.7217 5.45098 21.475C4.79264 21.2208 4.23514 20.8767 3.67931 20.3217C3.12348 19.7658 2.78098 19.2067 2.52598 18.55C2.27848 17.9125 2.11098 17.1867 2.06098 16.1225C2.01348 15.0558 2.00098 14.7167 2.00098 12C2.00098 9.28333 2.01098 8.94417 2.06098 7.8775C2.11014 6.8125 2.27848 6.0875 2.52598 5.45C2.78014 4.79167 3.12348 4.23417 3.67931 3.67833C4.23514 3.1225 4.79348 2.78 5.45098 2.525C6.08848 2.2775 6.81348 2.11 7.87848 2.06C8.94514 2.0125 9.28431 2 12.001 2Z"
+                    ></path>
+                  </svg>
+                  <span
+                    class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                  >
+                    Instagram
+                  </span>
+                </a>
+              </section>
+            </div>
+            <div class="footer-links">
+              <a href="/#f4">Contacto</a>
+              <a href="soluciones">Soluciones</a>
+            </div>
+            <div class="footer-legal-links">
+              <a href="/html/aviso-privacidad" target="_blank">Aviso de Privacidad</a>
+              <a href="/html/politica-cookies" target="_blank">Política de Cookies</a>
+            </div>
+            <p class="footer-bottom">© 2025 Arkas Tech. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </div>
+  
+
+
+      <script>
+        function toggleMenu() {
+        const fullscreenMenu = document.getElementById("fullscreenMenu");
+        fullscreenMenu.classList.toggle("active");
+      }
+      </script>
+
+    <script src="js/descubre.js"></script>
+    <script src="js/footer.js"></script>
+
+</script>
+<script>
+  const lenis = new Lenis ({
+    autoRaf: true,
+  });
+</script>
+  </body>
+</html>

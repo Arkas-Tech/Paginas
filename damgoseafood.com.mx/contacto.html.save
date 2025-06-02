@@ -1,0 +1,476 @@
+c<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contáctanos | Damgo Seafood - Distribuidora de Mariscos en Chihuahua</title>
+    <meta name="description" content="Ponte en contacto con Damgo Seafood para pedidos y consultas sobre pescados y mariscos en Chihuahua. ¡Atención personalizada garantizada!" />
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+      #loader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.8s ease-out;
+      }
+      #loader svg {
+      width: 100vw;
+      height: 100vh;
+    }
+    #loader.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    </style>
+  </head>
+  <style>
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  @media (max-width: 900px) {
+    body {
+      overflow-x: hidden;
+    }
+  }
+  @media (max-width: 499px) {
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+  }
+  @font-face {
+    font-family: "Kollektif";
+    src: url("/static/Kollektif.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  .fondo {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .fondo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: url(#clipPath);
+  }
+
+  .fondo h1 {
+    font-size: 3.5vw;
+    font-family: "League Spartan";
+    position: relative;
+    z-index: 1;
+    color: white;
+    margin-top: -25vh;
+  }
+
+  .fondo p {
+    font-size: 1.8vw;
+    font-family: "Kollektif";
+    position: relative;
+    z-index: 1;
+    color: white;
+    margin-top: -5vh;
+  }
+
+  @media (max-width: 900px) {
+    .fondo {
+      margin-bottom: 0vh;
+    }
+    .fondo h1 {
+      font-size: 4.5vw;
+      margin-top: -20vh;
+    }
+
+    .fondo p {
+      font-size: 3.5vw;
+      margin-top: -1vh;
+    }
+    .fondo img {
+      clip-path: url(#clipPathMobile);
+    }
+  }
+  @media (max-width: 600px) {
+    .fondo h1 {
+      font-size: 6vw;
+    }
+    .fondo p {
+      font-size: 4vw;
+    }
+  }
+  @media (max-width: 400px) {
+    .fondo h1 {
+      font-size: 9vw;
+      margin-top: -26vh;
+      line-height: 1.2;
+    }
+    .fondo p {
+      font-size: 5vw;
+      margin-top: -1vh;
+    }
+  }
+  .circle-1 {
+    position: absolute;
+    width: 20vw;
+    top: 20%;
+    left: 65%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .circle-2 {
+    position: absolute;
+    width: 20vw;
+    top: 20%;
+    left: 15%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  @media (max-width: 900px) {
+    .circle-1 {
+      width: 45vw;
+      top: 20%;
+      left: 50%;
+    }
+
+    .circle-2 {
+      width: 40vw;
+      top: 20%;
+      left: 5%;
+    }
+  }
+
+  @media (max-width: 499px) {
+    .circle-1 {
+      width: 45vw;
+      top: 30%;
+      left: 50%;
+    }
+
+    .circle-2 {
+      width: 40vw;
+      top: 30%;
+      left: 0%;
+    }
+  }
+  
+  .product-cards {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 10px;
+  z-index: 100;
+  position: relative;
+  background-color: white;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  width: 28%;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card h3 {
+  margin: 10px 0;
+  font-family: League Spartan;
+  font-size: 2vw;
+  color: #243349;
+}
+
+.card p {
+  margin: 10px 0;
+  font-family: Kollektif;
+  font-size: 1.2vw;
+  color: #7995bd;
+}
+
+.card button {
+  font-family: Kollektif;
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: #163694;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 800px) {
+    .product-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 4vw;
+    }
+    .card p {
+      font-size: 3vw;
+    }
+  }
+
+  .fondo-der {
+    position: relative;
+    height: auto;
+    width: 50vw;
+    margin-left: 50vw;
+    margin-top: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .social-icons a {
+    text-decoration: none;
+    color: #163696;
+    font-size: 24px;
+  }
+
+  .social-icons a:hover {
+    color: #091741;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+  }
+
+  .container2 {
+    position: relative;
+    width: 32vw;
+    padding: 3vh 5vw;
+    border: 1px solid #163694;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .container2 h1 {
+    color: #163694;
+    font-size: 2vw;
+    font-family: "League Spartan";
+    text-align: center;
+    align-items: center;
+  }
+
+  .container2 label {
+    color: #163694;
+    font-weight: bold;
+  }
+
+  .container2 input,
+  .container2 textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #163694;
+    border-radius: 5px;
+  }
+
+  .container2 button {
+    background-color: #163694;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .container2 button:hover {
+    background-color: #091741;
+  }
+
+  .contact {
+    margin-top: 0;
+    margin-left: -20vw;
+    position: relative;
+  }
+
+  .contact-item {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .contact-item a {
+    text-decoration: none;
+    color: #163696;
+    font-weight: bold;
+  }
+
+  .contact-item a:hover {
+    color: #091741;
+  }
+  .map-container {
+    position: absolute;
+    margin-left: 1vw;
+    width: 50vw;
+    margin-top: -170vh;
+  }
+  .map {
+    position: relative;
+  }
+  @media (max-width: 800px) {
+    .map-container {
+      display: none;
+    }
+  }
+
+  .circle-6 {
+    position: absolute;
+    object-fit: cover;
+    z-index: -3;
+    top: 20%;
+  }
+  @media (max-width: 499px) {
+    .circle-6 {
+      top: 20%;
+      margin-top: 90vh;
+    }
+  }
+  @media (max-width: 800px) {
+    .product-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .fondo-der, .map-container {
+      width: 100%;
+      margin-top: 20px;
+      position: relative;
+    }
+    .fondo-der {
+      margin-left: 0;
+    }
+    .container2 {
+      width: 80%;
+    }
+    .container2 h1 {
+      font-size: 4vw;
+    }
+    .container2 input,
+    .container2 textarea {
+      padding: 2px 2px;
+    }
+    .map {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 499px) {
+    .container2, .contact {
+      margin-left: 2vw;
+    }
+    .container2 {
+      width: 80%;
+    }
+    .fondo {
+      margin-bottom: -20vh;
+    }
+    .card {
+      width: 85%;
+    }
+    .card h3 {
+      font-size: 8vw;
+    }
+    .card p {
+      font-size: 5vw;
+    }
+    .card button {
+      font-size: 4.5vw;
+    }
+  }
+</style>
+<body>
+  <div class="loader-container" id="onload">
+    <div id="loader">
+      <div id="content"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs>
+          <filter id="blur-filter">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="2">
+              <animate attributeName="stdDeviation" from="1" to="0" dur="0.65s" fill="freeze" />
+            </feGaussianBlur>
+          </filter>
+        </defs>
+        <g filter="url(#blur-filter)">
+          <image href="/static/logo/l1.svg" width="100" height="100" />
+        </g>
+        <g>
+          <animateTransform attributeName="transform" type="translate" from="0 11" to="0 0" dur="0.4s" fill="freeze" />
+          <image href="/static/logo/l2.svg" width="100" height="100"/>
+        </g>
+        <g>
+          <animateTransform attributeName="transform" type="translate" from="0 13.5" to="0 0" dur="0.55s" fill="freeze" />
+          <image href="/static/logo/l3.svg" width="100" height="100" />
+        </g>
+        <g>
+          <image href="/static/logo/l4.svg" width="100" height="100" />
+        </g>
+        <g>
+          <image href="/static/logo/l5.svg" width="100" height="100" />
+          <animate attributeName="opacity" from="1" to="0" dur="0.01s" fill="freeze" />
+        </g>
+      </svg>
+    </div>
+  </div>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img
