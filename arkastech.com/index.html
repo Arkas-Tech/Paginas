@@ -8,9 +8,9 @@
       name="description"
       content="Impulsa tu negocio con Arkas Tech: soluciones digitales personalizadas que transforman tu presencia online y generan resultados. Digitaliza, crece y conecta con tus clientes."
     />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,9 +22,6 @@
     <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
     
   </head>
-  <style>
-
-  </style>
   <body>
 
     <header>
@@ -32,13 +29,13 @@
         <nav>
           <ul>
             <li><a href="/">Inicio</a></li>
-            <li><a href="soluciones">Soluciones</a></li>
-            <li><a href="nosotros">Nosotros</a></li>
+            <li><a href="experiencia.html">Experiencia</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
           </ul>
         </nav>
     
         <a href="/" class="logo-link">
-          <img src="static/logo.svg" alt="Logo" />
+          <img src="static/arkasv2.png" alt="Logo" />
         </a>
       </div>
 
@@ -52,7 +49,7 @@
       <div id="fullscreenMenu" class="dropdown-menu">
         <ul>
           <li><a href="/">Inicio</a></li>
-          <li><a href="soluciones.html">Soluciones</a></li>
+          <li><a href="experiencia.html">Experiencia</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
         </ul>
       </div>
@@ -508,26 +505,369 @@
           const wrap = section.querySelector('.wrap');
           const rect = section.getBoundingClientRect();
           const windowHeight = window.innerHeight;
-        
-          // OFFSET en píxeles (ajusta este número como gustes)
-          const offsetStart = 800; // Empieza después de 200px de scroll
-        
-          // Calcular porcentaje de scroll
+          const offsetStart = 800;
+
           let scrollPercent = (windowHeight - rect.top - offsetStart) / (windowHeight + rect.height - offsetStart);
           scrollPercent = Math.min(Math.max(scrollPercent, 0), 1);
-        
-          // Asegurar que la transformación solo se aplique al contenedor de la clase .wrap
           wrap.style.transform = `translateX(-${scrollPercent * 160}%)`;
         });
         </script>
-        
-        
-    <div class="i12">
-      <h2>Creamos experiencias</h2>
-      <h2>Elevamos productos</h2>
-      <h2>Reforzamos marcas</h2>
-      <h2>Impulsamos ideas</h2>
-    </div>
+
+    <section class="soluciones">
+      <h2 class="soluciones-titulo animar-scroll">Nuestras Soluciones</h2>
+      <p class="soluciones-desc animar-scroll">
+        Desde páginas web sencillas hasta experiencias digitales inmersivas
+      </p>
+      <div class="soluciones-contenedor">
+        <div class="solucion-card animar-scroll">
+          <div class="solucion-header">
+            <div class="solucion-icono">
+              <img src="static/sol/layout_icon.png" alt="Icono de Diseño Web" />
+            </div>
+            <h3>Página Web Sencilla</h3>
+          </div>
+          <ul>
+            <li>Diseño responsivo adaptado a tu marca</li>
+            <li>Animaciones sencillas y elegantes</li>
+            <li>SEO básico incluido</li>
+            <li>Soporte técnico + hosting</li>
+            <li>Secciones: Inicio, Servicios, Historia, Contacto</li>
+          </ul>
+        </div>
+        <div class="solucion-card animar-scroll">
+          <div class="solucion-header">
+            <div class="solucion-icono">
+              <img src="static/sol/shop_icon.png" alt="Icono Tienda en Línea" />
+            </div>
+            <h3>Tienda en Línea</h3>
+          </div>
+          <ul>
+            <li>Catálogo completo de productos</li>
+            <li>Carrito de compras funcional</li>
+            <li>Pasarelas de pago seguras</li>
+            <li>Autenticación de clientes</li>
+            <li>Panel de administración completo</li>
+          </ul>
+        </div>
+        <div
+          class="solucion-card animar-scroll"
+          id="lightning-card"
+        >
+          <!-- Fondo Lightning -->
+          <canvas
+            id="lightning-bg"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 0;
+              pointer-events: none;
+            "
+          ></canvas>
+          <div style="position: relative; z-index: 1">
+            <div class="solucion-header">
+              <div class="solucion-icono">
+                <img
+                  src="static/sol/digital_icon.png"
+                  alt="Icono Experiencia Digital Premium"
+                />
+              </div>
+              <div>
+                <h3 style="margin-bottom: 0">Experiencia Digital Premium</h3>
+              </div>
+            </div>
+            <p style="color: #fff; margin-bottom: 1.5rem; font-size: 1.1rem">
+              Creamos experiencias digitales interactivas que van más allá de
+              una página web tradicional. Diseños con impacto visual,
+              animaciones modernas y navegación inmersiva que reflejan la
+              esencia única de cada marca.
+            </p>
+            <div
+              style="
+                display: flex;
+                gap: 2rem;
+                flex-wrap: wrap;
+                margin-bottom: 1.2rem;
+              "
+            >
+              <div style="flex: 1; min-width: 220px">
+                <div
+                  style="
+                    color: #3ffcff;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    font-size: 1.2em;
+                  "
+                >
+                  Características Principales:
+                </div>
+                <ul>
+                  <li>Diseño UI/UX a medida</li>
+                  <li>Animaciones avanzadas personalizables</li>
+                  <li>Efectos de scroll y transiciones suaves</li>
+                  <li>Microinteracciones inteligentes</li>
+                </ul>
+              </div>
+              <div style="flex: 1; min-width: 220px">
+                <div
+                  style="
+                    color: #3ffcff;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    font-size: 1.2em;
+                  "
+                >
+                  Opciones Premium:
+                </div>
+                <ul>
+                  <li>Animaciones 3D y shaders visuales</li>
+                  <li>Intros animadas personalizadas</li>
+                  <li>Experiencias gamificadas</li>
+                  <li>Elementos multimedia integrados</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="width:100%;display:flex;justify-content:center;margin-top:1.5rem;">
+          <a href="experiencia.html" class="arkas-btn-dinamico animar-scroll">
+            Vive aquí la experiencia Arkas Tech
+          </a>
+        </div>
+        <div class="solucion-card animar-scroll" id="mkt-card">
+          <div class="solucion-header">
+            <div class="solucion-icono">
+              <img
+                src="static/sol/mkt_icon.png"
+                alt="Icono Marketing Digital"
+              />
+            </div>
+            <div>
+              <h3 style="margin-bottom: 0">
+                Marketing Digital & Redes Sociales
+              </h3>
+              <span style="color: #00ffd0; font-weight: 600; font-size: 1rem"
+                >Servicio Mensual</span
+              >
+            </div>
+          </div>
+          <div style="display: flex; gap: 2rem; flex-wrap: wrap">
+            <div style="flex: 1; min-width: 180px">
+              <div
+                style="color: #3ffcff; font-weight: 700; margin-bottom: 0.5rem"
+              >
+                Gestión de Redes:
+              </div>
+              <ul>
+                <li>Instagram, Facebook, TikTok</li>
+                <li>Contenido de tendencia</li>
+                <li>Posts informativos</li>
+              </ul>
+            </div>
+            <div style="flex: 1; min-width: 180px">
+              <div
+                style="color: #3ffcff; font-weight: 700; margin-bottom: 0.5rem"
+              >
+                Producción:
+              </div>
+              <ul>
+                <li>Sesión de fotos profesional</li>
+                <li>Videos de productos</li>
+                <li>Contenido audiovisual</li>
+              </ul>
+            </div>
+            <div style="flex: 1; min-width: 180px">
+              <div
+                style="color: #3ffcff; font-weight: 700; margin-bottom: 0.5rem"
+              >
+                Estrategia:
+              </div>
+              <ul>
+                <li>Publicidad Meta Business</li>
+                <li>Estudio de mercado</li>
+                <li>Reportes mensuales</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const elementos = document.querySelectorAll(".animar-scroll");
+        const observer = new IntersectionObserver(
+          (entradas) => {
+            entradas.forEach((entrada) => {
+              if (entrada.isIntersecting) {
+                entrada.target.classList.add("visible");
+                observer.unobserve(entrada.target);
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        elementos.forEach((el) => observer.observe(el));
+
+        // Lightning background effect
+        const canvas = document.getElementById("lightning-bg");
+        if (canvas) {
+          function resizeCanvas() {
+            // El canvas SIEMPRE ocupa el 100% del contenedor
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+          }
+          resizeCanvas();
+          window.addEventListener("resize", resizeCanvas);
+
+          const gl = canvas.getContext("webgl");
+          if (gl) {
+            const vertexShaderSource = `
+              attribute vec2 aPosition;
+              void main() {
+                gl_Position = vec4(aPosition, 0.0, 1.0);
+              }
+            `;
+            const fragmentShaderSource = `
+              precision mediump float;
+              uniform vec2 iResolution;
+              uniform float iTime;
+              uniform float uHue;
+              uniform float uXOffset;
+              uniform float uSpeed;
+              uniform float uIntensity;
+              uniform float uSize;
+              #define OCTAVE_COUNT 10
+              vec3 hsv2rgb(vec3 c) {
+                  vec3 rgb = clamp(abs(mod(c.x * 6.0 + vec3(0.0,4.0,2.0), 6.0) - 3.0) - 1.0, 0.0, 1.0);
+                  return c.z * mix(vec3(1.0), rgb, c.y);
+              }
+              float hash11(float p) {
+                  p = fract(p * .1031);
+                  p *= p + 33.33;
+                  p *= p + p;
+                  return fract(p);
+              }
+              float hash12(vec2 p) {
+                  vec3 p3 = fract(vec3(p.xyx) * .1031);
+                  p3 += dot(p3, p3.yzx + 33.33);
+                  return fract((p3.x + p3.y) * p3.z);
+              }
+              mat2 rotate2d(float theta) {
+                  float c = cos(theta);
+                  float s = sin(theta);
+                  return mat2(c, -s, s, c);
+              }
+              float noise(vec2 p) {
+                  vec2 ip = floor(p);
+                  vec2 fp = fract(p);
+                  float a = hash12(ip);
+                  float b = hash12(ip + vec2(1.0, 0.0));
+                  float c = hash12(ip + vec2(0.0, 1.0));
+                  float d = hash12(ip + vec2(1.0, 1.0));
+                  vec2 t = smoothstep(0.0, 1.0, fp);
+                  return mix(mix(a, b, t.x), mix(c, d, t.x), t.y);
+              }
+              float fbm(vec2 p) {
+                  float value = 0.0;
+                  float amplitude = 0.5;
+                  for (int i = 0; i < OCTAVE_COUNT; ++i) {
+                      value += amplitude * noise(p);
+                      p *= rotate2d(0.45);
+                      p *= 2.0;
+                      amplitude *= 0.5;
+                  }
+                  return value;
+              }
+              void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
+                  vec2 uv = fragCoord / iResolution.xy;
+                  uv = 2.0 * uv - 1.0;
+                  uv.x *= iResolution.x / iResolution.y;
+                  uv.x += uXOffset;
+                  uv += 2.0 * fbm(uv * uSize + 0.8 * iTime * uSpeed) - 1.0;
+                  float dist = abs(uv.x);
+                  vec3 baseColor = hsv2rgb(vec3(uHue / 360.0, 0.7, 0.8));
+                  vec3 col = baseColor * pow(mix(0.0, 0.07, hash11(iTime * uSpeed)) / dist, 1.0) * uIntensity;
+                  col = pow(col, vec3(1.0));
+                  fragColor = vec4(col, 1.0);
+              }
+              void main() {
+                  mainImage(gl_FragColor, gl_FragCoord.xy);
+              }
+            `;
+            function compileShader(source, type) {
+              const shader = gl.createShader(type);
+              gl.shaderSource(shader, source);
+              gl.compileShader(shader);
+              if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                gl.deleteShader(shader);
+                return null;
+              }
+              return shader;
+            }
+            const vertexShader = compileShader(
+              vertexShaderSource,
+              gl.VERTEX_SHADER
+            );
+            const fragmentShader = compileShader(
+              fragmentShaderSource,
+              gl.FRAGMENT_SHADER
+            );
+            if (!vertexShader || !fragmentShader) return;
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+            gl.useProgram(program);
+            const vertices = new Float32Array([
+              -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1,
+            ]);
+            const vertexBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+            const aPosition = gl.getAttribLocation(program, "aPosition");
+            gl.enableVertexAttribArray(aPosition);
+            gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
+            const iResolutionLocation = gl.getUniformLocation(
+              program,
+              "iResolution"
+            );
+            const iTimeLocation = gl.getUniformLocation(program, "iTime");
+            const uHueLocation = gl.getUniformLocation(program, "uHue");
+            const uXOffsetLocation = gl.getUniformLocation(program, "uXOffset");
+            const uSpeedLocation = gl.getUniformLocation(program, "uSpeed");
+            const uIntensityLocation = gl.getUniformLocation(
+              program,
+              "uIntensity"
+            );
+            const uSizeLocation = gl.getUniformLocation(program, "uSize");
+            const startTime = performance.now();
+            function render() {
+              resizeCanvas();
+              gl.viewport(0, 0, canvas.width, canvas.height);
+              gl.uniform2f(iResolutionLocation, canvas.width, canvas.height);
+              const currentTime = performance.now();
+              gl.uniform1f(iTimeLocation, (currentTime - startTime) / 1000.0);
+              gl.uniform1f(uHueLocation, 220);
+              gl.uniform1f(uXOffsetLocation, 0);
+              gl.uniform1f(uSpeedLocation, 1);
+              gl.uniform1f(uIntensityLocation, 1);
+              // HAZ EL RAYO MÁS GRANDE EN MÓVIL
+              let size = 1;
+              if (window.innerWidth <= 700) size = 2.2;
+              else if (window.innerWidth <= 1024) size = 1.5;
+              gl.uniform1f(uSizeLocation, size);
+              gl.drawArrays(gl.TRIANGLES, 0, 6);
+              requestAnimationFrame(render);
+            }
+            requestAnimationFrame(render);
+          }
+        }
+      });
+    </script>
     
 
     <script>
@@ -544,257 +884,295 @@
   };
 
   window.addEventListener("scroll", onScroll);
-  onScroll(); // Trigger on load in case elements are already in view
-});
-    </script>
+  onScroll();
+  });
+  </script>
 
-<div class="i2-container">
-  <div class="i2-text" id="text1">In</div>
-  <div class="i2-text" id="text2">Inno</div>
-  <div class="i2-text" id="text3">Innova</div>
-  <div class="i2-text" id="text4">Innova y</div>
-  <div class="i2-text" id="text5">Innova y co</div>
-  <div class="i2-text" id="text6">Innova y cone</div>
-  <div class="i2-text" id="text7">Innova y conecta</div>
-  <div class="container-loader">
-    <div class="item" style="--i:0;"></div>
-    <div class="item" style="--i:1;"></div>
-    <div class="item" style="--i:2;"></div>
-    <div class="item" style="--i:3;"></div>
-    <div class="item" style="--i:4;"></div>
-    <div class="item" style="--i:5;"></div>
-    <div class="item" style="--i:6;"></div>
-    <div class="item" style="--i:7;"></div>
-    <div class="item" style="--i:8;"></div>
-    <div class="item" style="--i:9;"></div>
-    <div class="item" style="--i:10;"></div>
-    <div class="item" style="--i:11;"></div>
-    <div class="item" style="--i:12;"></div>
-    <div class="item" style="--i:13;"></div>
-    <div class="item" style="--i:14;"></div>
-    <div class="item" style="--i:15;"></div>
-    <div class="item" style="--i:16;"></div>
-    <div class="item" style="--i:17;"></div>
-    <div class="item" style="--i:18;"></div>
-    <div class="item" style="--i:19;"></div>
-    <div class="item" style="--i:20;"></div>
+<section id="herramientas-inteligentes" style="padding: 5vh 0; background: #010101;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <h2 style="text-align:center; font-size:2.7rem; font-family:Montserrat,Arial,sans-serif; font-weight:900; color:#fff; margin-bottom:0.5em;">
+      Herramientas <span style="color:#00ffb2;">Inteligentes</span>
+    </h2>
+    <p style="text-align:center; color:#b8f7e5; font-size:1.15rem; margin-bottom:2.5em;">
+      Descubre cómo nuestras soluciones pueden transformar tu página web con demostraciones interactivas
+    </p>
+    <div class="herramientas-grid">
+      <div class="herramienta-card">
+        <div class="herramienta-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="IA" class="herramienta-icon">
+          <span class="herramienta-title">Agente de IA</span>
+        </div>
+        <div class="herramienta-preview" id="ia-chat-preview">
+          <div class="ia-chat-window" id="ia-chat-window">
+            <div class="ia-msg ia-msg-user">Hola, ¿qué puedes hacer por mi negocio?</div>
+          </div>
+          <button class="herramienta-btn" id="iniciar-demo-btn">Iniciar Demo</button>
+        </div>
+        <ul class="herramienta-list">
+          <li>✔ Respuestas 24/7</li>
+          <li>✔ Entrenada para tu negocio</li>
+          <li>✔ Reduce costes de soporte</li>
+        </ul>
+      </div>
+      <div class="herramienta-card">
+        <div class="herramienta-header">
+          <img src="/static/index/ewallet.png" alt="Wallet" class="herramienta-icon">
+          <span class="herramienta-title">E-Wallet</span>
+        </div>
+        <div class="herramienta-preview" id="wallet-preview">
+          <div class="wallet-card" id="wallet-card">
+            <div class="wallet-card-title">Tarjeta Cliente Frecuente</div>
+            <div class="wallet-card-id">ID: 001-ARKAS-TECH</div>
+          </div>
+          <button class="herramienta-btn" id="agregar-wallet-btn">Agregar a E-Wallet</button>
+          <div class="wallet-status" id="wallet-status"></div>
+        </div>
+        <ul class="herramienta-list">
+          <li>✔ Pagos instantáneos</li>
+          <li>✔ Seguridad avanzada</li>
+          <li>✔ Múltiples monedas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="herramientas-grid" style="margin-top: 2.5em;">
+      <div class="herramienta-card">
+        <div class="herramienta-header">
+          <img src="/static/index/lock.png" alt="Auth" class="herramienta-icon">
+          <span class="herramienta-title">Autenticación</span>
+        </div>
+        <div class="herramienta-preview" id="auth-preview">
+          <div class="auth-status" id="auth-status">
+            <div class="auth-avatar auth-avatar-off"></div>
+            <div class="auth-state-text" id="auth-state-text">Estado: Desconectado</div>
+          </div>
+          <button class="herramienta-btn" id="auth-btn">Iniciar Sesión</button>
+        </div>
+        <ul class="herramienta-list">
+          <li>✔ Autenticación 2FA</li>
+          <li>✔ Login social</li>
+          <li>✔ Biometría</li>
+        </ul>
+      </div>
+      <div class="herramienta-card">
+        <div class="herramienta-header">
+          <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Opiniones" class="herramienta-icon">
+          <span class="herramienta-title">Opiniones</span>
+        </div>
+        <div class="herramienta-preview" id="opiniones-preview">
+          <div class="opiniones-list" id="opiniones-list">
+          </div>
+          <button class="herramienta-btn" id="agregar-opinion-btn">Agregar Opinión</button>
+        </div>
+        <ul class="herramienta-list">
+          <li>✔ Reseñas verificadas</li>
+          <li>✔ Moderación automática</li>
+          <li>✔ Analytics detallados</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="herramientas-grid" style="margin-top:2.5em;">
+  <div class="herramienta-card">
+    <div class="herramienta-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Reservas" class="herramienta-icon">
+      <span class="herramienta-title">Reservas</span>
+    </div>
+    <div class="herramienta-preview" id="reservas-preview">
+<div class="calendario-reservas">
+  <div class="calendario-semana">
+    <button class="dia">15</button>
+    <button class="dia">17</button>
+    <button class="dia activo">18</button>
+    <button class="dia">19</button>
+    <button class="dia">21</button>
   </div>
-  <button onclick="window.location.href='/soluciones'">
-    CONOCE NUESTRAS SOLUCIONES
-  </button>
+  <div class="calendario-horarios">
+    <button class="horario">10:00</button>
+    <button class="horario">13:00</button>
+    <button class="horario">16:00</button>
+  </div>
 </div>
 
-<style>
-    .i2-container {
-      height: 140vh;
-      max-width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: left;
-      margin-top: 0;
-      background-color: black;
-    }
+    </div>
+    <ul class="herramienta-list">
+      <li>✔ Agenda en tiempo real</li>
+      <li>✔ Confirmación instantánea</li>
+      <li>✔ Sincronización automática</li>
+    </ul>
+  </div>
+  <div class="herramienta-card">
+    <div class="herramienta-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Factura" class="herramienta-icon">
+      <span class="herramienta-title">Facturación</span>
+    </div>
+    <div class="herramienta-preview" id="factura-preview" style="display:flex;flex-direction:column;align-items:center;">
+<div class="factura-info">
+  <div class="factura-encabezado">
+    <span>Factura #001</span>
+    <span class="pagada">Pagada</span>
+  </div>
+  <div class="factura-monto">$299.00</div>
+  <div class="factura-vencimiento">Vence: 15 Dic 2024</div>
+</div>
+<button id="generar-factura" class="herramienta-btn">Generar Factura</button>
+<button class="herramienta-btn" style="background:#0a0e13;border:1px solid #00ffb2;color:#00ffb2;">Enviar por Email</button>
 
-    .i2-text {
-      opacity: 0;
-      transform: translateY(-100px);
-      transition: all 0.6s ease;
-      font-size: 10vw;
-      font-family: "Neue Kabel W01 Black";
-      height: 15vh;
-      margin-top: 0;
-    }
+    </div>
+    <ul class="herramienta-list">
+      <li>✔ CFDI 4.0</li>
+      <li>✔ Descarga inmediata</li>
+      <li>✔ Cumplimiento fiscal</li>
+    </ul>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
 
-    .i2-text:first-child {
-      margin-top: 0;
-    }
-
-    .i2-text.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .container-loader {
-      position: relative;
-      top: -50vh;
-      left: 60%;
-      height: 90%;
-      width: 30%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .item {
-      position: absolute;
-      background-color: transparent;
-      width: calc(var(--i) * 2.5vmin);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: .9vmin solid rgb(0, 200, 255);
-      transform-style: preserve-3d;
-      transform: rotateX(70deg) translateZ(50px);
-      animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
-      box-shadow: 0px 0px 15px rgb(124, 124, 124),
-        inset 0px 0px 15px rgb(124, 124, 124);
-        z-index: -1;
-        opacity: 1;
-    }
-
-    @keyframes my-move {
-      0%,
-      100% {
-        transform: rotateX(70deg) translateZ(50px) translateY(0px);
-        filter: hue-rotate(0deg);
-      }
-
-      50% {
-        transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
-        filter: hue-rotate(180deg);
-      }
-    }
-    .i2-container button {
-      animation: blink 1.4s infinite;
-      font-size: 2vw;
-      color: #e1e1e1;
-      font-family: inherit;
-      font-weight: 800;
-      cursor: pointer;
-      position: relative;
-      border: none;
-      background: none;
-      text-transform: uppercase;
-      transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-      transition-duration: 400ms;
-      transition-property: color;
-      z-index: 999;
-    }
-    @keyframes blink {
-          0%, 100% {
-          opacity: 1;
-          }
-          50% {
-          opacity: 0.1;
-          }
-        }
-
-    .i2-container button:focus,
-    .i2-container button:hover {
-      color: #fff;
-    }
-
-    .i2-container button:focus:after,
-    .i2-container button:hover:after {
-      width: 30%;
-      left: 35%;
-    }
-
-    .i2-container button:after {
-      content: "";
-      pointer-events: none;
-      bottom: -2px;
-      left: 50%;
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background-color: #fff;
-      transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-      transition-duration: 400ms;
-      transition-property: width, left;
-    }
-
-    @media (max-width: 999px) {
-      .i2-text {
-        font-size: 12vw;
-        margin-top: -3vh;
-      }
-      .i2-container {
-        margin-top: 15vh;
-        height: 110vh;
-      }
-      .i2-container button {
-        font-size: 2.5vw;
-      }
-      .i2-container button:focus:after,
-      .i2-container button:hover:after {
-        width: 30%;
-        left: 35%;
-      }
-    }
-    @media (max-width: 700px) {
-      .i2-text {
-        font-size: 12vw;
-        margin-top: -6vh;
-      }
-      .i2-container {
-        margin-top: 20vh;
-        height: 100vh;
-      }
-      .container-loader {
-        top: -75vh;
-        left: 55%;
-      }
-      .i2-container button {
-        margin-top: -80vh;
-        font-size: 3vw;
-      }
-      .i2-container button:focus:after,
-      .i2-container button:hover:after {
-        width: 40%;
-        left: 30%;
-      }
-    }
-    @media (max-width: 499px) {
-      .i2-container {
-        height: 100vh;
-        margin-top: -55vh;
-      }
-      .i2-text {
-        font-size: 13vw;
-        margin-top: -8vh;
-      }
-      .container-loader {
-        top: -75vh;
-        left: 59%;
-      }
-      .i2-container button {
-        margin-top: -90vh;
-        font-size: 4vw;
-      }
-      .i2-container button:focus:after,
-      .i2-container button:hover:after {
-        width: 60%;
-        left: 20%;
-      }
-    }
-</style>
 <script>
-  const texts = document.querySelectorAll('.i2-text');
-  let lastScrollY = window.scrollY;
+// AGENTE DE IA DEMO
+document.getElementById('iniciar-demo-btn').addEventListener('click', function() {
+  const chat = document.getElementById('ia-chat-window');
+  chat.innerHTML = '';
+  const dialog = [
+    { user: true, text: "Hola, ¿qué puedes hacer por mi negocio?" },
+    { user: false, text: "¡Hola! Puedo responder dudas de tus clientes 24/7 y automatizar tareas repetitivas." },
+    { user: true, text: "¿Cómo me ayuda eso?" },
+    { user: false, text: "Resuelvo consultas frecuentes, agendo citas y brindo información personalizada, mejorando la experiencia de tus clientes." },
+    { user: true, text: "¿Y si tengo preguntas específicas de mi empresa?" },
+    { user: false, text: "Entreno mi conocimiento con la información de tu negocio, así ofrezco respuestas precisas y adaptadas a tus necesidades." },
+    { user: true, text: "¿Por qué debería contratarlo?" },
+    { user: false, text: "Reducirás costos de soporte, nunca perderás un cliente por falta de respuesta y tu empresa estará disponible todo el tiempo. ¡Listo para crecer contigo!" }
+  ];
+  let i = 0;
+  function nextMsg() {
+    if (i < dialog.length) {
+      const msg = document.createElement('div');
+      msg.className = 'ia-msg ' + (dialog[i].user ? 'ia-msg-user' : 'ia-msg-bot');
+      msg.textContent = dialog[i].text;
+      chat.appendChild(msg);
+      chat.scrollTop = chat.scrollHeight;
+      i++;
+      setTimeout(nextMsg, dialog[i-1].user ? 1000 : 3000);
+    }
+  }
+  nextMsg();
+});
 
-  function handleScroll() {
-    const currentScrollY = window.scrollY;
-    const goingDown = currentScrollY > lastScrollY;
-    const trigger = window.innerHeight / 1.3;
+// E-WALLET DEMO
+document.getElementById('agregar-wallet-btn').addEventListener('click', function() {
+  const btn = this;
+  const status = document.getElementById('wallet-status');
+  btn.disabled = true;
+  btn.textContent = "Procesando...";
+  status.textContent = "";
+  setTimeout(() => {
+    btn.textContent = "Agregar a E-Wallet";
+    btn.disabled = false;
+    status.textContent = "Tarjeta agregada a tu wallet exitosamente 🎉";
+  }, 1800);
+});
 
-    texts.forEach((text) => {
-      const rect = text.getBoundingClientRect();
+// AUTENTICACIÓN DEMO
+const authBtn = document.getElementById('auth-btn');
+const authStatus = document.getElementById('auth-status');
+const authStateText = document.getElementById('auth-state-text');
+let authConnected = false;
 
-      if (rect.top < trigger && goingDown) {
-        text.classList.add('visible');
-      } else if (rect.top > trigger && !goingDown) {
-        text.classList.remove('visible');
+authBtn.addEventListener('click', function() {
+  if (!authConnected) {
+    // Simula login
+    authStatus.querySelector('.auth-avatar').classList.remove('auth-avatar-off');
+    authStatus.querySelector('.auth-avatar').classList.add('auth-avatar-on');
+    authStateText.textContent = "Estado: Conectado \n Bienvenido, Juan Pérez";
+    authStateText.style.whiteSpace = "pre-line";
+    authStateText.classList.add('on');
+    authBtn.textContent = "Cerrar Sesión";
+    authConnected = true;
+  } else {
+    // Simula logout
+    authStatus.querySelector('.auth-avatar').classList.remove('auth-avatar-on');
+    authStatus.querySelector('.auth-avatar').classList.add('auth-avatar-off');
+    authStateText.textContent = "Estado: Desconectado";
+    authStateText.classList.remove('on');
+    authBtn.textContent = "Iniciar Sesión";
+    authConnected = false;
+  }
+});
+
+const opinionesPredeterminadas = [
+  { user: "María G.", stars: 5, text: "Excelente servicio, muy recomendado" },
+  { user: "Pedro R.", stars: 5, text: "Superó mis expectativas" },
+  { user: "Ana L.", stars: 5, text: "Atención rápida y personalizada" },
+  { user: "Carlos T.", stars: 5, text: "La mejor experiencia digital que he tenido" },
+  { user: "Sofía M.", stars: 5, text: "Muy profesionales y atentos" }
+];
+let opiniones = opinionesPredeterminadas.slice(0, 1); // Solo la primera al inicio
+
+const opinionesList = document.getElementById('opiniones-list');
+const agregarOpinionBtn = document.getElementById('agregar-opinion-btn');
+
+function renderOpiniones() {
+  opinionesList.innerHTML = '';
+  opiniones.forEach(op => {
+    const card = document.createElement('div');
+    card.className = 'opinion-card';
+    card.innerHTML = `
+      <div class="opinion-stars">${'★'.repeat(op.stars)}<span style="color:#b8f7e5;font-size:0.9em;font-weight:400;"> ${op.user}</span></div>
+      <div>"${op.text}"</div>
+    `;
+    opinionesList.appendChild(card);
+  });
+  opinionesList.scrollTop = opinionesList.scrollHeight;
+}
+
+agregarOpinionBtn.addEventListener('click', function() {
+  if (opiniones.length >= 5) {
+    agregarOpinionBtn.disabled = true;
+    return;
+  }
+  opiniones.push(opinionesPredeterminadas[opiniones.length]);
+  renderOpiniones();
+});
+
+renderOpiniones();
+
+
+const horarios = document.querySelectorAll('.horario');
+
+horarios.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const yaReservado = document.querySelector('.horario.reservado');
+    if (yaReservado) return;
+
+    btn.classList.add('reservado');
+    btn.textContent = 'Reservado';
+    btn.disabled = true;
+
+    horarios.forEach(b => {
+      if (b !== btn) {
+        b.disabled = true;
+        b.style.opacity = '0.5';
+        b.style.cursor = 'not-allowed';
       }
     });
+  });
+});
 
-    lastScrollY = currentScrollY;
-  }
 
-  window.addEventListener('scroll', handleScroll);
-  texts[0].classList.add('visible');
+const btnFactura = document.getElementById('generar-factura');
+
+if (btnFactura) {
+  btnFactura.addEventListener('click', () => {
+    btnFactura.disabled = true;
+    btnFactura.textContent = 'Factura generada';
+    btnFactura.style.opacity = '0.6';
+    btnFactura.style.cursor = 'not-allowed';
+  });
+}
+
 </script>
-
     <div class="f4" id="f4">
       <form action="https://formspree.io/f/mzzrgrkn" method="POST" class="form">
         <div class="form-title"><span>Tu idea hecha</span></div>
@@ -976,7 +1354,7 @@
       <div class="footer-content">
         <div class="footer-logo-container">
             <a href="/">
-            <img src="static/logo.svg" alt="Logo" class="footer-logo" />
+            <img src="static/arkasv2.png" alt="Logo" class="footer-logo" />
             </a></a>
         </div>
     
@@ -1049,7 +1427,7 @@
                   class="w-5"
                 >
                   <path
-                    d="M12.001 9C10.3436 9 9.00098 10.3431 9.00098 12C9.00098 13.6573 10.3441 15 12.001 15C13.6583 15 15.001 13.6569 15.001 12C15.001 10.3427 13.6579 9 12.001 9ZM12.001 7C14.7614 7 17.001 9.2371 17.001 12C17.001 14.7605 14.7639 17 12.001 17C9.24051 17 7.00098 14.7629 7.00098 12C7.00098 9.23953 9.23808 7 12.001 7ZM18.501 6.74915C18.501 7.43926 17.9402 7.99917 17.251 7.99917C16.5609 7.99917 16.001 7.4384 16.001 6.74915C16.001 6.0599 16.5617 5.5 17.251 5.5C17.9393 5.49913 18.501 6.0599 18.501 6.74915ZM12.001 4C9.5265 4 9.12318 4.00655 7.97227 4.0578C7.18815 4.09461 6.66253 4.20007 6.17416 4.38967C5.74016 4.55799 5.42709 4.75898 5.09352 5.09255C4.75867 5.4274 4.55804 5.73963 4.3904 6.17383C4.20036 6.66332 4.09493 7.18811 4.05878 7.97115C4.00703 9.0752 4.00098 9.46105 4.00098 12C4.00098 14.4745 4.00753 14.8778 4.05877 16.0286C4.0956 16.8124 4.2012 17.3388 4.39034 17.826C4.5591 18.2606 4.7605 18.5744 5.09246 18.9064C5.42863 19.2421 5.74179 19.4434 6.17187 19.6094C6.66619 19.8005 7.19148 19.9061 7.97212 19.9422C9.07618 19.9939 9.46203 20 12.001 20C14.4755 20 14.8788 19.9934 16.0296 19.9422C16.8117 19.9055 17.3385 19.7996 17.827 19.6106C18.2604 19.4423 18.5752 19.2402 18.9074 18.9085C19.2436 18.5718 19.4445 18.2594 19.6107 17.8283C19.8013 17.3358 19.9071 16.8098 19.9432 16.0289C19.9949 14.9248 20.001 14.5389 20.001 12C20.001 9.52552 19.9944 9.12221 19.9432 7.97137C19.9064 7.18906 19.8005 6.66149 19.6113 6.17318C19.4434 5.74038 19.2417 5.42635 18.9084 5.09255C18.573 4.75715 18.2616 4.55693 17.8271 4.38942C17.338 4.19954 16.8124 4.09396 16.0298 4.05781C14.9258 4.00605 14.5399 4 12.001 4ZM12.001 2C14.7176 2 15.0568 2.01 16.1235 2.06C17.1876 2.10917 17.9135 2.2775 18.551 2.525C19.2101 2.77917 19.7668 3.1225 20.3226 3.67833C20.8776 4.23417 21.221 4.7925 21.476 5.45C21.7226 6.08667 21.891 6.81333 21.941 7.8775C21.9885 8.94417 22.001 9.28333 22.001 12C22.001 14.7167 21.991 15.0558 21.941 16.1225C21.8918 17.1867 21.7226 17.9125 21.476 18.55C21.2218 19.2092 20.8776 19.7658 20.3226 20.3217C19.7668 20.8767 19.2076 21.22 18.551 21.475C17.9135 21.7217 17.1876 21.89 16.1235 21.94C15.0568 21.9875 14.7176 22 12.001 22C9.28431 22 8.94514 21.99 7.87848 21.94C6.81431 21.8908 6.08931 21.7217 5.45098 21.475C4.79264 21.2208 4.23514 20.8767 3.67931 20.3217C3.12348 19.7658 2.78098 19.2067 2.52598 18.55C2.27848 17.9125 2.11098 17.1867 2.06098 16.1225C2.01348 15.0558 2.00098 14.7167 2.00098 12C2.00098 9.28333 2.01098 8.94417 2.06098 7.8775C2.11014 6.8125 2.27848 6.0875 2.52598 5.45C2.78014 4.79167 3.12348 4.23417 3.67931 3.67833C4.23514 3.1225 4.79348 2.78 5.45098 2.525C6.08848 2.2775 6.81348 2.11 7.87848 2.06C8.94514 2.0125 9.28431 2 12.001 2Z"
+                    d="M12.001 9C10.3436 9 9.00098 10.3431 9.00098 12C9.00098 13.6573 10.3441 15 12.001 15C13.6583 15 15.001 13.6569 15.001 12C15.001 10.3427 13.6579 9 12.001 9ZM12.001 7C14.7614 7 17.001 9.2371 17.001 12C17.001 14.7605 14.7639 17 12.001 17C9.24051 17 7.00098 14.7629 7.00098 12C7.00098 9.23953 9.23808 7 12.001 7ZM18.501 6.74915C18.501 7.43926 17.9402 7.99917 17.251 7.99917C16.5609 7.99917 16.001 7.4384 16.001 6.74915C16.001 6.0599 16.5617 5.5 17.251 5.5C17.9393 5.49913 18.501 6.0599 18.501 6.74915ZM12.001 4C9.5265 4 9.12318 4.00655 7.97227 4.0578C7.18815 4.09461 6.66253 4.20007 6.17416 4.38967C5.74016 4.55799 5.42709 4.75898 5.09352 5.09255C4.75867 5.4274 4.55804 5.73963 4.3904 6.17383C4.20036 6.66332 4.09493 7.18811 4.05878 7.97115C4.00703 9.0752 4.00098 9.46105 4.00098 12C4.00098 14.4745 4.00753 14.8778 4.05877 16.0286C4.0956 16.8124 4.2012 17.3388 4.39034 17.826C4.5591 18.2606 4.7605 18.5744 5.09246 18.9064C5.42863 19.2421 5.74179  19.4434 6.17187 19.6094C6.66619 19.8005 7.19148 19.9061 7.97212 19.9422C9.07618 19.9939 9.46203 20 12.001 20C14.4755 20 14.8788 19.9934 16.0296 19.9422C16.8117 19.9055 17.3385 19.7996 17.827 19.6106C18.2604 19.4423 18.5752 19.2402 18.9074 18.9085C19.2436 18.5718 19.4445 18.2594 19.6107 17.8283C19.8013 17.3358 19.9071 16.8098 19.9432 16.0289C19.9949 14.9248 20.001 14.5389 20.001 12C20.001 9.52552 19.9944 9.12221 19.9432 7.97137C19.9064 7.18906 19.8005 6.66149 19.6113 6.17318C19.4434 5.74038 19.2417 5.42635 18.9084 5.09255C18.573 4.75715 18.2616 4.55693 17.8271 4.38942C17.338 4.19954 16.8124 4.09396 16.0298 4.05781C14.9258 4.00605 14.5399 4 12.001 4ZM12.001 2C14.7176 2 15.0568 2.01 16.1235 2.06C17.1876 2.10917 17.9135 2.2775 18.551 2.525C19.2101 2.77917 19.7668 3.1225 20.3226 3.67833C20.8776 4.23417 21.221 4.7925 21.476 5.45C21.7226 6.08667 21.891 6.81333 21.941 7.8775C21.9885 8.94417 22.001 9.28333 22.001 12C22.001 14.7167 21.991 15.0558 21.941 16.1225C21.8918 17.1867 21.7226 17.9125 21.476 18.55C21.2218 19.2092 20.8776 19.7658 20.3226 20.3217C19.7668 20.8767 19.2076 21.22 18.551 21.475C17.9135 21.7217 17.1876 21.89 16.1235 21.94C15.0568 21.9875 14.7176 22 12.001 22C9.28431 22 8.94514 21.99 7.87848 21.94C6.81431 21.8908 6.08931 21.7217 5.45098 21.475C4.79264 21.2208 4.23514 20.8767 3.67931 20.3217C3.12348 19.7658 2.78098 19.2067 2.52598 18.55C2.27848 17.9125 2.11098 17.1867 2.06098 16.1225C2.01348 15.0558 2.00098 14.7167 2.00098 12C2.00098 9.28333 2.01098 8.94417 2.06098 7.8775C2.11014 6.8125 2.27848 6.0875 2.52598 5.45C2.78014 4.79167 3.12348 4.23417 3.67931 3.67833C4.23514 3.1225 4.79348 2.78 5.45098 2.525C6.08848 2.2775 6.81348 2.11 7.87848 2.06C8.94514 2.0125 9.28431 2 12.001 2Z"
                   ></path>
                 </svg>
                 <span
@@ -1061,12 +1439,12 @@
             </section>
           </div>
           <div class="footer-links">
-            <a href="/#f4">Contacto</a>
-            <a href="soluciones">Soluciones</a>
+            <a href="index.html#f4">Contacto</a>
+            <a href="experiencia.html">Experiencia</a>
           </div>
           <div class="footer-legal-links">
-            <a href="/html/aviso-privacidad" target="_blank">Aviso de Privacidad</a>
-            <a href="/html/politica-cookies" target="_blank">Política de Cookies</a>
+            <a href="/html/aviso-privacidad.html" target="_blank">Aviso de Privacidad</a>
+            <a href="/html/politica-cookies.html" target="_blank">Política de Cookies</a>
           </div>
           <p class="footer-bottom">© 2025 Arkas Tech. Todos los derechos reservados.</p>
         </div>

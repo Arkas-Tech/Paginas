@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soluciones Digitales para Negocios | Arkas Tech</title>
+    <meta
+      name="description"
+      content="Descubre nuestras soluciones en diseño web, automatización y digitalización. En Arkas Tech creamos experiencias que potencian tu negocio y atraen más clientes."
+    />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rochester&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/0ef5c927253f0c37b54e6f94cd732784?family=Neue+Kabel+W01+Black"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lenis@1.1.20/dist/lenis.css"
+    />
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  </head>
+  <style></style>
+  <body>
+    <header>
+      <div class="header-content">
+        <nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="experiencia.html">Experiencia</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+          </ul>
+        </nav>
+
+        <a href="/" class="logo-link">
+          <img src="static/arkasv2.png" alt="Logo" />
+        </a>
+      </div>
+
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox" class="toggle" onclick="toggleMenu()">
+        <div class="bars" id="bar1"></div>
+        <div class="bars" id="bar2"></div>
+        <div class="bars" id="bar3"></div>
+      </label>
+
+      <div id="fullscreenMenu" class="dropdown-menu">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="experiencia.html">Experiencia</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+      </div>
+
+      <div class="header-social-icons">
+        <a href="https://www.instagram.com/arkas_tech?igsh=MWk4NW5ncTB1Mm9nYg==" target="_blank" aria-label="Instagram">
+          <img src="/static/instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://github.com/Arkas-Tech" target="_blank" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.096.81 2.21 0 1.595-.015 2.88-.015 3.27 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/arkastech" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.369-1.852 3.601 0 4.268 2.37 4.268 5.455v6.288zM5.337 7.433c-1.144 0-2.067-.926-2.067-2.067 0-1.144.926-2.067 2.067-2.067 1.144 0 2.067.926 2.067 2.067 0 1.144-.926 2.067-2.067 2.067zM6.789 20.452H3.884V9h2.905v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451c.979 0 1.771-.774 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="touch-icon" onclick="showBanner()">
+      <img src="static/soluciones/touch.svg" alt="Touch Icon" />
+    </div>
+    <div id="interactive-banner" class="interactive-banner">
+      Esta página es totalmente interactiva, disfruta la experiencia.
+    </div>
+
+    <style>
+      .touch-icon {
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .interactive-banner {
+        position: fixed;
+        bottom: 0%;
+        left: 10%;
+        width: 80%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 4vw;
+        text-align: center;
+        display: none;
+        z-index: 999;
+        animation: scale 1.5s ease-out forwards;
+      }
+      @keyframes scale {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+
+    <script>
+      function showBanner() {
+        const banner = document.getElementById("interactive-banner");
+        banner.style.display = "block";
+        setTimeout(() => {
+          banner.style.display = "none";
+        }, 4000);
+      }
+    </script>
+
+    <div class="s1">
+      <h1>
+        Convierte tus ideas en
+        <span class="gradient-text">experiencias</span> envolventes
+      </h1>
+      <p>↑ Elige tu cursor ↑</p>
+      <!-- From Uiverse.io by Yaya12085 -->
+      <div class="radio-inputs">
+        <label style="animation: scaleUp 1s ease-out forwards">
+          <input
+            class="radio-input"
+            type="radio"
+            name="engine"
+            onclick="changeCursor('static/soluciones/bici.svg')"
+          />
+          <span class="radio-tile">
+            <span class="radio-icon">
+              <svg
+                stroke="currentColor"
+                xml:space="preserve"
+                viewBox="0 0 493.407 493.407"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                id="Capa_1"
+                version="1.1"
+                width="200px"
+                height="200px"
+                fill="none"
+              >
+                <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                <g
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  id="SVGRepo_tracerCarrier"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M488.474,270.899c-12.647-37.192-47.527-62.182-86.791-62.182c-5.892,0-11.728,0.749-17.499,1.879l-34.324-100.94 c-1.71-5.014-6.417-8.392-11.721-8.392H315.02c-6.836,0-12.382,5.547-12.382,12.382c0,6.836,5.545,12.381,12.382,12.381h14.252 l12.462,36.645H206.069v-21.998l21.732-2.821c3.353-0.434,6.135-3.079,6.585-6.585c0.54-4.183-2.402-8.013-6.585-8.553l-68.929-8.94 c-1.362-0.168-2.853-0.185-4.281,0c-9.116,1.186-15.55,9.537-14.373,18.653c1.185,9.118,9.537,15.55,18.653,14.364l22.434-2.909 v26.004l-41.255,52.798c-14.059-8.771-30.592-13.93-48.349-13.93C41.135,208.757,0,249.885,0,300.443 c0,50.565,41.135,91.7,91.701,91.7c44.882,0,82.261-32.437,90.113-75.095h33.605v12.647h-5.909c-4.563,0-8.254,3.693-8.254,8.254 c0,4.563,3.691,8.254,8.254,8.254h36.58c4.563,0,8.254-3.691,8.254-8.254c0-4.561-3.691-8.254-8.254-8.254h-5.908v-12.647h5.545 c3.814,0,7.409-1.756,9.755-4.756l95.546-122.267l9.776,28.729c-17.854,8.892-32.444,22.965-41.409,41.168 c-10.825,21.973-12.438,46.842-4.553,70.034c12.662,37.201,47.55,62.189,86.815,62.189c10.021,0,19.951-1.645,29.519-4.9 c23.191-7.885,41.926-24.329,52.744-46.302C494.746,318.966,496.367,294.09,488.474,270.899z M143.46,258.542 c7.698,9.488,12.776,21.014,14.349,33.742h-40.717L143.46,258.542z M91.701,367.379c-36.912,0-66.938-30.026-66.938-66.936 c0-36.904,30.026-66.923,66.938-66.923c12.002,0,23.11,3.427,32.864,8.981l-42.619,54.54c-2.917,3.732-3.448,8.794-1.378,13.05 c2.08,4.256,6.4,6.957,11.134,6.957h64.592C148.861,345.906,122.84,367.379,91.701,367.379z M239.69,292.284h-56.707 c-1.839-20.667-10.586-39.329-23.868-53.782l22.191-28.398v32.47c0,6.836,5.545,12.381,12.381,12.381 c6.836,0,12.382-5.545,12.382-12.381v-55.138h115.553L239.69,292.284z M383.546,285.618l6.384,18.79 c1.75,5.151,6.562,8.392,11.721,8.392c1.321,0,2.667-0.21,3.99-0.661c6.471-2.201,9.93-9.23,7.729-15.711l-6.336-18.637 c7.731,1.838,14.221,7.312,16.855,15.083c2.024,5.94,1.613,12.309-1.161,17.935c-2.773,5.626-7.569,9.835-13.509,11.858 c-12.068,4.078-25.716-2.717-29.785-14.671C376.735,300.055,378.597,291.689,383.546,285.618z M461.712,329.994 c-7.908,16.042-21.579,28.044-38.507,33.808c-6.997,2.378-14.244,3.578-21.547,3.578c-28.664,0-54.129-18.249-63.374-45.399 c-5.757-16.926-4.571-35.081,3.328-51.112c6.047-12.27,15.494-22.112,27.165-28.666l8.981,26.416 c-13.414,10.108-19.644,27.931-13.954,44.691c5.522,16.227,20.732,27.124,37.853,27.124c4.378,0,8.707-0.725,12.882-2.145 c10.108-3.434,18.282-10.607,22.999-20.184c4.723-9.585,5.425-20.435,1.982-30.551c-5.545-16.299-21.57-26.787-38.289-26.818 l-8.997-26.472c3.128-0.453,6.28-0.783,9.448-0.783c28.658,0,54.112,18.242,63.351,45.399 C470.788,295.799,469.613,313.96,461.712,329.994z"
+                  ></path>
+                </g>
+              </svg>
+            </span>
+            <span class="radio-label">Bicycle</span>
+          </span>
+        </label>
+        <label style="animation: scaleUp 1.3s ease-out forwards">
+          <input
+            class="radio-input"
+            type="radio"
+            name="engine"
+            onclick="changeCursor('static/soluciones/moto.svg')"
+          />
+          <span class="radio-tile">
+            <span class="radio-icon">
+              <svg
+                stroke="currentColor"
+                xml:space="preserve"
+                viewBox="0 0 467.168 467.168"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                id="Capa_1"
+                version="1.1"
+                fill="none"
+              >
+                <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                <g
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  id="SVGRepo_tracerCarrier"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <path
+                        d="M76.849,210.531C34.406,210.531,0,244.937,0,287.388c0,42.438,34.406,76.847,76.849,76.847 c30.989,0,57.635-18.387,69.789-44.819l18.258,14.078c0,0,134.168,0.958,141.538-3.206c0,0-16.65-45.469,4.484-64.688 c2.225-2.024,5.021-4.332,8.096-6.777c-3.543,8.829-5.534,18.45-5.534,28.558c0,42.446,34.403,76.846,76.846,76.846 c42.443,0,76.843-34.415,76.843-76.846c0-42.451-34.408-76.849-76.843-76.849c-0.697,0-1.362,0.088-2.056,0.102 c5.551-3.603,9.093-5.865,9.093-5.865l-5.763-5.127c0,0,16.651-3.837,12.816-12.167c-3.848-8.33-44.19-58.28-44.19-58.28 s7.146-15.373-7.634-26.261l-7.098,15.371c0,0-18.093-12.489-25.295-10.084c-7.205,2.398-18.005,3.603-21.379,8.884l-3.358,3.124 c0,0-0.95,5.528,4.561,13.693c0,0,55.482,17.05,58.119,29.537c0,0,3.848,7.933-12.728,9.844l-3.354,4.328l-8.896,0.479 l-16.082-36.748c0,0-15.381,4.082-23.299,10.323l1.201,6.24c0,0-64.599-43.943-125.362,21.137c0,0-44.909,12.966-76.37-26.897 c0,0-0.479-12.968-76.367-10.565l5.286,5.524c0,0-5.286,0.479-7.444,3.841c-2.158,3.358,1.2,6.961,18.494,6.961 c0,0,39.153,44.668,69.17,42.032l42.743,20.656l18.975,32.42c0,0,0.034,2.785,0.23,7.045c-4.404,0.938-9.341,1.979-14.579,3.09 C139.605,232.602,110.832,210.531,76.849,210.531z M390.325,234.081c29.395,0,53.299,23.912,53.299,53.299 c0,29.39-23.912,53.294-53.299,53.294c-29.394,0-53.294-23.912-53.294-53.294C337.031,257.993,360.932,234.081,390.325,234.081z M76.849,340.683c-29.387,0-53.299-23.913-53.299-53.295c0-29.395,23.912-53.299,53.299-53.299 c22.592,0,41.896,14.154,49.636,34.039c-28.26,6.011-56.31,11.99-56.31,11.99l3.619,19.933l55.339-2.444 C124.365,322.116,102.745,340.683,76.849,340.683z M169.152,295.835c1.571,5.334,3.619,9.574,6.312,11.394l-24.696,0.966 c1.058-3.783,1.857-7.666,2.338-11.662L169.152,295.835z"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </span>
+            <span class="radio-label">Motorbike</span>
+          </span>
+        </label>
+        <label style="animation: scaleUp 1.6s ease-out forwards">
+          <input
+            class="radio-input"
+            type="radio"
+            name="engine"
+            onclick="changeCursor('static/soluciones/carro.svg')"
+          />
+          <span class="radio-tile">
+            <span class="radio-icon">
+              <svg
+                stroke="currentColor"
+                xml:space="preserve"
+                viewBox="0 0 324.018 324.017"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns="http://www.w3.org/2000/svg"
+                id="Capa_1"
+                version="1.1"
+                fill="none"
+              >
+                <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                <g
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  id="SVGRepo_tracerCarrier"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <path
+                        d="M317.833,197.111c3.346-11.148,2.455-20.541-2.65-27.945c-9.715-14.064-31.308-15.864-35.43-16.076l-8.077-4.352 l-0.528-0.217c-8.969-2.561-42.745-3.591-47.805-3.733c-7.979-3.936-14.607-7.62-20.475-10.879 c-20.536-11.413-34.107-18.958-72.959-18.958c-47.049,0-85.447,20.395-90.597,23.25c-2.812,0.212-5.297,0.404-7.646,0.59 l-6.455-8.733l7.34,0.774c2.91,0.306,4.267-1.243,3.031-3.459c-1.24-2.216-4.603-4.262-7.519-4.57l-23.951-2.524 c-2.91-0.305-4.267,1.243-3.026,3.459c1.24,2.216,4.603,4.262,7.519,4.57l3.679,0.386l8.166,11.05 c-13.823,1.315-13.823,2.139-13.823,4.371c0,18.331-2.343,22.556-2.832,23.369L0,164.443v19.019l2.248,2.89 c-0.088,2.775,0.823,5.323,2.674,7.431c5.981,6.804,19.713,7.001,21.256,7.001c4.634,0,14.211-2.366,20.78-4.153 c-0.456-0.781-0.927-1.553-1.3-2.392c-0.36-0.809-0.603-1.668-0.885-2.517c-0.811-2.485-1.362-5.096-1.362-7.845 c0-14.074,11.449-25.516,25.515-25.516s25.52,11.446,25.52,25.521c0,6.068-2.221,11.578-5.773,15.964 c-0.753,0.927-1.527,1.828-2.397,2.641c-1.022,0.958-2.089,1.859-3.254,2.641c29.332,0.109,112.164,0.514,168.708,1.771 c-0.828-0.823-1.533-1.771-2.237-2.703c-0.652-0.854-1.222-1.75-1.761-2.688c-2.164-3.744-3.5-8.025-3.5-12.655 c0-14.069,11.454-25.513,25.518-25.513c14.064,0,25.518,11.449,25.518,25.513c0,5.126-1.553,9.875-4.152,13.878 c-0.605,0.922-1.326,1.755-2.04,2.594c-0.782,0.922-1.616,1.781-2.527,2.584c5.209,0.155,9.699,0.232,13.546,0.232 c19.563,0,23.385-1.688,23.861-5.018C324.114,202.108,324.472,199.602,317.833,197.111z"
+                      ></path>
+                      <path
+                        d="M52.17,195.175c3.638,5.379,9.794,8.922,16.756,8.922c0.228,0,0.44-0.062,0.663-0.073c2.576-0.083,5.043-0.61,7.291-1.574 c1.574-0.678,2.996-1.6,4.332-2.636c4.782-3.702,7.927-9.429,7.927-15.933c0-11.144-9.066-20.216-20.212-20.216 s-20.213,9.072-20.213,20.216c0,2.263,0.461,4.411,1.149,6.446c0.288,0.85,0.616,1.673,1.015,2.471 C51.279,193.606,51.667,194.434,52.17,195.175z"
+                      ></path>
+                      <path
+                        d="M269.755,209.068c2.656,0,5.173-0.549,7.503-1.481c1.589-0.642,3.06-1.491,4.422-2.495 c1.035-0.767,1.988-1.616,2.863-2.559c3.34-3.604,5.432-8.389,5.432-13.681c0-11.144-9.071-20.21-20.215-20.21 s-20.216,9.066-20.216,20.21c0,4.878,1.812,9.3,4.702,12.801c0.818,0.989,1.719,1.89,2.708,2.713 c1.311,1.088,2.729,2.024,4.293,2.755C263.836,208.333,266.704,209.068,269.755,209.068z"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </span>
+            <span class="radio-label">Car</span>
+          </span>
+        </label>
+        <label style="animation: scaleUp 1.9s ease-out forwards">
+          <input
+            class="radio-input"
+            type="radio"
+            name="engine"
+            onclick="changeCursor('default')"
+          />
+          <span class="radio-tile">
+            <span class="radio-icon">
+              <img
+                src="static/soluciones/cursor.svg"
+                alt="Cursor Default"
+                width="32"
+                height="32"
+              />
+            </span>
+            <span class="radio-label">Normal</span>
+          </span>
+        </label>
+      </div>
+      <div id="particles-js"></div>
+    </div>
+
+    <div class="flex flex-col items-center gap-12 my-16">
+      <iframe
+        src="/html/sencillas.html"
+        class="custom-iframe"
+        loading="lazy"
+      ></iframe>
+      <iframe
+        src="/html/intermedias.html"
+        class="custom-iframe"
+        loading="lazy"
+      ></iframe>
+      <iframe
+        src="/html/avanzadas.html"
+        class="custom-iframe"
+        loading="lazy"
+      ></iframe>
+    </div>
+    <style>
+      .custom-iframe {
+        width: 90vw;
+        max-width: 1200px;
+        height: 80vh;
+        border-radius: 2rem;
+        box-shadow: 0 8px 32px rgba(47, 47, 47, 0.9);
+        border: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 1;
+      }
+    </style>
+
+    <div class="s4">
+      <div class="text4">
+        <h1>Innova y conecta con tus clientes</h1>
+        <p>
+          Para nosotros, cada negocio es único y cada proyecto es una
+          oportunidad
+        </p>
+      </div>
+      <main>
+        <div class="card">
+          <pixel-canvas></pixel-canvas>
+          <img src="/static/soluciones/rocket1.svg" alt="Imagen" class="card-img img-default" />
+          <img src="/static/soluciones/rocket2.svg" alt="Imagen hover" class="card-img img-hover" />
+          <p class="card-text">Startups</p>
+          <button>Startups</button>
+        </div>
+      
+        <div class="card" style="--active-color: #e0f2fe">
+          <pixel-canvas data-gap="10" data-speed="25" data-colors="#e0f2fe, #7dd3fc, #0ea5e9"></pixel-canvas>
+          <img src="/static/soluciones/emprendedores1.svg" alt="Imagen" class="card-img img-default" />
+          <img src="/static/soluciones/emprendedores2.svg" alt="Imagen hover" class="card-img img-hover" />
+          <p class="card-text">Emprendedores</p>
+          <button>Emprendedores</buton>
+        </div>
+      
+        <div class="card" style="--active-color: #fef08a">
+          <pixel-canvas data-gap="3" data-speed="20" data-colors="#fef08a, #fde047, #eab308"></pixel-canvas>
+          <img src="/static/soluciones/ecommerce1.svg" alt="Imagen" class="card-img img-default" />
+          <img src="/static/soluciones/ecommerce2.svg" alt="Imagen hover" class="card-img img-hover" />
+          <p class="card-text">Ecommerce</p>
+          <button>Ecommerce</buton>
+        </div>
+      
+        <div class="card" style="--active-color: #0079b2">
+          <pixel-canvas data-gap="2" data-speed="20" data-colors="#0079b2, #004aad, #ffffff" data-no-focus></pixel-canvas>
+          <img src="/static/soluciones/negocios1.svg" alt="Imagen" class="card-img img-default" />
+          <img src="/static/soluciones/negocios2.svg" alt="Imagen hover" class="card-img img-hover" />
+          <p class="card-text">Negocios</p>
+          <button>Negocios</buton>
+        </div>
+
+        <div class="card" style="--active-color: #2e9421">
+          <pixel-canvas data-gap="7" data-speed="70" data-colors="#2e9421, #a8ff9d, #006d32"></pixel-canvas>
+          <img src="/static/soluciones/marcapersonal1.svg" alt="Imagen" class="card-img img-default" />
+          <img src="/static/soluciones/marcapersonal2.svg" alt="Imagen hover" class="card-img img-hover" />
+          <p class="card-text">Marca Personal</p>
+          <button>Marca Personal</buton>
+        </div>
+      
+        <div class="card" style="--active-color: #fecdd3">
+          <pixel-canvas data-gap="6" data-speed="80" data-colors="#fecdd3, #fda4af, #e11d48" data-no-focus></pixel-canvas>
+          <img src="/static/soluciones/empresas1.svg" alt="Imagen" class="card-img img-default" />
+          <img src="/static/soluciones/empresas2.svg" alt="Imagen hover" class="card-img img-hover" />
+          <p class="card-text">Empresas</p>
+          <button>Empresas</buton>
+        </div>
+      </main>
+    </div>
+
+    <div id="footer-container">
+      <div class="footer-content">
+        <div class="footer-logo-container">
+          <img src="static/arkasv2.png" alt="Logo" class="footer-logo" />
+        </div>
+
+        <div class="footer-center">
+          <p id="footer-hashtag">#FUTUROSINLIMITES</p>
+          <div class="social-icons">
+            <section
+              class="flex justify-center items-center"
+              style="gap: 1vw; height: 4vh; margin-bottom: 2vh"
+            >
+              <a
+                href="https://www.linkedin.com/company/arkastech"
+                target="_blank"
+                class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-[#0077b5] from-gray-800 text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1.1em"
+                  viewBox="0 0 512 512"
+                  stroke-width="0"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    d="M444.17 32H70.28C49.85 32 32 46.7 32 66.89v374.72C32 461.91 49.85 480 70.28 480h373.78c20.54 0 35.94-18.21 35.94-38.39V66.89C480.12 46.7 464.6 32 444.17 32zm-273.3 373.43h-64.18V205.88h64.18zM141 175.54h-.46c-20.54 0-33.84-15.29-33.84-34.43 0-19.49 13.65-34.42 34.65-34.42s33.85 14.82 34.31 34.42c-.01 19.14-13.31 34.43-34.66 34.43zm264.43 229.89h-64.18V296.32c0-26.14-9.34-44-32.56-44-17.74 0-28.24 12-32.91 23.69-1.75 4.2-2.22 9.92-2.22 15.76v113.66h-64.18V205.88h64.18v27.77c9.34-13.3 23.93-32.44 57.88-32.44 42.13 0 74 27.77 74 87.64z"
+                  ></path>
+                </svg>
+                <span
+                  class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                >
+                  Linkedin
+                </span>
+              </a>
+              <a
+                class="group flex justify-center p-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                href="https://github.com/Arkas-Tech"
+                target="_blank"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 15 15"
+                  class="w-5"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                    fill="currentColor"
+                    d="M7.49933 0.25C3.49635 0.25 0 3.49593 0 7.50024C0 10.703 2.32715 13.4206 5.2081 14.3797C5.57084 14.446 5.70302 14.2222 5.70302 14.0299C5.70302 13.8576 5.69679 13.4019 5.69323 12.797C3.67661 13.235 3.25112 11.825 3.25112 11.825C2.92132 10.9874 2.44599 10.7644 2.44599 10.7644C1.78773 10.3149 2.49584 10.3238 2.49584 10.3238C3.22353 10.375 3.60629 11.0711 3.60629 11.0711C4.25298 12.1788 5.30335 11.8588 5.71638 11.6732C5.78225 11.205 5.96962 10.8854 6.17658 10.7043C4.56675 10.5209 2.87415 9.89918 2.87415 7.12104C2.87415 6.32925 3.15677 5.68257 3.62053 5.17563C3.54576 4.99226 3.29697 4.25521 3.69174 3.25691C3.69174 3.25691 4.30015 3.06196 5.68522 3.99973C6.26337 3.83906 6.8838 3.75895 7.50022 3.75583C8.1162 3.75895 8.73619 3.83906 9.31523 3.99973C10.6994 3.06196 11.3069 3.25691 11.3069 3.25691C11.7026 4.25521 11.4538 4.99226 11.3795 5.17563C11.8441 5.68257 12.1245 6.32925 12.1245 7.12104C12.1245 9.9063 10.4292 10.5192 8.81452 10.6985C9.07444 10.9224 9.30633 11.3648 9.30633 12.0413C9.30633 13.0102 9.29742 13.7922 9.29742 14.0299C9.29742 14.2239 9.42828 14.4496 9.79591 14.3788C12.6746 13.4179 14.75 10.7025 14.75 7.50024C14.75 3.49593 11.5036 0.25 7.49933 0.25Z"
+                  ></path>
+                </svg>
+                <span
+                  class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                >
+                  GitHub
+                </span>
+              </a>
+              <a
+                href="https://www.instagram.com/arkas_tech?igsh=MWk4NW5ncTB1Mm9nYg=="
+                target="_blank"
+                class="group flex justify-center p-2 rounded-md drop-shadow-xl from-gray-800 bg-[#a21caf] text-white font-semibold hover:translate-y-3 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1.2em"
+                  viewBox="0 0 24 24"
+                  stroke-width="1"
+                  fill="currentColor"
+                  stroke="currentColor"
+                  class="w-5"
+                >
+                  <path
+                    d="M12.001 9C10.3436 9 9.00098 10.3431 9.00098 12C9.00098 13.6573 10.3441 15 12.001 15C13.6583 15 15.001 13.6569 15.001 12C15.001 10.3427 13.6579 9 12.001 9ZM12.001 7C14.7614 7 17.001 9.2371 17.001 12C17.001 14.7605 14.7639 17 12.001 17C9.24051 17 7.00098 14.7629 7.00098 12C7.00098 9.23953 9.23808 7 12.001 7ZM18.501 6.74915C18.501 7.43926 17.9402 7.99917 17.251 7.99917C16.5609 7.99917 16.001 7.4384 16.001 6.74915C16.001 6.0599 16.5617 5.5 17.251 5.5C17.9393 5.49913 18.501 6.0599 18.501 6.74915ZM12.001 4C9.5265 4 9.12318 4.00655 7.97227 4.0578C7.18815 4.09461 6.66253 4.20007 6.17416 4.38967C5.74016 4.55799 5.42709 4.75898 5.09352 5.09255C4.75867 5.4274 4.55804 5.73963 4.3904 6.17383C4.20036 6.66332 4.09493 7.18811 4.05878 7.97115C4.00703 9.0752 4.00098 9.46105 4.00098 12C4.00098 14.4745 4.00753 14.8778 4.05877 16.0286C4.0956 16.8124 4.2012 17.3388 4.39034 17.826C4.5591 18.2606 4.7605 18.5744 5.09246 18.9064C5.42863 19.2421 5.74179 19.4434 6.17187 19.6094C6.66619 19.8005 7.19148 19.9061 7.97212 19.9422C9.07618 19.9939 9.46203 20 12.001 20C14.4755 20 14.8788 19.9934 16.0296 19.9422C16.8117 19.9055 17.3385 19.7996 17.827 19.6106C18.2604 19.4423 18.5752 19.2402 18.9074 18.9085C19.2436 18.5718 19.4445 18.2594 19.6107 17.8283C19.8013 17.3358 19.9071 16.8098 19.9432 16.0289C19.9949 14.9248 20.001 14.5389 20.001 12C20.001 9.52552 19.9944 9.12221 19.9432 7.97137C19.9064 7.18906 19.8005 6.66149 19.6113 6.17318C19.4434 5.74038 19.2417 5.42635 18.9084 5.09255C18.573 4.75715 18.2616 4.55693 17.8271 4.38942C17.338 4.19954 16.8124 4.09396 16.0298 4.05781C14.9258 4.00605 14.5399 4 12.001 4ZM12.001 2C14.7176 2 15.0568 2.01 16.1235 2.06C17.1876 2.10917 17.9135 2.2775 18.551 2.525C19.2101 2.77917 19.7668 3.1225 20.3226 3.67833C20.8776 4.23417 21.221 4.7925 21.476 5.45C21.7226 6.08667 21.891 6.81333 21.941 7.8775C21.9885 8.94417 22.001 9.28333 22.001 12C22.001 14.7167 21.991 15.0558 21.941 16.1225C21.8918 17.1867 21.7226 17.9125 21.476 18.55C21.2218 19.2092 20.8776 19.7658 20.3226 20.3217C19.7668 20.8767 19.2076 21.22 18.551 21.475C17.9135 21.7217 17.1876 21.89 16.1235 21.94C15.0568 21.9875 14.7176 22 12.001 22C9.28431 22 8.94514 21.99 7.87848 21.94C6.81431 21.8908 6.08931 21.7217 5.45098 21.475C4.79264 21.2208 4.23514 20.8767 3.67931 20.3217C3.12348 19.7658 2.78098 19.2067 2.52598 18.55C2.27848 17.9125 2.11098 17.1867 2.06098 16.1225C2.01348 15.0558 2.00098 14.7167 2.00098 12C2.00098 9.28333 2.01098 8.94417 2.06098 7.8775C2.11014 6.8125 2.27848 6.0875 2.52598 5.45C2.78014 4.79167 3.12348 4.23417 3.67931 3.67833C4.23514 3.1225 4.79348 2.78 5.45098 2.525C6.08848 2.2775 6.81348 2.11 7.87848 2.06C8.94514 2.0125 9.28431 2 12.001 2Z"
+                  ></path>
+                </svg>
+                <span
+                  class="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-700 group-hover:text-sm group-hover:-translate-y-10 duration-700"
+                >
+                  Instagram
+                </span>
+              </a>
+            </section>
+          </div>
+          <div class="footer-links">
+            <a href="index.html#f4">Contacto</a>
+            <a href="experiencia.html">Experiencia</a>
+          </div>
+          <div class="footer-legal-links">
+            <a href="/html/aviso-privacidad.html" target="_blank">Aviso de Privacidad</a>
+            <a href="/html/politica-cookies.html" target="_blank">Política de Cookies</a>
+          </div>
+          <p class="footer-bottom">
+            © 2025 Arkas Tech. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="js/descubre.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/pixel.js"></script>
+    <script src="js/cursor_img.js"></script>
+
+    <script src="https://cdn.skypack.dev/tweakpane@4.0.4"></script>
+    <script src="https://cdn.skypack.dev/gsap@3.12.0"></script>
+    <script src="https://cdn.skypack.dev/gsap@3.12.0/ScrollTrigger"></script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+      function toggleMenu() {
+        const fullscreenMenu = document.getElementById("fullscreenMenu");
+        fullscreenMenu.classList.toggle("active");
+      }
+
+      function changeCursor(imagePath) {
+        document.body.style.cursor = `url('${imagePath}'), auto`;
+      }
+
+      particlesJS("particles-js", {
+        particles: {
+          number: {
+            value: 700,
+            density: {
+              enable: true,
+              value_area: 600,
+            },
+          },
+          color: {
+            value: "#ffffff",
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000",
+            },
+            polygon: {
+              nb_sides: 5,
+            },
+            image: {
+              src: "img/github.svg",
+              width: 100,
+              height: 100,
+            },
+          },
+          opacity: {
+            value: 0.49,
+            random: false,
+            anim: {
+              enable: true,
+              speed: 0.5,
+              opacity_min: 0,
+              sync: false,
+            },
+          },
+          size: {
+            value: 2,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 0.9,
+              size_min: 0,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: false,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 0.7,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "bubble",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 83.9,
+              size: 1,
+              duration: 3,
+              opacity: 1,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      });
+    </script>
+    <script>
+      const lenis = new Lenis({
+        autoRaf: true,
+      });
+    </script>
+  </body>
+</html>
