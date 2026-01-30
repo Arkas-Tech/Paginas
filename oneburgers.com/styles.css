@@ -1,0 +1,1200 @@
+@font-face {
+  font-family: "Abang";
+  src: url("static/abang.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  line-height: 1.2;
+  overflow-x: hidden;
+  display: grid;
+  max-width: 100vw;
+  background-color: black;
+  background-image: radial-gradient(rgba(255, 0, 0, 0.8) 1px, transparent 2px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  overflow-x: hidden;
+}
+
+.main-header {
+  background: whitesmoke;
+  padding: 3vh 5vw;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 1.5em;
+  margin: 2vh auto 0 auto;
+  width: 80vw;
+  animation: headerDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform: translateY(-80px);
+  opacity: 0;
+  justify-content: center;
+}
+
+.main-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3vw;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.main-header nav ul li a {
+  text-decoration: none;
+  color: #111;
+  font-family: "Abang", "Stardos Stencil", system-ui;
+  font-weight: 700;
+  font-size: 2em;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.main-header nav ul li a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #c22121;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+.main-header nav ul li a:hover {
+  color: #c22121;
+}
+
+.main-header nav ul li a:hover::after {
+  width: 100%;
+}
+
+.f1 {
+  height: 85vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 100vw;
+  gap: 4vw;
+}
+
+.f1 h1 {
+  font-size: 3.5em;
+  text-align: left;
+  color: red;
+  margin-left: 0;
+  transform: translateX(-100vw);
+  animation: slideRight 1s ease-out forwards;
+  width: 50vw;
+  margin-top: -10vh;
+  margin-bottom: 10vh;
+  max-width: 80vw;
+  font-family: "Abang", "Stardos Stencil", system-ui;
+  font-weight: 500;
+  font-style: normal;
+  align-self: center;
+  line-height: 0.8;
+}
+
+.f1 h1 .blanco {
+  color: #fff;
+}
+
+/* Animaciones */
+@keyframes slideRight {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft {
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes headerDown {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.f1-botones {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  margin-top: 20em;
+  margin-left: -53vw;
+}
+
+.f1-botones .btn-menu {
+  font-size: 1.2em;
+  padding: 1em 2em;
+  border-radius: 2em;
+  background: linear-gradient(90deg, #d32f2f 60%, #ff5252 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(211, 47, 47, 0.18);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  font-family: "Abang", "Stardos Stencil", system-ui;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.f1-botones .btn-menu:hover {
+  background: linear-gradient(90deg, #b71c1c 60%, #ff5252 100%);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.25);
+}
+
+.one-img {
+  width: 30vw;
+  margin-top: 0;
+  margin-left: 0;
+  height: auto;
+  border-radius: 1vw;
+  z-index: -1;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateX(100vw);
+  animation: slideLeftImg 1.2s 0.3s ease-out forwards;
+  align-self: center;
+}
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2vw;
+  margin-top: 5vh;
+  margin-bottom: 20vh;
+}
+
+.feature-box {
+  background: rgba(24, 24, 24, 0.68);
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  padding: 2vw 1.5vw 1.5vw 1.5vw;
+  width: 26vw;
+  height: 20vh;
+  min-width: 20vw;
+  max-width: 90vw;
+  text-align: center;
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.feature-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-icon {
+  font-size: 2em;
+  display: block;
+  margin-top: 1em;
+  opacity: 1;
+}
+
+.feature-box h3 {
+  font-family: "Stardos Stencil", system-ui;
+  color: #c22121;
+  font-size: 1.8em;
+  margin-top: 2vh;
+  opacity: 1;
+}
+
+.feature-box p {
+  margin-top: -1vh;
+  font-size: 1.2em;
+  color: #eee;
+  opacity: 1;
+}
+.menu-ver-mas-container {
+  text-align: center;
+  margin: 32px 0 0 0;
+}
+
+.btn-ver-menu {
+  display: inline-block;
+  padding: 14px 36px;
+  background: linear-gradient(90deg, #ff9800 0%, #ff5722 100%);
+  color: #fff;
+  font-size: 2vw;
+  font-family: "Stardos Stencil", cursive, sans-serif;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 16px rgba(255, 87, 34, 0.15);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+.btn-ver-menu:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 24px rgba(255, 152, 0, 0.25);
+  background: linear-gradient(90deg, #ff5722 0%, #ff9800 100%);
+  letter-spacing: 2px;
+}
+
+.btn-menu {
+  display: inline-block;
+  background: #d32f2f;
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(211, 47, 47, 0.15);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-menu:hover {
+  background: #b71c1c;
+  transform: scale(1.07) translateY(-3px);
+  box-shadow: 0 8px 24px rgba(211, 47, 47, 0.25);
+}
+
+.separador-animado {
+  width: 80vw;
+  height: 1vh;
+  margin: 30px auto 30px auto;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #c22121 30%, #ff5252 70%);
+  box-shadow: 0 2px 16px rgba(194, 33, 33, 0.25);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px) scaleX(0.8);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.separador-animado.visible {
+  opacity: 1;
+  transform: translateY(0) scaleX(1);
+}
+
+.separador-animado::before {
+  content: "";
+  position: absolute;
+  left: -40%;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.18);
+  filter: blur(2px);
+  animation: separador-move 2.5s linear infinite;
+}
+
+@keyframes separador-move {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.f3 {
+  display: flex;
+  justify-content: center;
+  margin: 60px 0 40px 0;
+}
+
+.f3-box {
+  background: #181818;
+  border-radius: 1vw;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  padding: 2.5vw 2vw;
+  width: 60vw;
+  min-width: 300px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.f3-titulo {
+  color: whitesmoke;
+  font-size: 3vw;
+  margin-bottom: 2vw;
+  font-family: "Stardos Stencil", system-ui;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.f3-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+.f3-item h4 {
+  color: #c22121;
+  font-size: 2.5vw;
+  margin: 0 0 0.3em 0;
+  font-family: "Stardos Stencil", system-ui;
+  text-align: left;
+}
+
+.f3-item p {
+  color: whitesmoke;
+  font-size: 2vw;
+  margin: 0;
+  text-align: left;
+}
+
+.f3-divider {
+  width: 100%;
+  height: 2px;
+  background: #c22121;
+  border-radius: 1px;
+  margin: 1vw 0;
+  opacity: 0.8;
+}
+
+@keyframes slideLeftImg {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.menu-card-img {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+  background: #111;
+}
+
+.menu-card-info {
+  padding: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.menu-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-card-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 2vw;
+  font-family: "Stardos Stencil", system-ui;
+}
+
+.menu-card-price {
+  background: #000;
+  color: #c22121;
+  font-weight: bold;
+  font-size: 2vw;
+  border-radius: 0.3em;
+  padding: 0.2em 0.7em;
+}
+
+.menu-card-desc {
+  color: #bdbdbd;
+  font-size: 1.5vw;
+  font-family: system-ui, sans-serif;
+}
+
+.mapa-google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 40px auto;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 1vw;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+}
+.mapa-google iframe {
+  width: 100%;
+  min-height: 300px;
+  border: 0;
+  border-radius: 1vw;
+  display: block;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+  background: linear-gradient(90deg, #181818 60%, #c22121 100%);
+  color: #fff;
+  font-family: "Stardos Stencil", system-ui, sans-serif;
+  margin-top: 6vh;
+  padding: 1.2vw 0 0.5vw 0;
+  box-shadow: 0 -2px 16px rgba(194, 33, 33, 0.1);
+  border-radius: 1vw 1vw 0 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2vw;
+  flex-wrap: wrap;
+  gap: 1vw;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+
+.footer-logo {
+  width: 7vw;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.footer-title {
+  font-size: 1.3vw;
+  font-weight: bold;
+  color: #ff9800;
+  letter-spacing: 1px;
+}
+
+.footer-desc {
+  font-size: 0.95vw;
+  color: #eee;
+  margin-left: 1em;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5vw;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1vw;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #ff9800;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1vw;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1vw;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-social a:hover {
+  color: #ff9800;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9vw;
+  margin-top: 0.7vw;
+  border-top: 1px solid #333;
+  padding-top: 0.5vw;
+  letter-spacing: 1px;
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 0vw;
+}
+
+.footer-logo-ark {
+  width: 6.5vw;
+  height: auto;
+}
+
+/*//////////////////// NOSOTROS////////////////////*/
+/*//////////////////// NOSOTROS////////////////////*/
+/*//////////////////// NOSOTROS////////////////////*/
+/*//////////////////// NOSOTROS////////////////////*/
+/*//////////////////// NOSOTROS////////////////////*/
+/*//////////////////// NOSOTROS////////////////////*/
+
+.m1 {
+  margin-top: 10vh;
+  max-width: 100vw;
+  height: 20vh;
+  display: flex;
+  font-family: "Stardos Stencil", system-ui;
+  justify-content: center;
+}
+.m1 h1 {
+  color: red;
+  text-align: center;
+  margin-top: 0;
+  font-size: 6vw;
+  font-weight: bold;
+  justify-content: top;
+}
+/* --- SECCIÓN MENÚ --- */
+.menu-section {
+  width: 100vw;
+  margin-top: 5vh;
+  margin-left: -2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  margin-bottom: 3vh;
+  justify-content: center;
+  width: 90%;
+}
+
+.menu-category-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: "Stick", sans-serif;
+  font-size: 2vw;
+  font-weight: 700;
+  padding: 0.5em 1.2em;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+  margin-bottom: 1vw;
+}
+
+.menu-category-btn::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #c22121;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+
+.menu-category-btn.active,
+.menu-category-btn:hover {
+  color: #c22121;
+}
+
+.menu-category-btn.active::after,
+.menu-category-btn:hover::after {
+  width: 100%;
+}
+
+.menu-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: center;
+  width: 95vw;
+  margin: 0 auto;
+}
+
+.menu-card {
+  background: #101827;
+  border-radius: 1em;
+  box-shadow: 0 2px 16px rgba(255, 0, 0, 0.15);
+  width: 28vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 2vh;
+}
+
+.menu-card-img {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+  background: #111;
+}
+
+.menu-card-info {
+  padding: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.menu-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-card-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 2vw;
+  font-family: "Stardos Stencil", system-ui;
+}
+
+.menu-card-price {
+  background: #000;
+  color: #c22121;
+  font-weight: bold;
+  font-size: 2vw;
+  border-radius: 0.3em;
+  padding: 0.2em 0.7em;
+}
+
+.menu-card-desc {
+  color: #bdbdbd;
+  font-size: 1.5vw;
+  font-family: system-ui, sans-serif;
+}
+
+.main-title {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0px;
+  font-family: "Stardos Stencil", system-ui;
+}
+.subtitle {
+  color: #e53935;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Animación para la imagen y el contenido de section1 */
+.section1-img {
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: section1ImgIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.section1-content {
+  opacity: 0;
+  transform: translateX(80px);
+  animation: section1ContentIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes section1ImgIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes section1ContentIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.section1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.section1-img {
+  width: 40vw;
+  height: 60vh;
+  background: #222;
+  background-image: url("/static/menu/hamburguesa.JPG"); /* Cambia por tu imagen */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px 0 0 10px;
+}
+.section1-content {
+  width: 40vw;
+  height: 60vh;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: 1em;
+  box-shadow: 0 2px 16px rgba(255, 0, 0, 0.15);
+}
+.section1-content h2 {
+  color: #e53935;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  font-family: "Stardos Stencil", system-ui;
+}
+.section1-content p {
+  color: #fff;
+  font-size: 1.2rem;
+  flex: 1;
+}
+.stats-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.stat-box {
+  background: #222;
+  border-radius: 10px;
+  width: 20rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  perspective: 600px;
+}
+
+.stat-box:hover {
+  transform: rotateZ(5deg) rotateX(15deg) translateY(-8px) scale(1.04);
+  border: 2px solid #e53935;
+  box-shadow: 0 8px 32px rgba(229, 57, 53, 0.25);
+  z-index: 2;
+}
+.stat-big {
+  color: #e53935;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.stat-small {
+  color: #fff;
+  font-size: 0.9rem;
+}
+.section2 {
+  margin: 4rem 0 3rem 0;
+}
+.section2-title {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+.philosophy-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.philosophy-box {
+  background: #111;
+  border: 2px solid #e53935;
+  border-radius: 30px;
+  width: 40vw;
+  height: 40vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.philosophy-box h3 {
+  color: #e53935;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  font-family: "Stardos Stencil", system-ui;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.philosophy-box p {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.15);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+.icon-vision {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .section1,
+  .philosophy-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .section1-img,
+  .section1-content,
+  .philosophy-box {
+    width: 80vw;
+    height: auto;
+    min-height: 30vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .f1 h1 {
+    font-size: 6vw;
+  }
+  .menu-products {
+    width: 95vw;
+    gap: 3vw;
+  }
+  .menu-card {
+    width: 45vw;
+    height: auto;
+  }
+  .menu-category-btn {
+    font-size: 2.8vw;
+    padding: 0.5em 0.8em;
+  }
+  .menu-card-img {
+    height: 30vh;
+  }
+  .menu-card-title {
+    font-size: 3vw;
+  }
+  .menu-card-price {
+    font-size: 3vw;
+  }
+  .menu-card-desc {
+    font-size: 2.3vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .f1 {
+    flex-direction: column;
+    gap: 4vw;
+    align-items: center;
+    height: 100vh;
+    padding-top: 6vw;
+    margin-left: 10vw;
+    margin-top: -10vh;
+    width: 90%;
+  }
+  .one-img {
+    margin-top: 45vh;
+    width: 30vw;
+    margin-left: -5vw;
+  }
+  .f1 h1 {
+    width: 60vw;
+    margin-left: -4vw;
+    margin-top: 2vh;
+    text-align: center;
+  }
+  .f1-botones {
+    margin-top: 0;
+    margin-left: -10vw;
+  }
+  .features {
+    margin-top: 60vh;
+    flex-direction: column;
+  }
+  .feature-icon {
+    font-size: 5vw;
+    margin-bottom: 2vh;
+    margin-top: 0vh;
+  }
+  .feature-box {
+    width: 70vw;
+    margin-left: 15vw;
+  }
+  .feature-box h3 {
+    font-size: 4vw;
+    margin-top: -2vh; 
+  }
+  .feature-box p {
+    font-size: 3vw;
+    margin-top: -4vh;
+  }
+
+  .menu-section {
+    margin-top: -10vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .f1 {
+    flex-direction: column;
+    gap: 4vw;
+    align-items: center;
+    height: 100vh;
+    padding-top: 6vw;
+    margin-left: 10vw;
+    margin-top: -10vh;
+    width: 90%;
+  }
+  .one-img {
+    margin-top: 45vh;
+    width: 40vw;
+    margin-left: -5vw;
+  }
+  .f1 h1 {
+    width: 70vw;
+    margin-left: -4vw;
+    margin-top: 2vh;
+    text-align: center;
+  }
+  .f1-botones {
+    margin-top: 0;
+    margin-left: -10vw;
+  }
+  .features {
+    margin-top: 40vh;
+    flex-direction: column;
+  }
+  .feature-icon {
+    font-size: 5vw;
+    margin-bottom: 2vh;
+    margin-top: 0vh;
+  }
+  .feature-box {
+    width: 70vw;
+    margin-left: 15vw;
+  }
+  .feature-box h3 {
+    font-size: 4vw;
+    margin-top: -2vh; 
+  }
+  .feature-box p {
+    font-size: 3vw;
+    margin-top: -4vh;
+  }
+  .philosophy-box {
+    width: 80%;
+  }
+
+  .menu-section {
+    margin-top: -10vh;
+  }
+}
+.btn-ver-menu {
+  font-size: 1.2em;
+}
+.f3-titulo {
+  font-size: 1.5em;
+}
+.f3-item h4 {
+  font-size: 1.3em;
+}
+.f3-item p {
+  font-size: 1.1em;
+}
+.mapa-google {
+  width: 90%;
+  height: 50vh;
+  border-radius: 1vw;
+  margin-top: 15vh;
+}
+.footer-content {
+  flex-direction: column;
+  align-items: center;
+  gap: 2vw;
+  padding: 0 2vw;
+}
+.footer-title {
+  font-size: 1.5em;
+  margin-bottom: 1vw;
+}
+.footer-links  a,
+.footer-social a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5vw;
+  font-size: 3vw;
+}
+
+@media (max-width: 499px) {
+  .f1 h1 {
+    font-size: 9vw;
+    text-align: center;
+    margin-left: -10vw;
+  }
+  .one-img {
+    width: 70vw;
+    height: auto;
+    margin-top: 10vh;
+    margin-left: -10vw;
+  }
+  .f1-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    align-items: center; 
+  }
+  .features {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    margin-left: -15vw;
+    margin-bottom: 7vh;
+  }
+  .feature-box {
+    width: 80vw;
+  }
+  .feature-icon {
+    font-size: 8.5vw;
+    margin-bottom: 4vh;
+    margin-top: 2vh;
+  }
+  .feature-box h3 {
+    font-size: 5vw;
+    margin-top: -2vh;
+  }
+  .feature-box p {
+    font-size: 4vw;
+    margin-top: 0vh;
+  }
+  .separador-animado {
+    width: 90vw;
+    height: 4px;
+    margin: 20px auto;
+  }
+  .main-header nav ul {
+    gap: 5vw;
+  }
+  .main-header nav ul li a {
+    font-size: 1.5em;
+  }
+  .menu-products {
+    align-items: center;
+  }
+  .menu-card {
+    width: 90vw;
+  }
+  .menu-categories {
+    align-items: center;
+    gap: 4vw;
+    width: 100%;
+  }
+  .menu-category-btn {
+    width: 25vw;
+    text-align: center;
+    font-size: 4vw;
+  }
+  .menu-card-img {
+    height: 30vh;
+  }
+  .menu-card-title {
+    font-size: 5vw;
+  }
+  .menu-card-price {
+    font-size: 4vw;
+  }
+  .menu-card-desc {
+    font-size: 3.5vw;
+  }
+
+  .btn-ver-menu {
+  font-size: 1.2em;
+}
+  .f3-box {
+    width: 85vw;
+  }
+  .f3-titulo {
+    font-size: 5vw;
+  }
+  .f3-item h4 {
+    font-size: 4vw;
+  }
+  .f3-item p {
+    font-size: 3.5vw;
+  }
+  
+  .mapa-google {
+    width: 90vw;
+  }
+  .main-footer {
+    padding: 3vw 0 1vw 0;
+    border-radius: 3vw 3vw 0 0;
+    width: 97vw;
+  }
+  .footer-title {
+    font-size: 4vw;
+  }
+  .footer-logo {
+    width: 2.5em;
+    height: 2.5em;
+  }
+  .footer-links a,
+  .footer-social a {
+    font-size: 3vw;
+  }
+  .footer-desc,
+  .footer-bottom {
+    font-size: 2.5vw;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 5vw;
+    padding: 0 2vw;
+    font-size: 5vw;
+  }
+  .footer-social {
+    display: flex;
+    gap: 3vw;
+  }
+  .m1 h1 {
+    font-size: 10vw;
+    margin-top: 0vh;
+  }
+}
+
+.fuente1 { font-family: 'Fredoka', sans-serif; font-size: 0.8em; font-weight: 700; color: red; }
+.fuente2 { font-family: 'Playfair Display', serif; font-size: 1em; font-weight: 700; color: red; }
+.fuente3 { font-family: 'Quicksand', sans-serif; font-size: 0.7em; font-weight: 700; color: red; letter-spacing: 1px; }
+.fuente4 { font-family: 'Roboto', sans-serif; font-size: 0.5em; font-weight: 300; color: red; }
+.fuente5 { font-family: 'Montserrat', sans-serif; font-size: 0.7em; font-weight: 900; color: red; letter-spacing: 1px; }
+.fuente6 { font-family: 'Dancing Script', cursive; font-size: 1.6em; color: #ffffff; }
+.fuente7 { font-family: 'Marcellus', serif; font-size: 0.6em; color: red; }
+.fuente8 { font-family: 'Righteous', cursive; font-size: 1.1em; color: red; }
+.fuente9 { font-family: 'Great Vibes', cursive; font-size: 0.8em; color: red; }
+.fuente10 { font-family: 'Montserrat', sans-serif; font-size: 0.6em; font-weight: 900; color: #222; letter-spacing: 1px; }

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menú</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&family=Stick&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+  /* Estilos para el modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+  }
+  .modal.active {
+    display: flex;
+  }
+</style>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="m1">
+      <h1>Menú</h1>
+    </div>
+    <section class="menu-section">
+      <div class="menu-categories">
+        <button class="menu-category-btn active">Box Familiar</button>
+        <button class="menu-category-btn">Burgers</button>
+        <button class="menu-category-btn">Complementos</button>
+        <button class="menu-category-btn">Alitas</button>
+        <button class="menu-category-btn">Boneless</button>
+        <button class="menu-category-btn">Tortas</button>
+        <button class="menu-category-btn">Big Burro</button>
+        <button class="menu-category-btn">Postres</button>
+        <button class="menu-category-btn">Refrescos</button>
+        <button class="menu-category-btn">Salsas</button>
+      </div>
+      <!-- Box familiar -->
+      <div class="menu-products">
+        <!-- Favoritos -->
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/One Box 1.jpg"
+            alt="Combo 1"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">BOX 1</span>
+              <span class="menu-card-price">$370</span>
+            </div>
+            <div class="menu-card-desc">
+              4 Hamburguesas sencillas + papas a la francesa + papas Gajo + Aros de cebolla + Aderezos + 4 refrescos de mas de 400 ml
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/combo2.JPG"
+            alt="Combo 2"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">BOX 2</span>
+              <span class="menu-card-price">$480</span>
+            </div>
+            <div class="menu-card-desc">
+              4 Hamburguesas especiales (doble, hawaiana, campestre, pollo o tocino) + papas a la francesa + papas Gajo + Aros de cebolla + Aderezos + 4 refrescos de mas de 400 ml
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/combo2.JPG"
+            alt="Combo 2"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">BONELESS 1</span>
+              <span class="menu-card-price">$480</span>
+            </div>
+            <div class="menu-card-desc">
+              1 kg de boneless + papas a la francesa + papas Gajo + Aros de cebolla + Hamburguesa Sencilla + Verdura + Aderezos + 2 refrescos de 2 lts
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/combo2.JPG"
+            alt="Combo 2"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">BONELESS 2</span>
+              <span class="menu-card-price">$480</span>
+            </div>
+            <div class="menu-card-desc">
+              1/2 kg de boneless + 6 pzas de Alitas + Papas a la francesa + Papas Gajo + Aros de cebolla + Hamburguesa Sencilla + Verdura + Aderezos refresco de 2 lts
+            </div>
+          </div>
+        </div>
+        <!-- Más cards de favoritos -->
+      </div>
+      <!-- Hamburguesas -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/hamburguesa.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">CHEESE BURGER</span>
+              <span class="menu-card-price">$65</span>
+            </div>
+            <div class="menu-card-desc">
+              Carne de hamburguesa, queso amarillo, lechuga, tomate, cebolla y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/hamburguesa2.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">SENCILLA</span>
+              <span class="menu-card-price">$70</span>
+            </div>
+            <div class="menu-card-desc">
+              Carne de hamburguesa, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/haw.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">HAWAIANA</span>
+              <span class="menu-card-price">$80</span>
+            </div>
+            <div class="menu-card-desc">
+              Carne de hamburguesa, jamón, piña, queso, aguacate, lechuga, tomate, aderezos y cereza.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/hamburguesa3.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">DOBLE</span>
+              <span class="menu-card-price">$85</span>
+            </div>
+            <div class="menu-card-desc">
+              Doble carne de hamburguesa, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/ham tocino.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">TOCINO</span>
+              <span class="menu-card-price">$85</span>
+            </div>
+            <div class="menu-card-desc">
+              Caerne de hamburguesa, tocino, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/Hamburguesa Campestre.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">CAMPESTRE</span>
+              <span class="menu-card-price">$85</span>
+            </div>
+            <div class="menu-card-desc">
+              Carne de hamburguesa, tocino, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/papas.PNG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">POLLO</span>
+              <span class="menu-card-price">$85</span>
+            </div>
+            <div class="menu-card-desc">
+              Boneless bañados en tu salsa favorita, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/papas.PNG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">CHORIZO</span>
+              <span class="menu-card-price">$85</span>
+            </div>
+            <div class="menu-card-desc">
+              Carne de hamburguesa, chorizo, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/papas.PNG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">CAMARON</span>
+              <span class="menu-card-price">$105</span>
+            </div>
+            <div class="menu-card-desc">
+              Carne de hamburguesa, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Complementos -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/papas.PNG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">PAPAS FRANCESA</span>
+              <span class="menu-card-price">$70</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/Papas Gajo.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">PAPAS GAJO</span>
+              <span class="menu-card-price">$75</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/aros.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">AROS DE CEBLLA</span>
+              <span class="menu-card-price">$75</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/dedos.jpeg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">DEDOS DE QUESO</span>
+              <span class="menu-card-price">$70</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/papanachos.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">PAPANACHOS</span>
+              <span class="menu-card-price">$80</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/papas.PNG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">PAPANACHOS GAJO</span>
+              <span class="menu-card-price">$85</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/papas.PNG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">ONE NACHOS</span>
+              <span class="menu-card-price">$70</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Alitas -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/alitas.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">8 PIEZAS</span>
+              <span class="menu-card-price">$130</span>
+            </div>
+            <div class="menu-card-desc">
+              Alitas de pollo con salasa a elección.
+            </div>
+          </div>
+        </div>
+         <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/alitas.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">16 PIEZAS</span>
+              <span class="menu-card-price">$250</span>
+            </div>
+            <div class="menu-card-desc">
+              Alitas de pollo con salasa a elección.
+            </div>
+          </div>
+        </div>
+         <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/combo4.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">COMBO #4</span>
+              <span class="menu-card-price">$170</span>
+            </div>
+            <div class="menu-card-desc">
+              6 piezas de alitas papas francesas, aros de cebolla o papa gajo y refresco de 400ml.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/combo5.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">COMBO #5</span>
+              <span class="menu-card-price">$230</span>
+            </div>
+            <div class="menu-card-desc">
+              10 piezas de alitas papas francesas, aros de cebolla o papa gajo y refresco de 400ml.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Boneless -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/250 grs.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">250 GRS.</span>
+              <span class="menu-card-price">$85</span>
+            </div>
+            <div class="menu-card-desc">
+              250 gramos de boneless con salsa a elección.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/350 grs.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">350 GRS.</span>
+              <span class="menu-card-price">$105</span>
+            </div>
+            <div class="menu-card-desc">
+              350 gramos de boneless con salsa a elección.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/medio kilo.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">1/2 Kg.</span>
+              <span class="menu-card-price">$170</span>
+            </div>
+            <div class="menu-card-desc">
+              1/2 Kg. de boneless con salsa a elección.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/kilo.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">1 Kg.</span>
+              <span class="menu-card-price">$340</span>
+            </div>
+            <div class="menu-card-desc">
+              1 Kg. de boneless con salsa a elección.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/combo 1.png"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">COMBO 1</span>
+              <span class="menu-card-price">$140</span>
+            </div>
+            <div class="menu-card-desc">
+              250 GRS. de boneless, papas a la francesa y refresco de 400ml.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/Combo 2.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">COMBO 2</span>
+              <span class="menu-card-price">$140</span>
+            </div>
+            <div class="menu-card-desc">
+              250 GRS. de boneless, aros de cebolla y refresco de 400ml.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/combo 3.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">COMBO 3</span>
+              <span class="menu-card-price">$140</span>
+            </div>
+            <div class="menu-card-desc">
+              250 GRS. de boneless, papas gajo y refresco de 400ml.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tortas -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/Torta Sencilla.png"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">SENCILLA</span>
+              <span class="menu-card-price">$70</span>
+            </div>
+            <div class="menu-card-desc">
+              Lomo de res, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/torta2.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">ESPECIAL</span>
+              <span class="menu-card-price">$80</span>
+            </div>
+            <div class="menu-card-desc">
+              Lomo de res, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/torta2.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">SUPER ESPECIAL</span>
+              <span class="menu-card-price">$90</span>
+            </div>
+            <div class="menu-card-desc">
+              Lomo de res, carne de hamburguesa, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/torta2.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">ONE</span>
+              <span class="menu-card-price">$90</span>
+            </div>
+            <div class="menu-card-desc">
+              Lomo de res, carne de hamburguesa, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/torta2.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">SUPER ONE</span>
+              <span class="menu-card-price">$110</span>
+            </div>
+            <div class="menu-card-desc">
+              Lomo de res, carne de hamburguesa, salchicha para asar, tocino, jamón, queso, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/torta2.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">MONTADO</span>
+              <span class="menu-card-price">$105</span>
+            </div>
+            <div class="menu-card-desc">
+              Montado de puerco, asadero.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Big Burrito -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/Big burro.jpg"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">ONE BURRO</span>
+              <span class="menu-card-price">$110</span>
+            </div>
+            <div class="menu-card-desc">
+              Lomo de res, salchicha para asar, asadero, aguacate, lechuga, tomate y aderezos.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Postres -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/postre1.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">PAY DE LIMON</span>
+              <span class="menu-card-price">$40</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/postre1.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">PALETA DE CREMA</span>
+              <span class="menu-card-price">$25</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/postre1.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">PALETA CUBIERTA DE CHOCOLATE</span>
+              <span class="menu-card-price">$30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Refrescos -->
+      <div class="menu-products">
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/refresco1.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">400 MLS</span>
+              <span class="menu-card-price">$20</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/refresco1.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">600 MLS</span>
+              <span class="menu-card-price">$30</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/refresco1.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">COCA COLA 600 MLS</span>
+              <span class="menu-card-price">$30</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/refresco1.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">COCA COLA 2 LTS</span>
+              <span class="menu-card-price">$60</span>
+            </div>
+          </div>
+        </div>
+         <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/burrito.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">AGUA SABOR</span>
+              <span class="menu-card-price">$25</span>
+            </div>
+            <div class="menu-card-desc">
+              Limon, Horchata, Pepinolimon, Jamaica, Horchatafresa.
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img
+            class="menu-card-img"
+            src="/static/menu/burrito.JPG"
+            alt="Hamburguesa"
+          />
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <span class="menu-card-title">2 LTS</span>
+              <span class="menu-card-price">$25</span>
+            </div>
+            <div class="menu-card-desc">
+              Manzana soto, Squirt, Elite uva, Elite fresa.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Salsas -->
+      <div class="menu-products">
+        
+          </div>
+        </div>
+      <!-- Imagen pequeña de la carta de salsas -->
+<img id="salsaCard" src="static/menu/Salsas.jpg" alt="Carta de Salsas" style="width:200px;cursor:pointer;border-radius:8px;">
+
+<!-- Modal para mostrar la imagen grande -->
+<div id="salsaModal" class="modal">
+  <img src="static/menu/Salsas.jpg" alt="Carta de Salsas Grande">
+</div>
+
+<script>
+  const salsaCard = document.getElementById('salsaCard');
+  const salsaModal = document.getElementById('salsaModal');
+
+  salsaCard.onclick = () => salsaModal.classList.add('active');
+  salsaModal.onclick = () => salsaModal.classList.remove('active');
+</script>
+      <!-- Repite un div.menu-products por cada categoría, con sus productos -->
+    </section>
+    <script>
+      // Cambia la sección visible según el botón
+      const buttons = document.querySelectorAll(".menu-category-btn");
+      const sections = document.querySelectorAll(".menu-products");
+
+      buttons.forEach((btn, idx) => {
+        btn.addEventListener("click", () => {
+          // Quitar clase activa de todos los botones
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          // Mostrar solo la sección correspondiente
+          sections.forEach((sec, i) => {
+            sec.style.display = i === idx ? "flex" : "none";
+          });
+        });
+      });
+
+      // Mostrar solo la primera sección al cargar
+      sections.forEach((sec, i) => {
+        sec.style.display = i === 0 ? "flex" : "none";
+      });
+    </script>
+  </body>
+  <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img
+            class="footer-logo"
+            src="static/index/logo.svg"
+            alt="Logo OneBurger"
+          />
+          <span class="footer-title">OneBurger´s</span>
+        </div>
+        <nav class="footer-links">
+          <a href="#menu">Menú</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#ubicacion">Ubicación</a>
+        </nav>
+        <div class="footer-social">
+          <a href="#" title="Instagram">Instagram</a>
+          <a href="#" title="Facebook">Facebook</a>
+          <a href="#" title="WhatsApp">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 OneBurger´s. Todos los derechos reservados.
+      </div>
+    </footer>
+</html>
