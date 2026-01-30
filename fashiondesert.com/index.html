@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon_io/site.webmanifest" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo-container">
+        <a href="/"><img src="static/FD_V.png" alt="Logo" class="logo" /></a>
+      </div>
+      <label class="hamburger" id="hamburger-menu">
+        <input type="checkbox" id="hamburger-toggle" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+      <nav class="nav-buttons">
+        <a href="/" class="nav-btn">INICIO</a>
+        <a href="/ediciones.html" class="nav-btn">EDICIONES</a>
+        <a href="/equipo.html" class="nav-btn">EQUIPO</a>
+      </nav>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-bg-flex">
+        <div class="hero-bg-img left" id="hero-img-left"></div>
+        <div class="hero-bg-img right" id="hero-img-right"></div>
+      </div>
+      <div
+        class="hero-overlay"
+        id="hero-black-overlay"
+        style="pointer-events: none"
+      ></div>
+      <div
+        class="hero-content"
+        style="position: relative; z-index: 2; text-align: center"
+      >
+        <em class="hero-subtitle">El norte es moda</em>
+      </div>
+    </section>
+
+    <section class="edition-section" id="edition-section">
+      <h2 class="edition-title">V Edición <span>2025</span></h2>
+      <div class="edition-content">
+        <div class="edition-right">
+          <div class="event-info">
+            <h5>Información del Evento</h5>
+            <ul>
+              <li>
+                <img
+                  src="/static/index/icon1.png"
+                  alt="Fecha"
+                  class="event-icon"
+                />
+                <strong>Fecha</strong><br />
+                <span style="color: rgb(176, 176, 176)">19 de Julio, 2025</span>
+              </li>
+              <li>
+                <img
+                  src="/static/index/icon2.png"
+                  alt="Ubicación"
+                  class="event-icon"
+                />
+                <strong>Ubicación</strong><br />
+                <span style="color: rgb(176, 176, 176)"
+                  >Centro de Convenciones de Chihuahua</span
+                >
+              </li>
+              <li>
+                <img
+                  src="/static/index/icon3.png"
+                  alt="Horario"
+                  class="event-icon"
+                />
+                <strong>Horario</strong><br />
+                <span style="color: rgb(176, 176, 176)"
+                  >10:00 AM - 9:00 PM</span
+                >
+              </li>
+              <li>
+                <img
+                  src="/static/index/icon4.png"
+                  alt="Entradas"
+                  class="event-icon"
+                />
+                <strong>Entradas</strong><br />
+                <span style="color: rgb(176, 176, 176)">Gratis</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="section-divider"></div>
+
+    <section class="past-editions-section">
+      <section
+        class="past-editions-carousel"
+        style="
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <div class="past-editions-container">
+          <div class="past-editions-image-wrapper">
+            <img
+              id="past-edition-img"
+              src="/static/ediciones/fd1-1.webp"
+              alt="Edición 1"
+            />
+          </div>
+          <div class="past-editions-content">
+            <div id="past-edition-title" class="past-edition-title">
+              El Desierto
+            </div>
+            <div class="past-editions-controls">
+              <a href="/ediciones.html" class="past-edition-discover"
+                >Descubre</a
+              >
+              <div class="past-edition-arrows">
+                <button
+                  id="past-edition-prev"
+                  class="past-edition-arrow"
+                  type="button"
+                >
+                  &#8592;
+                </button>
+                <button
+                  id="past-edition-next"
+                  class="past-edition-arrow"
+                  type="button"
+                >
+                  &#8594;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <div class="section-divider"></div>
+
+    <section class="ediciones-disenadores-section">
+      <h2 class="ediciones-disenadores-title">DISEÑADORES</h2>
+      <p class="ediciones-disenadores-desc">
+        Descubre los talentosos diseñadores que han participado en cada edición
+        de Fashion Desert
+      </p>
+
+      <div class="carousel-container">
+        <div class="carousel-indicators">
+          <button class="indicator active" data-slide="0">1era</button>
+          <button class="indicator" data-slide="1">2da</button>
+          <button class="indicator" data-slide="2">3ra</button>
+          <button class="indicator" data-slide="3">4ta</button>
+          <button class="indicator" data-slide="4">5ta</button>
+        </div>
+
+        <div class="carousel-slides" id="carouselSlides">
+          <div class="edicion-slide active">
+            <h3 class="edicion-titulo">1era Edición</h3>
+            <div class="edicion-disenadores-grid">
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Aaron.webp"
+                  alt="Aaron Fonseca"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Aaron Fonseca</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Lupita.webp"
+                  alt="Lupita Ramos"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Lupita Ramos</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Andrea.webp"
+                  alt="Andrea Perez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Andrea Perez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Ivan.webp"
+                  alt="Ivan Enriquez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Ivan Enriquez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Homero.webp"
+                  alt="Homero Cortez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Homero Cortez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Adriana.webp"
+                  alt="Adriana Arzate"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Adriana Arzate</p>
+              </div>
+            </div>
+          </div>
+          <div class="edicion-slide">
+            <h3 class="edicion-titulo">2da Edición</h3>
+            <div class="edicion-disenadores-grid">
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Estrella.webp"
+                  alt="Estrella Fontes"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Estrella Fontes</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Nora.webp"
+                  alt="Nora Perez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Nora Perez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Lupis.webp"
+                  alt="Lupita Mtz"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Lupita Mtz</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Omar.webp"
+                  alt="Omar Mendez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Omar Mendez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Adriana.webp"
+                  alt="Adriana Arzate"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Adriana Arzate</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Andrea.webp"
+                  alt="Andrea Varela"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Andrea Varela</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Homero.webp"
+                  alt="Homero Cortez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Homero Cortez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Aaron.webp"
+                  alt="Aaron Fonseca"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Aaron Fonseca</p>
+              </div>
+            </div>
+          </div>
+          <div class="edicion-slide">
+            <h3 class="edicion-titulo">3ra Edición</h3>
+            <div class="edicion-disenadores-grid">
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Adriana.webp"
+                  alt="Adriana Arzate"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Adriana Arzate</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Araceli.webp"
+                  alt="Aracely Martinez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Aracely Martinez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Sophi.webp"
+                  alt="Sofia Arreola"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Sofia Arreola</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Isabel.webp"
+                  alt="Isabel Ledezma"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Isabel Ledezma</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Hvgo.webp"
+                  alt="Hugo Mirhod"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Hugo Mirhod</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Griselda.webp"
+                  alt="Griselda Gutierrez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Griselda Gutierrez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Fernando.webp"
+                  alt="Fernando Falcon"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Fernando Falcon</p>
+              </div>
+            </div>
+          </div>
+          <div class="edicion-slide">
+            <h3 class="edicion-titulo">4ta Edición</h3>
+            <div class="edicion-disenadores-grid">
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Adriana.webp"
+                  alt="Adriana Arzate"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Adriana Arzate</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Fernanda.webp"
+                  alt="Fernanda Mendez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Fernanda Mendez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Nora.webp"
+                  alt="Nora Perez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Nora Perez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Dennise.webp"
+                  alt="Denisse Jim"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Denisse Jim</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Alice.webp"
+                  alt="Alice Castillo"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Alice Castillo</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Isabel.webp"
+                  alt="Isabel Ledezma"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Isabel Ledezma</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Homero.webp"
+                  alt="Homero Cortez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Homero Cortez</p>
+              </div>
+            </div>
+          </div>
+          <div class="edicion-slide">
+            <h3 class="edicion-titulo">5ta Edición</h3>
+            <div class="edicion-disenadores-grid">
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Damaris.webp"
+                  alt="Damaris Alderete"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Damaris Alderete</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Fernanda.webp"
+                  alt="Fernanda Mendez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Fernanda Mendez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Monique.webp"
+                  alt="Monique Herrera"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Monique Herrera</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Ale.webp"
+                  alt="Alejandra Lomeli"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Alejandra Lomeli</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Ada.webp"
+                  alt="Ada Holguin"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Ada Holguin</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Aaron.webp"
+                  alt="Aaron Fonseca"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Aaron Fonseca</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Homero.webp"
+                  alt="Homero Cortez"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Homero Cortez</p>
+              </div>
+              <div class="edicion-disenador">
+                <img
+                  src="/static/disenadores/Isabel.webp"
+                  alt="Isabel Ledezma"
+                  class="edicion-disenador-img"
+                />
+                <p class="edicion-disenador-nombre">Isabel Ledezma</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="patrocinadores-oficiales">
+      <h2>Patrocinadores Oficiales</h2>
+      <p>
+        Empresas e instituciones que hacen posible Fashion Desert y comparten
+        nuestra visión de impulsar la moda en el norte de México.
+      </p>
+      <div class="patrocinadores-grid">
+        <div class="patrocinador">
+          <img src="static/index/REBEL_LOGO.png" alt="Marca 1" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/VOLKER_LOGO.png" alt="Marca 2" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/Logo Arkas blanco.png" alt="Marca 3" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/CALYPSO_LOGO.png" alt="Marca 4" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/YARED_LOGO_B.png" alt="Marca 6" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/GERA_LOGO.png" alt="Marca 6" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/LITTLESIERRA_LOGO.png" alt="Marca 7" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/NOCTEM_LOGO.png" alt="Marca 8" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/ZERZE_LOGO.png" alt="Marca 9" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/CAMINOS_LOGO.png" alt="Marca 10" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/ESTRATEGICA_LOGO.png" alt="Marca 11" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/AKARI_LOGO.png" alt="Marca 12" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/LEGALMENTE_LOGO.png" alt="Marca 13" />
+        </div>
+        <div class="patrocinador">
+          <img src="static/index/TRILOGY_LOGO.png" alt="Marca 14" />
+        </div>
+      </div>
+
+      <section class="cta-patrocinador">
+        <h3>Conviértete en Patrocinador</h3>
+        <p>
+          Forma parte de Fashion Desert y conecta tu marca con la industria de
+          la moda, el diseño y la creatividad en el norte de México.
+        </p>
+        <div class="cta-botones">
+          <a href="mailto:contacto@fashiondesert.com" class="btn btn-rojo"
+            >SOLICITAR INFORMACIÓN</a
+          >
+          <a
+            href="static/index/FASHION DESERT CUU V ED.pdf"
+            class="btn btn-outline"
+            download
+            >DESCARGAR MEDIA KIT</a
+          >
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer-fd">
+      <div class="footer-container">
+        <div class="footer-col footer-brand">
+          <img
+            src="/static/FDLogoBlanco.png"
+            alt="Fashion Desert Logo"
+            class="footer-logo"
+          />
+          <div>
+            <em class="footer-slogan">El norte es moda</em>
+          </div>
+          <p class="footer-desc">
+            El evento de moda más importante del estado de Chihuahua, México.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul class="footer-contact">
+            <li>
+              <span><img src="/static/index/mail.png" /> </span>
+              saulf.colmenero@gmail.com
+            </li>
+            <li>
+              <span> <img src="/static/index/phone.png" /> </span> +52 (614)
+              313-5850
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col footer-social">
+          <h4>Síguenos</h4>
+          <div class="footer-icons">
+            <a
+              href="https://www.facebook.com/share/16Pr2ur8PT/?mibextid=wwXIfr"
+              aria-label="Facebook"
+              target="_blank"
+              ><span class="icon-circle">
+                <img src="/static/index/facebook.png" alt="Facebook" /></span
+            ></a>
+            <a
+              href="https://www.instagram.com/fashiondesertcuu?igsh=Z3prdnlna201bmRh"
+              aria-label="Instagram"
+              target="_blank"
+              ><span class="icon-circle">
+                <img src="/static/index/instagram.png" alt="Instagram" /></span
+            ></a>
+          </div>
+        </div>
+        <div class="footer-col footer-powered-col">
+          <span class="footer-powered">
+            Powered by
+            <a href="https://arkastech.com" target="_blank" rel="noopener"
+              ><img
+                src="/static/index/Logo Arkas blanco.png"
+                alt="ARKAS Logo"
+                class="footer-powered-logo"
+            /></a>
+          </span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Fashion Desert. Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <script>
+      const hamburgerToggle = document.getElementById("hamburger-toggle");
+      const navButtons = document.querySelector(".nav-buttons");
+      hamburgerToggle.addEventListener("change", function () {
+        navButtons.classList.toggle("show", this.checked);
+      });
+      document.querySelectorAll(".nav-buttons a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburgerToggle.checked = false;
+          navButtons.classList.remove("show");
+        });
+      });
+
+      (function () {
+        const overlay = document.getElementById("hero-black-overlay");
+        const heroBgFlex = document.querySelector(".hero-bg-flex");
+        function updateOverlayOpacity() {
+          const vh = window.innerHeight;
+          const scrollY = window.scrollY || window.pageYOffset;
+          let opacity = scrollY >= vh ? 1 : scrollY / vh;
+          overlay.style.background = `rgba(0,0,0,${opacity})`;
+          // Mostrar imágenes solo mientras el scroll está dentro del hero
+          if (scrollY < vh) {
+            heroBgFlex.style.opacity = "1";
+            heroBgFlex.style.pointerEvents = "";
+          } else {
+            heroBgFlex.style.opacity = "0";
+            heroBgFlex.style.pointerEvents = "none";
+          }
+        }
+        window.addEventListener("scroll", updateOverlayOpacity);
+        window.addEventListener("resize", updateOverlayOpacity);
+        updateOverlayOpacity();
+      })();
+
+      document
+        .querySelector(".hero-btn.main")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          document
+            .getElementById("edition-section")
+            .scrollIntoView({ behavior: "smooth" });
+        });
+    </script>
+
+    <script>
+      let currentSlide = 0;
+      const totalSlides = 5;
+
+      function showSlide(index) {
+        const slides = document.querySelectorAll(".edicion-slide");
+        const indicators = document.querySelectorAll(".indicator");
+        slides.forEach((slide) => slide.classList.remove("active"));
+        indicators.forEach((indicator) => indicator.classList.remove("active"));
+        slides[index].classList.add("active");
+        indicators[index].classList.add("active");
+
+        currentSlide = index;
+      }
+
+      function nextSlide() {
+        const next = (currentSlide + 1) % totalSlides;
+        showSlide(next);
+      }
+
+      function prevSlide() {
+        const prev = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(prev);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".indicator").forEach((indicator, index) => {
+          indicator.addEventListener("click", () => showSlide(index));
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowLeft") {
+            prevSlide();
+          } else if (e.key === "ArrowRight") {
+            nextSlide();
+          }
+        });
+      });
+    </script>
+
+    <script>
+      let scrollTarget = window.scrollY;
+      let isScrolling = false;
+      function animateScroll() {
+        const current = window.scrollY;
+        const diff = scrollTarget - current;
+        if (Math.abs(diff) > 1) {
+          window.scrollTo(0, current + diff * 0.08);
+          requestAnimationFrame(animateScroll);
+        } else {
+          window.scrollTo(0, scrollTarget);
+          isScrolling = false;
+        }
+      }
+      window.addEventListener(
+        "wheel",
+        function (e) {
+          e.preventDefault();
+          scrollTarget += e.deltaY;
+          scrollTarget = Math.max(
+            0,
+            Math.min(
+              scrollTarget,
+              document.body.scrollHeight - window.innerHeight
+            )
+          );
+          if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(animateScroll);
+          }
+        },
+        { passive: false }
+      );
+    </script>
+
+    <script>
+      const pastEditions = [
+        {
+          image: "/static/ediciones/fd1-1.webp",
+          title: "El Desierto",
+        },
+        {
+          image: "/static/ediciones/fd2-1.webp",
+          title: "El Llano",
+        },
+        {
+          image: "/static/ediciones/fd3-2.webp",
+          title: "La Cabaña",
+        },
+        {
+          image: "/static/ediciones/fd4-2.webp",
+          title: "La Colonia",
+        },
+        {
+          image: "/static/ediciones/fd5-1.webp",
+          title: "La Fábrica",
+        },
+      ];
+
+      let currentPastEdition = 0;
+      const totalPastEditions = pastEditions.length;
+
+      function updatePastEdition(index) {
+        const img = document.getElementById("past-edition-img");
+        const title = document.getElementById("past-edition-title");
+
+        if (img && title) {
+          img.src = pastEditions[index].image;
+          img.alt = `Edición ${index + 1}`;
+          title.textContent = pastEditions[index].title;
+        }
+
+        currentPastEdition = index;
+      }
+
+      function nextPastEdition() {
+        const next = (currentPastEdition + 1) % totalPastEditions;
+        updatePastEdition(next);
+      }
+
+      function prevPastEdition() {
+        const prev =
+          (currentPastEdition - 1 + totalPastEditions) % totalPastEditions;
+        updatePastEdition(prev);
+      }
+
+      // Event listeners para los botones de past editions
+      document.addEventListener("DOMContentLoaded", function () {
+        const prevBtn = document.getElementById("past-edition-prev");
+        const nextBtn = document.getElementById("past-edition-next");
+
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener("click", prevPastEdition);
+          nextBtn.addEventListener("click", nextPastEdition);
+        }
+      });
+    </script>
+  </body>
+</html>

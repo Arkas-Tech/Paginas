@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nuestras Ediciones</title>
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon_io/site.webmanifest" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo-container">
+        <a href="/"><img src="static/FD_V.png" alt="Logo" class="logo" /></a>
+      </div>
+      <label class="hamburger" id="hamburger-menu">
+        <input type="checkbox" id="hamburger-toggle" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+      <nav class="nav-buttons">
+        <a href="/" class="nav-btn">INICIO</a>
+        <a href="/ediciones.html" class="nav-btn">EDICIONES</a>
+        <a href="/equipo.html" class="nav-btn">EQUIPO</a>
+      </nav>
+    </header>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const margenes = document.querySelector(".margenes");
+        const hero = document.querySelector(".ediciones-hero");
+        if (!margenes || !hero) return;
+        hero.appendChild(margenes);
+      });
+    </script>
+    <div class="margenes" aria-hidden="true">
+      <div class="margenes__line margenes__top"></div>
+      <div class="margenes__line margenes__bottom"></div>
+      <div class="margenes__line margenes__left"></div>
+      <div class="margenes__line margenes__right"></div>
+    </div>
+    <section class="ediciones-hero">
+      <h1 class="ediciones-title">
+        Ediciones <br />
+        FD
+      </h1>
+    </section>
+
+    <section class="parallax-artbasel">
+      <div class="parallax-bg"></div>
+      <div class="parallax-content">
+        <h2>Septiembre 2022</h2>
+        <h1>El Desierto</h1>
+        <p>El desierto y los palacios, donde comenzó toda una civilización.</p>
+      </div>
+    </section>
+    <section class="edicion-gallery">
+      <div class="gallery-track">
+        <img
+          src="static/ediciones/fd1-1.webp"
+          srcset="
+            static/ediciones/fd1-1.webp 1x,
+            static/ediciones/fd1-1.webp 2x
+          "
+          alt="FD1-1"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd1-2.webp"
+          srcset="
+            static/ediciones/fd1-2.webp 1x,
+            static/ediciones/fd1-2.webp 2x
+          "
+          alt="FD1-2"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd1-3.webp"
+          srcset="
+            static/ediciones/fd1-3.webp 1x,
+            static/ediciones/fd1-3.webp 2x
+          "
+          alt="FD1-3"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd1-4.webp"
+          srcset="
+            static/ediciones/fd1-4.webp 1x,
+            static/ediciones/fd1-4.webp 2x
+          "
+          alt="FD1-4"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd1-5.webp"
+          srcset="
+            static/ediciones/fd1-5.webp 1x,
+            static/ediciones/fd1-5.webp 2x
+          "
+          alt="FD1-5"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd1-6.webp"
+          srcset="
+            static/ediciones/fd1-6.webp 1x,
+            static/ediciones/fd1-6.webp 2x
+          "
+          alt="FD1-6"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd1-7.webp"
+          srcset="
+            static/ediciones/fd1-7.webp 1x,
+            static/ediciones/fd1-7.webp 2x
+          "
+          alt="FD1-7"
+          class="gallery-img"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section class="parallax-artbasel">
+      <div
+        class="parallax-bg"
+        style="background-image: url('static/ediciones/fd2-1.webp')"
+        loading="lazy"
+      ></div>
+      <div class="parallax-content">
+        <h2>Mayo 2023</h2>
+        <h1>El Llano</h1>
+        <p>
+          Con la llegada de la naturaleza y la ganadería, ahora se ha
+          establecido una civilización estable.
+        </p>
+      </div>
+    </section>
+    <section class="edicion-gallery">
+      <div class="gallery-track">
+        <img
+          src="static/ediciones/fd2-1.webp"
+          alt="FD2-1"
+          class="gallery-img"
+        />
+        <img
+          src="static/ediciones/fd2-1.webp"
+          srcset="
+            static/ediciones/fd2-1.webp 1x,
+            static/ediciones/fd2-1.webp 2x
+          "
+          alt="FD2-1"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-2.webp"
+          srcset="
+            static/ediciones/fd2-2.webp 1x,
+            static/ediciones/fd2-2.webp 2x
+          "
+          alt="FD2-2"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-3.webp"
+          srcset="
+            static/ediciones/fd2-3.webp 1x,
+            static/ediciones/fd2-3.webp 2x
+          "
+          alt="FD2-3"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-4.webp"
+          srcset="
+            static/ediciones/fd2-4.webp 1x,
+            static/ediciones/fd2-4.webp 2x
+          "
+          alt="FD2-4"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-5.webp"
+          srcset="
+            static/ediciones/fd2-5.webp 1x,
+            static/ediciones/fd2-5.webp 2x
+          "
+          alt="FD2-5"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-6.webp"
+          srcset="
+            static/ediciones/fd2-6.webp 1x,
+            static/ediciones/fd2-6.webp 2x
+          "
+          alt="FD2-6"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-7.webp"
+          srcset="
+            static/ediciones/fd2-7.webp 1x,
+            static/ediciones/fd2-7.webp 2x
+          "
+          alt="FD2-7"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-8.webp"
+          srcset="
+            static/ediciones/fd2-8.webp 1x,
+            static/ediciones/fd2-8.webp 2x
+          "
+          alt="FD2-8"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-9.webp"
+          srcset="
+            static/ediciones/fd2-9.webp 1x,
+            static/ediciones/fd2-9.webp 2x
+          "
+          alt="FD2-9"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-10.webp"
+          srcset="
+            static/ediciones/fd2-10.webp 1x,
+            static/ediciones/fd2-10.webp 2x
+          "
+          alt="FD2-10"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-11.webp"
+          srcset="
+            static/ediciones/fd2-11.webp 1x,
+            static/ediciones/fd2-11.webp 2x
+          "
+          alt="FD2-11"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-12.webp"
+          srcset="
+            static/ediciones/fd2-12.webp 1x,
+            static/ediciones/fd2-12.webp 2x
+          "
+          alt="FD2-12"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd2-13.webp"
+          srcset="
+            static/ediciones/fd2-13.webp 1x,
+            static/ediciones/fd2-13.webp 2x
+          "
+          alt="FD2-13"
+          class="gallery-img"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section class="parallax-artbasel">
+      <div
+        class="parallax-bg"
+        style="background-image: url('static/ediciones/fd3-1.webp')"
+        loading="lazy"
+      ></div>
+      <div class="parallax-content">
+        <h2>Octubre 2023</h2>
+        <h1>La Cabaña</h1>
+        <p>
+          Una civilización desarrollada y negocios en el estado, donde surgen
+          los terratenientes.
+        </p>
+      </div>
+    </section>
+    <section class="gallery-tall">
+      <div class="gallery-track">
+        <img
+          src="static/ediciones/fd3-1.webp"
+          alt="FD3-1"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd3-2.webp"
+          alt="FD3-2"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd3-3.webp"
+          alt="FD3-3"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd3-4.webp"
+          alt="FD3-4"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd3-5.webp"
+          alt="FD3-5"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd3-6.webp"
+          alt="FD3-6"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd3-7.webp"
+          alt="FD3-7"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd3-8.webp"
+          alt="FD3-8"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section class="parallax-artbasel">
+      <div
+        class="parallax-bg"
+        style="background-image: url('static/ediciones/fd4-1.webp')"
+        loading="lazy"
+      ></div>
+      <div class="parallax-content">
+        <h2>Junio 2024</h2>
+        <h1>La Colonia</h1>
+        <p>Una civilización y nuestra ciudad se está expandiendo.</p>
+      </div>
+    </section>
+    <section class="edicion-gallery">
+      <div class="gallery-track">
+        <img
+          src="static/ediciones/fd4-1.webp"
+          alt="FD4-1"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd4-2.webp"
+          alt="FD4-2"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd4-3.webp"
+          alt="FD4-3"
+          class="gallery-img"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd4-4.webp"
+          alt="FD4-4"
+          class="gallery-img"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section class="parallax-artbasel">
+      <div
+        class="parallax-bg"
+        style="background-image: url('static/ediciones/fd5-1.webp')"
+        loading="lazy"
+      ></div>
+      <div class="parallax-content">
+        <h2>Junio 2025</h2>
+        <h1>La Fabrica</h1>
+        <p>La evolución y el crecimiento de una civilización establecida.</p>
+      </div>
+    </section>
+    <section class="gallery-tall">
+      <div class="gallery-track">
+        <img
+          src="static/ediciones/fd5-1.webp"
+          alt="FD5-1"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd5-2.webp"
+          alt="FD5-2"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd5-3.webp"
+          alt="FD5-3"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd5-4.webp"
+          alt="FD5-4"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd5-5.webp"
+          alt="FD5-5"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd5-6.webp"
+          alt="FD5-6"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+        <img
+          src="static/ediciones/fd5-7.webp"
+          alt="FD5-7"
+          class="gallery-img gallery-img-tall"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <footer class="footer-fd">
+      <div class="footer-container">
+        <div class="footer-col footer-brand">
+          <img
+            src="/static/FDLogoBlanco.png"
+            alt="Fashion Desert Logo"
+            class="footer-logo"
+          />
+          <div>
+            <em class="footer-slogan">El norte es moda</em>
+          </div>
+          <p class="footer-desc">
+            El evento de moda más importante del estado de Chihuahua, México.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul class="footer-contact">
+            <li>
+              <span><img src="/static/index/mail.png" /> </span>
+              saulf.colmenero@gmail.com
+            </li>
+            <li>
+              <span> <img src="/static/index/phone.png" /> </span> +52 (614)
+              313-5850
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col footer-social">
+          <h4>Síguenos</h4>
+          <div class="footer-icons">
+            <a
+              href="https://www.facebook.com/share/16Pr2ur8PT/?mibextid=wwXIfr"
+              aria-label="Facebook"
+              target="_blank"
+              ><span class="icon-circle">
+                <img src="/static/index/facebook.png" alt="Facebook" /></span
+            ></a>
+            <a
+              href="https://www.instagram.com/fashiondesertcuu?igsh=Z3prdnlna201bmRh"
+              aria-label="Instagram"
+              target="_blank"
+              ><span class="icon-circle">
+                <img src="/static/index/instagram.png" alt="Instagram" /></span
+            ></a>
+          </div>
+        </div>
+        <div class="footer-col footer-powered-col">
+          <span class="footer-powered">
+            Powered by
+            <a href="https://arkastech.com" target="_blank" rel="noopener"
+              ><img
+                src="/static/index/Logo Arkas blanco.png"
+                alt="ARKAS Logo"
+                class="footer-powered-logo"
+            /></a>
+          </span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Fashion Desert. Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <script>
+      const hamburgerToggle = document.getElementById("hamburger-toggle");
+      const navButtons = document.querySelector(".nav-buttons");
+      hamburgerToggle.addEventListener("change", function () {
+        navButtons.classList.toggle("show", this.checked);
+      });
+      document.querySelectorAll(".nav-buttons a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburgerToggle.checked = false;
+          navButtons.classList.remove("show");
+        });
+      });
+    </script>
+
+    <script>
+      // Efecto de agrandamiento del título "Ediciones FD"
+      const title = document.querySelector(".ediciones-title");
+
+      function getResponsiveSizes() {
+        const windowWidth = window.innerWidth;
+        if (windowWidth <= 499) {
+          return {
+            minSize: 3.5,
+            maxSize: 5,
+          };
+        } else if (windowWidth <= 600) {
+          return {
+            minSize: 4,
+            maxSize: 8,
+          };
+        } else if (windowWidth <= 910) {
+          return {
+            minSize: 5,
+            maxSize: 11,
+          };
+        } else {
+          return {
+            minSize: 8,
+            maxSize: 14,
+          };
+        }
+      }
+
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        const { minSize, maxSize } = getResponsiveSizes();
+        const maxScroll = window.innerHeight;
+        const progress = Math.min(scrollY / maxScroll, 1);
+        const size = minSize + progress * (maxSize - minSize);
+        title.style.fontSize = size + "rem";
+      });
+
+      // Ejecutar una vez al cargar
+      window.addEventListener("resize", () => {
+        window.dispatchEvent(new Event("scroll"));
+      });
+      window.dispatchEvent(new Event("scroll"));
+    </script>
+  </body>
+</html>
