@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novedades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <div class="logo">
+        <a href="/"><img src="static/logo.png" alt="Logo Buy and Bring" /></a>
+      </div>
+      <div class="redes">
+        <a
+          href="https://www.instagram.com/personal_shoper_20?igsh=YWZxajZ5cnZuNjQx"
+          ><img src="/static/instagram.png" alt="Instagram" width="35"
+        /></a>
+        <a href="#"
+          ><img src="/static/whatsapp.png" alt="Whatsapp" width="35"
+        /></a>
+      </div>
+    </header>
+    <nav class="side-menu" id="sideMenu">
+      <div class="close-btn" id="closeBtn">&times;</div>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/novedades.html">Novedades</a></li>
+        <li class="marcas-title">Marcas</li>
+        <hr />
+        <li><a href="#alo" class="side-marca" data-marca="alo">Alo</a></li>
+        <li>
+          <a href="#lululemon" class="side-marca" data-marca="lululemon"
+            >Lululemon</a
+          >
+        </li>
+        <li>
+          <a href="#oncloud" class="side-marca" data-marca="oncloud">Oncloud</a>
+        </li>
+        <li><a href="#dior" class="side-marca" data-marca="dior">Dior</a></li>
+        <li>
+          <a href="#gucci" class="side-marca" data-marca="gucci">Gucci</a>
+        </li>
+        <li>
+          <a href="#newbalance" class="side-marca" data-marca="newbalance"
+            >New Balance</a
+          >
+        </li>
+        <li>
+          <a href="#amiri" class="side-marca" data-marca="amiri">Amiri</a>
+        </li>
+        <li>
+          <a href="#goldengoose" class="side-marca" data-marca="goldengoose"
+            >Golden Goose</a
+          >
+        </li>
+        <li>
+          <a href="#hermes" class="side-marca" data-marca="hermes">Hermès</a>
+        </li>
+        <li>
+          <a href="#louisvuitton" class="side-marca" data-marca="louisvuitton"
+            >Louis Vuitton</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <section class="novedades-hero">
+      <h1>Novedades</h1>
+      <p>
+        Descubre lo más nuevo y exclusivo de nuestras marcas favoritas. ¡Explora
+        y encuentra tu próximo favorito!
+      </p>
+    </section>
+    <main>
+      <section class="menu-marcas">
+        <div class="dropdown-marcas">
+          <button class="dropdown-toggle" id="dropdownToggle">Marcas ▼</button>
+          <ul class="dropdown-list" id="dropdownList" style="display: none">
+            <li data-marca="alo">Alo</li>
+            <li data-marca="lululemon">Lululemon</li>
+            <li data-marca="oncloud">On Cloud</li>
+            <li data-marca="dior">Dior</li>
+            <li data-marca="gucci">Gucci</li>
+            <li data-marca="newbalance">New Balance</li>
+            <li data-marca="amiri">Amiri</li>
+            <li data-marca="goldengoose">Golden Goose</li>
+            <li data-marca="hermes">Hermès</li>
+            <li data-marca="louisvuitton">Louis Vuitton</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="productos">
+        <div class="marca-productos" id="alo" style="display: block">
+          <h2>Alo</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Última colección</h3>
+              <img
+                src="static/alo/alo1.jpg"
+                alt="Alo 1"
+                width="200"
+                id="alo1-img"
+                style="cursor: pointer"
+              />
+              <img src="static/alo/alo2.jpg" alt="Alo 2" width="200" />
+              <img src="static/alo/alo3.jpg" alt="Alo 3" width="200" />
+              <img src="static/alo/alo4.jpg" alt="Alo 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Colección pasada</h3>
+              <img src="static/alo/alo5.jpg" alt="Alo 5" width="200" />
+              <img src="static/alo/alo6.jpg" alt="Alo 6" width="200" />
+              <img src="static/alo/alo7.jpg" alt="Alo 7" width="200" />
+              <img src="static/alo/alo8.jpg" alt="Alo 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Esenciales</h3>
+              <img src="static/alo/alo9.jpg" alt="Alo 9" width="200" />
+              <img src="static/alo/alo10.jpg" alt="Alo 10" width="200" />
+              <img src="static/alo/alo11.jpg" alt="Alo 11" width="200" />
+              <img src="static/alo/alo12.jpg" alt="Alo 12" width="200" />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="lululemon" style="display: none">
+          <h2>Lululemon</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Última colección</h3>
+              <img
+                src="static/lululemon/lululemon1.jpg"
+                alt="Lululemon 1"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon2.jpg"
+                alt="Lululemon 2"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon3.jpg"
+                alt="Lululemon 3"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon4.jpg"
+                alt="Lululemon 4"
+                width="200"
+              />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Trending</h3>
+              <img
+                src="static/lululemon/lululemon5.jpg"
+                alt="Lululemon 5"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon6.jpg"
+                alt="Lululemon 6"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon7.jpg"
+                alt="Lululemon 7"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon8.jpg"
+                alt="Lululemon 8"
+                width="200"
+              />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Esenciales</h3>
+              <img
+                src="static/lululemon/lululemon9.jpg"
+                alt="Lululemon 9"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon10.jpg"
+                alt="Lululemon 10"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon11.jpg"
+                alt="Lululemon 11"
+                width="200"
+              />
+              <img
+                src="static/lululemon/lululemon12.jpg"
+                alt="Lululemon 12"
+                width="200"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="oncloud" style="display: none">
+          <h2>On Cloud</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Hombre</h3>
+              <img
+                src="static/oncloud/oncloud1.jpg"
+                alt="On Cloud 1"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud2.jpg"
+                alt="On Cloud 2"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud3.jpg"
+                alt="On Cloud 3"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud4.jpg"
+                alt="On Cloud 4"
+                width="200"
+              />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Mujer</h3>
+              <img
+                src="static/oncloud/oncloud5.jpg"
+                alt="On Cloud 5"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud6.jpg"
+                alt="On Cloud 6"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud7.jpg"
+                alt="On Cloud 7"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud8.jpg"
+                alt="On Cloud 8"
+                width="200"
+              />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Ropa</h3>
+              <img
+                src="static/oncloud/oncloud9.jpg"
+                alt="On Cloud 9"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud10.jpg"
+                alt="On Cloud 10"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud11.jpg"
+                alt="On Cloud 11"
+                width="200"
+              />
+              <img
+                src="static/oncloud/oncloud12.jpg"
+                alt="On Cloud 12"
+                width="200"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="dior" style="display: none">
+          <h2>Dior</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Última colección</h3>
+              <img src="static/dior/dior1.jpg" alt="Dior 1" width="200" />
+              <img src="static/dior/dior2.jpg" alt="Dior 2" width="200" />
+              <img src="static/dior/dior3.jpg" alt="Dior 3" width="200" />
+              <img src="static/dior/dior4.jpg" alt="Dior 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Trending</h3>
+              <img src="static/dior/dior5.jpg" alt="Dior 5" width="200" />
+              <img src="static/dior/dior6.jpg" alt="Dior 6" width="200" />
+              <img src="static/dior/dior7.jpg" alt="Dior 7" width="200" />
+              <img src="static/dior/dior8.jpg" alt="Dior 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Esenciales</h3>
+              <img src="static/dior/dior9.jpg" alt="Dior 9" width="200" />
+              <img src="static/dior/dior10.jpg" alt="Dior 10" width="200" />
+              <img src="static/dior/dior11.jpg" alt="Dior 11" width="200" />
+              <img src="static/dior/dior12.jpg" alt="Dior 12" width="200" />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="gucci" style="display: none">
+          <h2>Gucci</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Bolsas</h3>
+              <img src="static/gucci/gucci1.jpg" alt="Gucci 1" width="200" />
+              <img src="static/gucci/gucci2.jpg" alt="Gucci 2" width="200" />
+              <img src="static/gucci/gucci3.jpg" alt="Gucci 3" width="200" />
+              <img src="static/gucci/gucci4.jpg" alt="Gucci 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Zapatos de mujer</h3>
+              <img src="static/gucci/gucci5.jpg" alt="Gucci 5" width="200" />
+              <img src="static/gucci/gucci6.jpg" alt="Gucci 6" width="200" />
+              <img src="static/gucci/gucci7.jpg" alt="Gucci 7" width="200" />
+              <img src="static/gucci/gucci8.jpg" alt="Gucci 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Zapatos de hombre</h3>
+              <img src="static/gucci/gucci9.jpg" alt="Gucci 9" width="200" />
+              <img src="static/gucci/gucci10.jpg" alt="Gucci 10" width="200" />
+              <img src="static/gucci/gucci11.jpg" alt="Gucci 11" width="200" />
+              <img src="static/gucci/gucci12.jpg" alt="Gucci 12" width="200" />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="newbalance" style="display: none">
+          <h2>New Balance</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Hombre</h3>
+              <img src="static/nb/nb1.jpg" alt="NB 1" width="200" />
+              <img src="static/nb/nb2.jpg" alt="NB 2" width="200" />
+              <img src="static/nb/nb3.jpg" alt="NB 3" width="200" />
+              <img src="static/nb/nb4.jpg" alt="NB 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Mujer</h3>
+              <img src="static/nb/nb5.jpg" alt="NB 5" width="200" />
+              <img src="static/nb/nb6.jpg" alt="NB 6" width="200" />
+              <img src="static/nb/nb7.jpg" alt="NB 7" width="200" />
+              <img src="static/nb/nb8.jpg" alt="NB 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Esenciales</h3>
+              <img src="static/nb/nb9.jpg" alt="NB 9" width="200" />
+              <img src="static/nb/nb10.jpg" alt="NB 10" width="200" />
+              <img src="static/nb/nb11.jpg" alt="NB 11" width="200" />
+              <img src="static/nb/nb12.jpg" alt="NB 12" width="200" />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="amiri" style="display: none">
+          <h2>Amiri</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Zapatos</h3>
+              <img src="static/amiri/amiri1.jpg" alt="Amiri 1" width="200" />
+              <img src="static/amiri/amiri2.jpg" alt="Amiri 2" width="200" />
+              <img src="static/amiri/amiri3.jpg" alt="Amiri 3" width="200" />
+              <img src="static/amiri/amiri4.jpg" alt="Amiri 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Bolsas y gorras</h3>
+              <img src="static/amiri/amiri5.jpg" alt="Amiri 5" width="200" />
+              <img src="static/amiri/amiri6.jpg" alt="Amiri 6" width="200" />
+              <img src="static/amiri/amiri7.jpg" alt="Amiri 7" width="200" />
+              <img src="static/amiri/amiri8.jpg" alt="Amiri 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Lentes de sol</h3>
+              <img src="static/amiri/amiri9.jpg" alt="Amiri 9" width="200" />
+              <img src="static/amiri/amiri10.jpg" alt="Amiri 10" width="200" />
+              <img src="static/amiri/amiri11.jpg" alt="Amiri 11" width="200" />
+              <img src="static/amiri/amiri12.jpg" alt="Amiri 12" width="200" />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="goldengoose" style="display: none">
+          <h2>Golden Goose</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Mujer</h3>
+              <img src="static/gg/gg1.jpg" alt="Golden Goose 1" width="200" />
+              <img src="static/gg/gg2.jpg" alt="Golden Goose 2" width="200" />
+              <img src="static/gg/gg3.jpg" alt="Golden Goose 3" width="200" />
+              <img src="static/gg/gg4.jpg" alt="Golden Goose 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Hombre</h3>
+              <img src="static/gg/gg5.jpg" alt="Golden Goose 5" width="200" />
+              <img src="static/gg/gg6.jpg" alt="Golden Goose 6" width="200" />
+              <img src="static/gg/gg7.jpg" alt="Golden Goose 7" width="200" />
+              <img src="static/gg/gg8.jpg" alt="Golden Goose 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Esenciales</h3>
+              <img src="static/gg/gg9.jpg" alt="Golden Goose 9" width="200" />
+              <img src="static/gg/gg10.jpg" alt="Golden Goose 10" width="200" />
+              <img src="static/gg/gg11.jpg" alt="Golden Goose 11" width="200" />
+              <img src="static/gg/gg12.jpg" alt="Golden Goose 12" width="200" />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="hermes" style="display: none">
+          <h2>Hermès</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Bolsas</h3>
+              <img src="static/h/h1.jpg" alt="Hermès 1" width="200" />
+              <img src="static/h/h2.jpg" alt="Hermès 2" width="200" />
+              <img src="static/h/h3.jpg" alt="Hermès 3" width="200" />
+              <img src="static/h/h4.jpg" alt="Hermès 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Tenis</h3>
+              <img src="static/h/h5.jpg" alt="Hermès 5" width="200" />
+              <img src="static/h/h6.jpg" alt="Hermès 6" width="200" />
+              <img src="static/h/h7.jpg" alt="Hermès 7" width="200" />
+              <img src="static/h/h8.jpg" alt="Hermès 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Botines</h3>
+              <img src="static/h/h9.jpg" alt="Hermès 9" width="200" />
+              <img src="static/h/h10.jpg" alt="Hermès 10" width="200" />
+              <img src="static/h/h11.jpg" alt="Hermès 11" width="200" />
+              <img src="static/h/h12.jpg" alt="Hermès 12" width="200" />
+            </div>
+          </div>
+        </div>
+        <div class="marca-productos" id="louisvuitton" style="display: none">
+          <h2>Louis Vuitton</h2>
+          <div class="imagenes-marcas">
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Bolsas</h3>
+              <img src="static/lv/lv1.jpg" alt="Louis Vuitton 1" width="200" />
+              <img src="static/lv/lv2.jpg" alt="Louis Vuitton 2" width="200" />
+              <img src="static/lv/lv3.jpg" alt="Louis Vuitton 3" width="200" />
+              <img src="static/lv/lv4.jpg" alt="Louis Vuitton 4" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Lentes</h3>
+              <img src="static/lv/lv5.jpg" alt="Louis Vuitton 5" width="200" />
+              <img src="static/lv/lv6.jpg" alt="Louis Vuitton 6" width="200" />
+              <img src="static/lv/lv7.jpg" alt="Louis Vuitton 7" width="200" />
+              <img src="static/lv/lv8.jpg" alt="Louis Vuitton 8" width="200" />
+            </div>
+            <div class="grupo-coleccion">
+              <h3 class="titulo-coleccion">Zapatos</h3>
+              <img src="static/lv/lv9.jpg" alt="Louis Vuitton 9" width="200" />
+              <img
+                src="static/lv/lv10.jpg"
+                alt="Louis Vuitton 10"
+                width="200"
+              />
+              <img
+                src="static/lv/lv11.jpg"
+                alt="Louis Vuitton 11"
+                width="200"
+              />
+              <img
+                src="static/lv/lv12.jpg"
+                alt="Louis Vuitton 12"
+                width="200"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo" style="justify-content: flex-start">
+          <a href="/"><img src="static/logo.png" alt="Logo Buy and Bring" /></a>
+        </div>
+        <div class="footer-center-text">
+          <p>&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-powered" style="justify-content: flex-end">
+          <span>Powered by</span>
+          <img
+            src="static/arkas_logo1.png"
+            onclick="window.open('https://www.arkastech.com', '_blank')"
+            style="cursor: pointer"
+            alt="Arkas Logo"
+            class="arkas-logo-footer"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sideMenu = document.getElementById("sideMenu");
+      const closeBtn = document.getElementById("closeBtn");
+      hamburger.addEventListener("click", () => {
+        sideMenu.classList.add("active");
+      });
+      closeBtn.addEventListener("click", () => {
+        sideMenu.classList.remove("active");
+      });
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 0) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      const dropdownToggle = document.getElementById("dropdownToggle");
+      const dropdownList = document.getElementById("dropdownList");
+      const marcaItems = dropdownList.querySelectorAll("li");
+      const secciones = document.querySelectorAll(".marca-productos");
+
+      function activarMarca(marca) {
+        secciones.forEach((sec) => {
+          sec.style.display = sec.id === marca ? "block" : "none";
+        });
+        marcaItems.forEach((item) => {
+          item.classList.toggle("active", item.dataset.marca === marca);
+        });
+        // Solo muestra "Marcas" en el botón, sin el nombre de la marca seleccionada
+        dropdownToggle.textContent = "Marcas ▼";
+      }
+
+      dropdownToggle.addEventListener("click", () => {
+        dropdownList.style.display =
+          dropdownList.style.display === "block" ? "none" : "block";
+      });
+
+      marcaItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          activarMarca(item.dataset.marca);
+          dropdownList.style.display = "none";
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          !dropdownToggle.contains(e.target) &&
+          !dropdownList.contains(e.target)
+        ) {
+          dropdownList.style.display = "none";
+        }
+      });
+
+      document.querySelectorAll(".side-menu a[data-marca]").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const marca = this.getAttribute("data-marca");
+          activarMarca(marca);
+          document.querySelector(".side-menu").classList.remove("active");
+          const productos = document.getElementById("productos");
+          if (productos) {
+            const offset =
+              productos.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: offset, behavior: "smooth" });
+          }
+        });
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        if (window.location.hash) {
+          const hash = window.location.hash.replace("#", "");
+          if (hash) {
+            activarMarca(hash);
+            const productos = document.getElementById("productos");
+            if (productos) {
+              const offset =
+                productos.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top: offset, behavior: "smooth" });
+            }
+          }
+        } else {
+          activarMarca("alo");
+        }
+      });
+
+      const sideLinks = document.querySelectorAll(".side-marca");
+      sideLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const marca = link.dataset.marca;
+          botones.forEach((b) => {
+            if (b.dataset.marca === marca) {
+              b.click();
+            }
+          });
+          const productos = document.getElementById("productos");
+          if (productos) {
+            const offset =
+              productos.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: offset, behavior: "smooth" });
+          }
+          sideMenu.classList.remove("active");
+        });
+      });
+      const imagenes = document.querySelectorAll(".imagenes-marcas img");
+      imagenes.forEach((img) => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", function () {
+          const phone = "6143737988";
+          let marca = "";
+          let parent = img.closest(".marca-productos");
+          if (parent && parent.querySelector("h2")) {
+            marca = parent.querySelector("h2").textContent.trim();
+          }
+          const imgUrl =
+            window.location.origin +
+            "/" +
+            img.getAttribute("src").replace(/^\//, "");
+          const mensaje = encodeURIComponent(
+            `Hola! Me interesa esta prenda de ${marca}: ${imgUrl}`
+          );
+          window.open(`https://wa.me/${phone}?text=${mensaje}`, "_blank");
+        });
+      });
+    </script>
+  </body>
+</html>

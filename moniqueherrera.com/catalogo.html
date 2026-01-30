@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo | Monique Herrera</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: rgb(220, 220, 220);
+        color: #1d1d1d;
+      }
+      .catalog-title {
+        font-family: "Playfair Display", serif;
+        font-size: 4vw;
+        text-align: center;
+        margin: 7vw 0 2vw 0;
+        letter-spacing: 0.15em;
+        font-weight: 700;
+      }
+      .catalog-section {
+        margin-bottom: 3vw;
+        background: none;
+      }
+      .catalog-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.1vw;
+        color: #000;
+        margin: 1vw 0 0.2vw 2vw;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+      }
+      .catalog-label-line {
+        border-bottom: 1px solid #1d1d1d;
+        width: 94%;
+        margin: 0.2vw auto 1vw auto;
+        opacity: 0.5;
+      }
+      .catalog-row {
+        display: flex;
+        gap: 0.7vw;
+        align-items: center;
+        margin: 0 2vw 0.5vw 2vw;
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+      .catalog-thumb {
+        width: 80px;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 0.4vw;
+        background: #fff;
+        box-shadow: none;
+        border: 1px solid #ececec;
+        transition: transform 0.18s;
+        margin-bottom: 0.2vw;
+        cursor: pointer;
+      }
+      .catalog-thumb:hover {
+        transform: scale(1.03);
+        border-color: #1d1d1d;
+      }
+      .catalog-desc {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.95vw;
+        color: #737373;
+        text-align: right;
+        margin: 0.5vw 2vw 0.5vw 0;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+      }
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.7);
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content img {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 1vw;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+        background: #fff;
+      }
+      .modal-close {
+        position: absolute;
+        top: 2vw;
+        right: 3vw;
+        font-size: 2.5vw;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+      }
+      @media (max-width: 900px) {
+        .catalog-title {
+          font-size: 7vw;
+        }
+        .catalog-label {
+          font-size: 2.5vw;
+        }
+        .catalog-desc {
+          font-size: 2vw;
+        }
+        .catalog-thumb {
+          width: 60px;
+          height: 80px;
+        }
+      }
+      @media (max-width: 600px) {
+        .catalog-title {
+          font-size: 9vw;
+        }
+        .catalog-label {
+          font-size: 4vw;
+        }
+        .catalog-desc {
+          font-size: 3vw;
+        }
+        .catalog-thumb {
+          width: 40px;
+          height: 55px;
+        }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("imgModal");
+        const modalImg = document.getElementById("modalImg");
+        const closeBtn = document.getElementById("modalClose");
+        document.querySelectorAll(".catalog-thumb").forEach((img) => {
+          img.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+          });
+        });
+        closeBtn.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) modal.style.display = "none";
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="/" class="logo" style="text-decoration: none">MH</a>
+      <nav>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/catalogo.html">Catálogo</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Modal para imagen grande -->
+    <div id="imgModal" class="modal">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-content">
+        <img id="modalImg" src="" alt="" />
+      </div>
+    </div>
+
+    <main style="padding-top: 90px">
+      <div class="catalog-title">Verano-Otoño 2025</div>
+
+      <!-- Sección 1 -->
+      <section class="catalog-section">
+        <div class="catalog-label">Verano</div>
+        <div class="catalog-label-line"></div>
+        <div class="catalog-row">
+          <img
+            src="/static/catalogo/cf1.jpg"
+            alt="Cargo Flex 1"
+            class="catalog-thumb"
+          />
+          <img
+            src="/static/catalogo/cf2.jpg"
+            alt="Cargo Flex 2"
+            class="catalog-thumb"
+          />
+          <img
+            src="/static/catalogo/cf3.jpg"
+            alt="Cargo Flex 3"
+            class="catalog-thumb"
+          />
+          <img
+            src="/static/catalogo/cf4.jpg"
+            alt="Cargo Flex 4"
+            class="catalog-thumb"
+          />
+        </div>
+        <div class="catalog-desc">
+          Cargo Flex, Summer Shirt, Inmamable T-shirt, Angel Suit, Color Shirt
+        </div>
+      </section>
+
+      <!-- Sección 2 -->
+      <section class="catalog-section">
+        <div class="catalog-label">Verano</div>
+        <div class="catalog-label-line"></div>
+        <div class="catalog-row">
+          <img
+            src="/static/catalogo/ss1.jpg"
+            alt="Summer Shirt 1"
+            class="catalog-thumb"
+          />
+          <img
+            src="/static/catalogo/ss2.jpg"
+            alt="Summer Shirt 2"
+            class="catalog-thumb"
+          />
+          <img
+            src="/static/catalogo/ss3.jpg"
+            alt="Summer Shirt 3"
+            class="catalog-thumb"
+          />
+        </div>
+        <div class="catalog-desc">
+          Cargo Flex, Summer Shirt, Inmamable T-shirt, Angel Suit, Color Shirt
+        </div>
+      </section>
+
+      <!-- Sección 3 -->
+      <section class="catalog-section">
+        <div class="catalog-label">Verano Otoño</div>
+        <div class="catalog-label-line"></div>
+        <div class="catalog-row">
+          <img
+            src="/static/catalogo/it1.jpg"
+            alt="Inmamable T-shirt 1"
+            class="catalog-thumb"
+          />
+          <img
+            src="/static/catalogo/it2.jpg"
+            alt="Inmamable T-shirt 2"
+            class="catalog-thumb"
+          />
+          <img
+            src="/static/catalogo/it3.jpg"
+            alt="Inmamable T-shirt 3"
+            class="catalog-thumb"
+          />
+        </div>
+        <div class="catalog-desc">
+          Cargo Flex, Summer Shirt, Inmamable T-shirt, Angel Suit, Color Shirt
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

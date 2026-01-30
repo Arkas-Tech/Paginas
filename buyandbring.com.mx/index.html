@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda de Ropa Americana</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <video class="hero-bg-video" autoplay muted loop preload="auto" playsinline>
+      <source src="/static/vids/0808.mp4" type="video/mp4" />
+    </video>
+
+    <header>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+
+      <div class="logo">
+        <a href="/"><img src="static/logo.png" alt="Logo Buy and Bring" /></a>
+      </div>
+
+      <div class="redes">
+        <a
+          href="https://www.instagram.com/personal_shoper_20?igsh=YWZxajZ5cnZuNjQx"
+          ><img src="/static/instagram.png" alt="Instagram" target="_blank"
+        /></a>
+        <a
+          href="https://wa.me/6143737988?text=Hola,%20quiero%20informes%20sobre%20la%20venta%20de%20ropa"
+          ><img src="/static/whatsapp.png" alt="Whatsapp" target="_blank"
+        /></a>
+      </div>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+      <div class="close-btn" id="closeBtn">&times;</div>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/novedades.html">Novedades</a></li>
+        <li class="marcas-title">Marcas</li>
+        <hr />
+        <li>
+          <a href="/novedades.html#alo" class="side-marca" data-marca="alo"
+            >Alo</a
+          >
+        </li>
+        <li>
+          <a
+            href="/novedades.html#lululemon"
+            class="side-marca"
+            data-marca="lululemon"
+            >Lululemon</a
+          >
+        </li>
+        <li>
+          <a
+            href="/novedades.html#oncloud"
+            class="side-marca"
+            data-marca="oncloud"
+            >Oncloud</a
+          >
+        </li>
+        <li>
+          <a href="/novedades.html#dior" class="side-marca" data-marca="dior"
+            >Dior</a
+          >
+        </li>
+        <li>
+          <a href="/novedades.html#gucci" class="side-marca" data-marca="gucci"
+            >Gucci</a
+          >
+        </li>
+        <li>
+          <a
+            href="/novedades.html#newbalance"
+            class="side-marca"
+            data-marca="newbalance"
+            >New Balance</a
+          >
+        </li>
+        <li>
+          <a href="/novedades.html#amiri" class="side-marca" data-marca="amiri"
+            >Amiri</a
+          >
+        </li>
+        <li>
+          <a
+            href="/novedades.html#goldengoose"
+            class="side-marca"
+            data-marca="goldengoose"
+            >Golden Goose</a
+          >
+        </li>
+        <li>
+          <a
+            href="/novedades.html#hermes"
+            class="side-marca"
+            data-marca="hermes"
+            >Hermès</a
+          >
+        </li>
+        <li>
+          <a
+            href="/novedades.html#louisvuitton"
+            class="side-marca"
+            data-marca="louisvuitton"
+            >Louis Vuitton</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <!-- 2. Elimina el video de aquí -->
+      <!-- <video autoplay muted loop>
+        <source src="/static/vids/0808.mp4" type="video/mp4" />
+      </video> -->
+      <p>Lo más nuevo</p>
+      <h1>100% original</h1>
+      <div class="botones">
+        <button onclick="window.location.href='/novedades.html'">
+          Explorar marcas
+        </button>
+        <button
+          onclick="document.querySelector('.lookbook').scrollIntoView({ behavior: 'smooth' });"
+        >
+          Lookbook
+        </button>
+      </div>
+    </section>
+
+    <section class="entregas-recientes">
+      <h2>Entregas recientes</h2>
+      <div class="entregas-carrusel">
+        <div class="entregas-track">
+          <img src="/static/entregas/e1.png" alt="Entrega 1" />
+          <img src="/static/entregas/e2.png" alt="Entrega 2" />
+          <img src="/static/entregas/e3.png" alt="Entrega 3" />
+          <img src="/static/entregas/e4.png" alt="Entrega 4" />
+          <img src="/static/entregas/e5.png" alt="Entrega 5" />
+          <img src="/static/entregas/e6.png" alt="Entrega 6" />
+          <img src="/static/entregas/e8.png" alt="Entrega 8" />
+          <img src="/static/entregas/e9.png" alt="Entrega 9" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ...existing code... -->
+    <script>
+      // Carrusel entregas recientes: avanza de a 1, vuelve al inicio al llegar al final
+      (function () {
+        const track = document.querySelector(".entregas-track");
+        if (!track) return;
+        const images = track.querySelectorAll("img");
+        let index = 0;
+        let visible = window.innerWidth <= 700 ? 2 : 5;
+        let interval = null;
+
+        function updateVisible() {
+          visible = window.innerWidth <= 700 ? 2 : 5;
+        }
+
+        function moveTo(i) {
+          track.style.transform = `translateX(-${i * (100 / visible)}%)`;
+        }
+
+        function next() {
+          const maxIndex = images.length - visible;
+          if (index < maxIndex) {
+            index++;
+          } else {
+            index = 0;
+          }
+          moveTo(index);
+        }
+
+        function onResize() {
+          updateVisible();
+          const maxIndex = images.length - visible;
+          if (index > maxIndex) index = maxIndex;
+          moveTo(index);
+        }
+
+        window.addEventListener("resize", onResize);
+
+        interval = setInterval(next, 3000); // <-- Cambiado a 3 segundos
+
+        // Inicial
+        moveTo(index);
+      })();
+    </script>
+    <!-- ...existing code... -->
+
+    <section class="categorias-prendas">
+      <h2>Categorías de Prenda</h2>
+      <div class="categorias-grid">
+        <a href="/ropa-mujer.html" class="categoria-cuadro">
+          <img src="/static/categorias/ropa-mujer/rm1.png" alt="Ropa Mujer" />
+          <span>Ropa Mujer</span>
+        </a>
+        <a href="/gorras.html" class="categoria-cuadro">
+          <img src="/static/categorias/gorras/g5.png" alt="Gorras" />
+          <span>Gorras</span>
+        </a>
+        <a href="/ropa-hombre.html" class="categoria-cuadro">
+          <img src="/static/categorias/ropa-hombre/rh1.png" alt="Ropa Hombre" />
+          <span>Ropa Hombre</span>
+        </a>
+        <a href="/zapatos.html" class="categoria-cuadro">
+          <img src="/static/categorias/zapatos/z1.png" alt="Zapatos" />
+          <span>Zapatos</span>
+        </a>
+        <a href="/accesorios.html" class="categoria-cuadro">
+          <img src="/static/categorias/accesorios/a1.png" alt="Accesorios" />
+          <span>Accesorios</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="marcas-destacadas" id="marcas">
+      <h2>Marcas destacadas</h2>
+      <div class="cards-marcas">
+        <div class="card-marca">
+          <img src="/static/marcas/alo/alo16.jpg" alt="Alo" />
+          <h3>Alo</h3>
+        </div>
+        <div class="card-marca">
+          <img src="/static/marcas/lululemon/lululemon1.jpg" alt="Lululemon" />
+          <h3>Lululemon</h3>
+        </div>
+        <div class="card-marca">
+          <img src="/static/marcas/oncloud/oncloud13.jpg" alt="Oncloud" />
+          <h3>Oncloud</h3>
+        </div>
+        <div class="card-marca">
+          <img src="/static/marcas/nb/nb13.jpg" alt="New Balance" />
+          <h3>New Balance</h3>
+        </div>
+      </div>
+
+      <div class="contenedor-boton">
+        <a href="/novedades.html" class="btn-novedades">Ver novedades</a>
+      </div>
+    </section>
+
+    <section class="beneficios">
+      <h2>Beneficios de comprar con nosotros</h2>
+      <div class="beneficios-lista">
+        <div class="beneficio">
+          <img
+            src="/static/logo_buyandbring.png"
+            alt="Personalización"
+            width="50"
+          />
+          <h3>Atención Personalizada</h3>
+          <p>
+            Te ayudamos a encontrar las piezas ideales según tu estilo y
+            necesidades.
+          </p>
+        </div>
+        <div class="beneficio">
+          <img src="/static/gucci/gucci1.jpg" alt="Originalidad" width="50" />
+          <h3>Productos 100% Originales</h3>
+          <p>Garantía de autenticidad en cada compra, directo de EE.UU.</p>
+        </div>
+        <div class="beneficio">
+          <img src="/static/instagram.png" alt="Facilidad" width="50" />
+          <h3>Compra Fácil y Segura</h3>
+          <p>Proceso simple, seguro y acompañamiento en todo momento.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lookbook">
+      <div class="descripcion">
+        <h2>Lookbook</h2>
+        <p>
+          Inspiración de outfits con piezas originales traídas desde EE.UU. por
+          nuestro equipo experto. Encuentra tu estilo ideal.
+        </p>
+      </div>
+      <div class="fotos">
+        <img src="/static/lookbook/look1.jpg" />
+        <img src="/static/lookbook/look2.jpg" />
+        <img src="/static/lookbook/look3.jpg" />
+        <img src="/static/lookbook/look4.jpg" />
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo" style="justify-content: flex-start">
+          <a href="/"><img src="static/logo.png" alt="Logo Buy and Bring" /></a>
+        </div>
+        <div class="footer-center-text">
+          <p>&copy; 2025 Todos los derechos reservados.</p>
+        </div>
+        <div class="footer-powered" style="justify-content: flex-end">
+          <span>Powered by</span>
+          <img
+            src="static/arkas_logo1.png"
+            onclick="window.open('https://www.arkastech.com', '_blank')"
+            style="cursor: pointer"
+            alt="Arkas Logo"
+            class="arkas-logo-footer"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sideMenu = document.getElementById("sideMenu");
+      const closeBtn = document.getElementById("closeBtn");
+
+      hamburger.addEventListener("click", () => {
+        sideMenu.classList.add("active");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        sideMenu.classList.remove("active");
+      });
+
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 0) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      const sideLinks = document.querySelectorAll(".side-marca");
+      sideLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          const href = link.getAttribute("href");
+          if (href && href.startsWith("/novedades.html")) {
+            e.preventDefault();
+            sideMenu.classList.remove("active");
+            if (window.location.pathname.endsWith("/novedades.html")) {
+              const hash = href.split("#")[1];
+              if (hash) {
+                window.location.hash = "#" + hash;
+                setTimeout(() => {
+                  const boton = document.querySelector(
+                    `#marcasMenu button[data-marca='${hash}']`
+                  );
+                  if (boton) boton.click();
+                }, 10);
+              }
+            } else {
+              window.location.href = href;
+            }
+          }
+        });
+      });
+    </script>
+    <script>
+      // Forzar reproducción automática del video de hero en todos los dispositivos
+      document.addEventListener("DOMContentLoaded", function () {
+        var video = document.querySelector(".hero-bg-video");
+        if (video) {
+          // Refuerza que el video no sea interactivo
+          video.setAttribute("tabindex", "-1");
+          video.setAttribute("playsinline", "");
+          video.setAttribute("webkit-playsinline", "");
+          video.setAttribute("muted", "");
+          video.muted = true;
+          video.removeAttribute("controls");
+          video.style.pointerEvents = "none";
+          // Intenta reproducir el video al cargar
+          var playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(function () {
+              // Si falla (por políticas del navegador), intenta de nuevo al primer toque/clic en body
+              var tryPlay = function () {
+                video.play();
+                document.body.removeEventListener("touchstart", tryPlay);
+                document.body.removeEventListener("click", tryPlay);
+              };
+              document.body.addEventListener("touchstart", tryPlay);
+              document.body.addEventListener("click", tryPlay);
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

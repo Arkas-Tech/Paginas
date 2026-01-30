@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monique Herrera</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="/" class="logo" style="text-decoration: none;">MH</a>
+      <nav>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/catalogo.html">Catálogo</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="monique">MONIQUE</span>
+          <span class="herrera">HERRERA</span>
+        </h1>
+        <div id="cursor-tail"></div>
+        <div class="hero-buttons">
+          <a href="#" class="btn-outline">EXPLORAR COLECCIÓN</a>
+          <a href="#" class="btn-fill">DESCUBRIR FILOSOFÍA</a>
+        </div>
+      </div>
+    </main>
+    <section class="collections">
+      <div class="marquee-container">
+        <div class="marquee">
+          <span class="black">CONTEMPORÁNEO </span
+          ><span class="gold">DISEÑO</span>
+          <span class="black">EXCLUSIVIDAD</span>
+          <span class="gold">INNOVACIÓN</span
+          ><span class="black"> CONTEMPORÁNEO</span>
+          <span class="gold">DISEÑO</span
+          ><span class="black"> EXCLUSIVIDAD</span>
+          <span class="gold">INNOVACION</span
+          ><span class="black"> CONTEMPORÁNEO</span>
+          <span class="gold">DISEÑO</span
+          ><span class="black"> EXCLUSIVIDAD</span>
+        </div>
+      </div>
+
+      <section class="masonry-section">
+        <div class="masonry-grid">
+          <div class="masonry-item tall">
+            <img src="/static/index/i4.png" alt="Imagen 1" />
+          </div>
+          <div class="masonry-item wide">
+            <img src="/static/index/m2.png" alt="Imagen 2" />
+          </div>
+          <div class="masonry-item small">
+            <img src="/static/index/d5.png" alt="Imagen 3" />
+          </div>
+          <div class="masonry-item">
+            <img src="/static/index/o1.png" alt="Imagen 4" />
+          </div>
+          <div class="masonry-item tall">
+            <img src="/static/index/y3.png" alt="Imagen 5" />
+          </div>
+          <div class="masonry-item wide">
+            <img src="/static/index/a1.png" alt="Imagen 6" />
+          </div>
+          <div class="masonry-item">
+            <img src="/static/index/o5.png" alt="Imagen 7" />
+          </div>
+          <div class="masonry-item small">
+            <img src="/static/index/y5.png" alt="Imagen 8" />
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="custom-section">
+      <div class="custom-section-left">
+        <h2 class="custom-section-title">Título de la sección</h2>
+        <p class="custom-section-desc">
+          Esta es una descripción larga que explica el contenido de la sección.
+          Puedes agregar aquí toda la información relevante que desees mostrar
+          al usuario, asegurando que el texto sea claro y atractivo.
+        </p>
+      </div>
+      <div class="custom-section-right">
+        <img
+          src="static/index/m1.png"
+          alt="Imagen superior"
+          class="custom-section-img"
+        />
+        <img
+          src="static/index/mh1.jpg"
+          alt="Imagen inferior"
+          class="custom-section-img"
+        />
+      </div>
+    </section>
+
+    <script>
+      // Animación de aparición al hacer scroll
+      document.addEventListener("DOMContentLoaded", () => {
+        const items = document.querySelectorAll(".masonry-item");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        items.forEach((item) => observer.observe(item));
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tailContainer = document.getElementById("cursor-tail");
+
+        const imageSources = [
+          "/static/index/y1.png",
+          "/static/index/i1.png",
+          "/static/index/d1.png",
+          "/static/index/a1.png",
+          "/static/index/o1.png",
+          "/static/index/y2.png",
+          "/static/index/i2.png",
+          "/static/index/d2.png",
+          "/static/index/a2.png",
+          "/static/index/o2.png",
+        ];
+
+        let lastX = 0;
+        let lastY = 0;
+        let lastIndex = 0;
+        const distanceThreshold = 90;
+
+        let canShowImages = true;
+
+        function distance(x1, y1, x2, y2) {
+          const dx = x2 - x1;
+          const dy = y2 - y1;
+          return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        function handleMove(x, y) {
+          if (!canShowImages) return;
+
+          const dist = distance(lastX, lastY, x, y);
+          if (dist >= distanceThreshold) {
+            const img = document.createElement("img");
+            img.src = imageSources[lastIndex % imageSources.length];
+            img.className = "cursor-image";
+            img.style.left = `${x - 50}px`;
+            img.style.top = `${y - 75}px`;
+
+            tailContainer.appendChild(img);
+
+            requestAnimationFrame(() => {
+              img.style.opacity = "0.9";
+            });
+
+            setTimeout(() => {
+              img.style.opacity = "0";
+            }, 700);
+
+            setTimeout(() => {
+              img.remove();
+            }, 1000);
+
+            lastX = x;
+            lastY = y;
+            lastIndex++;
+          }
+        }
+
+        document.addEventListener("mousemove", (e) => {
+          handleMove(e.clientX, e.clientY);
+        });
+
+        document.addEventListener(
+          "touchmove",
+          (e) => {
+            if (e.touches.length > 0) {
+              const touch = e.touches[0];
+              handleMove(touch.clientX, touch.clientY);
+            }
+          },
+          { passive: true }
+        );
+
+        window.addEventListener("scroll", () => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          const viewportHeight = window.innerHeight;
+
+          if (scrollY > viewportHeight * 0.5) {
+            canShowImages = false;
+
+            // Oculta las que ya están
+            document.querySelectorAll(".cursor-image").forEach((img) => {
+              img.style.opacity = "0";
+            });
+          } else {
+            canShowImages = true;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
